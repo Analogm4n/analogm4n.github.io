@@ -64,12 +64,12 @@
     <script>
         function toggleMenu() {
             const navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('open');  // Alterna la clase 'open' para mostrar/ocultar el menú
+            navbar.classList.toggle('open');  
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
-        var typed;  // Inicializamos la variable global para Typed.js
+        var typed;  
 
         // Textos a mostrar
         var texts = {
@@ -80,22 +80,22 @@
         // Función que inicia el efecto de Typed.js
         function startTyping(text) {
             if (typed) {
-                typed.destroy();  // Destruye cualquier instancia anterior de Typed.js
+                typed.destroy();  
             }
 
             // Inicia una nueva instancia de Typed.js con el texto seleccionado
             typed = new Typed(".input", {
-                strings: text,  // El texto a mostrar
-                typeSpeed: 20,  // Velocidad al escribir
-                backSpeed: 30,  // Velocidad al borrar
-                loop: false     // No repetir el texto
+                strings: text, 
+                typeSpeed: 20,  
+                backSpeed: 30,  
+                loop: false     
             });
         }
 
         // Cambia el texto cuando se hace clic en "Home" o "About me"
         function changeText(section) {
-            var selectedText = texts[section];  // Selecciona el texto según la sección
-            startTyping(selectedText);  // Inicia el efecto de escritura con el texto seleccionado
+            var selectedText = texts[section];  
+            startTyping(selectedText);  
         }
 
         // Iniciar con el texto por defecto (Home)
