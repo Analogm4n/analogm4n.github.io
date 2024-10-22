@@ -1,0 +1,108 @@
+<!--v. 2.0-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="images/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="images/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="images/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="images/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="images/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="#" onclick="changeText('home')">Home</a></li>
+            <li><a href="#" onclick="changeText('about')">About me</a></li>
+            <li><a href="#">WriteUps</a></li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="#" onclick="changeText('home')">Home</a></li>
+                    <li><a href="#" onclick="changeText('about')">About me</a></li>
+                    <li><a href="#">WriteUps</a></li>
+                </ul>
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="images/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="images/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="images/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="images/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h4>Hola!</h4>
+                <div class="text-box">
+                    <h1><span class="input"></span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  // Alterna la clase 'open' para mostrar/ocultar el menú
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script>
+        var typed;  // Inicializamos la variable global para Typed.js
+
+        // Textos a mostrar
+        var texts = {
+            home: ["I'm A"],
+            about: ["Me llamo Jean Pierre. Estudié la carrera de Ing. Informática en su momento, pero donde realmente aprendí fue por mi cuenta. Me considero un apasionado por el hacking y la seguridad informática. Soy muy autodidacta y curioso. En esta web compartiré WriteUps que me serán de ayuda en mi camino hacia la certificación OSCP, y espero que también puedan ser útiles para otros. :D"]
+        };
+
+        // Función que inicia el efecto de Typed.js
+        function startTyping(text) {
+            if (typed) {
+                typed.destroy();  // Destruye cualquier instancia anterior de Typed.js
+            }
+
+            // Inicia una nueva instancia de Typed.js con el texto seleccionado
+            typed = new Typed(".input", {
+                strings: text,  // El texto a mostrar
+                typeSpeed: 20,  // Velocidad al escribir
+                backSpeed: 30,  // Velocidad al borrar
+                loop: false     // No repetir el texto
+            });
+        }
+
+        // Cambia el texto cuando se hace clic en "Home" o "About me"
+        function changeText(section) {
+            var selectedText = texts[section];  // Selecciona el texto según la sección
+            startTyping(selectedText);  // Inicia el efecto de escritura con el texto seleccionado
+        }
+
+        // Iniciar con el texto por defecto (Home)
+        document.addEventListener("DOMContentLoaded", function() {
+            startTyping(texts.home);
+        });
+    </script>
+
+</body>
+</html>
