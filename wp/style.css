@@ -5,6 +5,19 @@
     text-decoration: none;
     font-family: poppins, sans-serif;
 }
+/***************************************************************/
+.pet-container {
+    position: fixed;
+    bottom: 10px;
+    transform: translateX(-80%); 
+    z-index: 1;
+}
+
+.pet {
+    width: 80px;
+    height: auto;
+}
+/***************************************************************/
 .topnav{
     height: 80px;
     display: flex;
@@ -16,9 +29,9 @@
 .topnav h2{
     color: #fff;
     font-style: oblique;
-    user-select: none; /* Evita que se seleccione el texto */
-    -webkit-user-select: none; /* Para navegadores basados en WebKit (Safari) */
-    -moz-user-select: none; /* Para Firefox */
+    user-select: none; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
 }
 .topnav .menu-icon i{
     color: #fff;
