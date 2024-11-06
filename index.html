@@ -1,4 +1,4 @@
-<!--v. 2.1-->
+<!--v. 2.2-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +30,15 @@
         <ul class="navbar">
             <li><a href="#" onclick="changeText('home')">Home</a></li>
             <li><a href="#" onclick="changeText('about')">About me</a></li>
-            <li><a href="#">WriteUps</a></li>
+            <li><a href="wp/index.html">WriteUps</a></li>
         </ul>
     </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
     <div class="header">
         <div class="wrapper">
             <div class="sidebar">
@@ -61,12 +67,7 @@
             </div>
         </div>
     </div>
-    <script>
-        function toggleMenu() {
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('open');  
-        }
-    </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
         var typed;  
