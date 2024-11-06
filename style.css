@@ -7,20 +7,20 @@
 }
 /***************************************************************/
 .pet-container {
-    position: fixed;
-    bottom: 10px; 
-    transform: translateX(-50%); 
-    z-index: 1; 
+    position: fixed; /* Fija el contenedor en la pantalla */
+    bottom: 10px; /* Espacio desde la parte inferior */
+    transform: translateX(-50%); /* Ajusta la posición al centro */
+    z-index: 1; /* Asegúrate de que esté por encima del fondo */
 }
 
 .pet {
-    width: 80px; 
-    height: auto;
+    width: 70px; /* Ajusta el tamaño del GIF según sea necesario */
+    height: auto; /* Mantiene la relación de aspecto */
 }
 /***************************************************************/
 .topnav{
     height: 80px;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     background: #430457;
@@ -38,14 +38,7 @@
     font-size: 30px;
 }
 
-
-@media (min-width:900px){
-    .topnav{
-        display: none;
-    }
-}
-
-@media (max-width: 899px) {
+@media (max-width: 600px) {
     .topnav {
         display: flex;
         justify-content: space-between;
@@ -308,3 +301,4 @@
 }
 
 /*****************************************************************************************/
+
