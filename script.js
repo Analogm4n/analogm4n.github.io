@@ -3,12 +3,12 @@ const pet = document.getElementById('pet');
 const petGifRight = 'images/cat_right_sneak1_9fps.gif';  
 const petGifLeft = 'images/cat_left_sneak1_9fps.gif';  
 
-let positionX = 0;
+let positionX = -20;
 let direction = 1; // 1: derecha, -1: izquierda
 
 // Establece los límites
-const leftLimit = 0; // Límite izquierdo (0 píxeles desde el borde izquierdo)
-const rightLimit = window.innerWidth - pet.clientWidth ; // Límite derecho (0 píxeles desde el borde derecho)
+const leftLimit = 10; // Límite izquierdo (0 píxeles desde el borde izquierdo)
+const rightLimit = window.innerWidth - pet.clientWidth + 45; // Límite derecho (0 píxeles desde el borde derecho)
 
 // Función para mover de un lado a otro
 function movePet() {
