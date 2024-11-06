@@ -1,0 +1,383 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: poppins, sans-serif;
+}
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.95)), url(../images/intro.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-color: black;
+}
+/***************************************************************/
+.pet-container {
+    position: relative; /* Fija el contenedor en la pantalla */
+    bottom: 11px; /* Espacio desde la parte inferior */
+    transform: translateX(0%); /* Ajusta la posición al centro */
+    z-index: 2;
+}
+
+.pet {
+    width: 70px; /* Ajusta el tamaño del GIF según sea necesario */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+/***************************************************************/
+.topnav{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #430457;
+    padding: 0 15px;
+}
+.topnav h2{
+    color: #fff;
+    font-style: oblique;
+    user-select: none; /* Evita que se seleccione el texto */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit (Safari) */
+    -moz-user-select: none; /* Para Firefox */
+}
+.topnav .menu-icon i{
+    color: #fff;
+    font-size: 30px;
+}
+
+/* Main section and sidebar */
+
+.wrapper{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+ }
+ /*Barra lateral izquierda*/
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: #19012c93;
+    color:#fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+.sidebar .profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    user-select: none; /* Evita que se seleccione */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit */
+    -moz-user-select: none; /* Para Firefox */
+    pointer-events: none; /* Evita que se haga clic en la imagen */
+}
+
+.sidebar .profile img{
+    width: 150px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.sidebar h2{
+    margin: 15px 0;
+    color: #ffffff;
+    font-size: 24px;
+    font-style: oblique;
+    user-select: none; /* Evita que se seleccione el texto */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit (Safari) */
+    -moz-user-select: none; /* Para Firefox */
+}
+.sidebar h5{
+    margin: -4px 0;
+    color: #ffffff8f;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: lighter;
+    user-select: none; /* Evita que se seleccione el texto */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit (Safari) */
+    -moz-user-select: none; /* Para Firefox */
+}
+.sidebar ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: -100px;
+}
+.sidebar ul li{
+    margin: 10px 0;
+    font-size: 26px;
+    font-style: italic;
+}
+.sidebar ul li:hover {
+    transform: scale(1.1);
+}
+.sidebar ul li a{
+    color: #fff;
+    transition: 0.5s;
+    position: relative;
+}
+.sidebar .navbar a:after{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: rgb(90, 9, 136);
+    transition: 0.5s;
+}
+.sidebar .navbar a:hover:after{
+    width: 100%;
+}
+
+.custom-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    transition: 0.3s;
+}
+.custom-icon:hover {
+    transform: rotate(360deg);
+}
+
+/*****************************************/
+/* Estilo para el contenedor de writeups */
+.writeups-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 20px; /*Espacio entre filas y cplmunas, se usa junto con display: grid;*/
+    padding: 20px;
+    width: 800px;
+    margin: 0 auto;
+    /*border: 1px solid blue; */
+}
+/* Estilo para cada tarjeta de writeup */
+.writeup-card {
+    background-color: #34005f93;
+    border-radius: 8px;
+    height: 145px;
+    width: 700px;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.writeup-card a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.writeup-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.writeup-card p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.writeup-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/*****************************************/
+/* Hero Content */
+
+.open{
+    display: block !important;
+}
+
+
+/* Menú colapsado en pantallas pequeñas */
+.menu-icon {
+    display: none; /* Oculto por defecto, solo visible en pantallas pequeñas */
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    right: 15px;
+    font-size: 30px;
+    z-index: 1001;
+}
+/*menú desplegable*/
+.topnav .navbar {
+    list-style-type: none;
+    position: fixed;
+    width: 100%;
+    top: 80px;
+    right: 0;
+    background-color: rgba(114, 42, 156, 0.3);
+    padding: 12px;
+    display: none; /* Oculto inicialmente */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.topnav .navbar li {
+    padding: 8px 0;
+    margin-bottom: 10px;
+}
+
+.topnav .navbar li:last-child {
+    border: 0;
+}
+
+.topnav .navbar li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.open {
+    display: flex !important; /* Se mostrará cuando se haga click */
+}
+
+/* Limitar el ancho del contenedor de la paginación */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 33px;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+/* Estilos para el contenedor de la paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    max-width: 400px;
+    width: 100%;
+    /*border: 1px solid blue; */
+    z-index: 5;
+}
+
+/* Estilo para cada enlace en la paginación */
+.pagination ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 5px;
+}
+
+.pagination ul li a {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 2px;
+    color: #430457;
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo para el botón de la página actual */
+.pagination ul li a.current {
+    background-color: #430457;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Efecto hover en los enlaces */
+.pagination ul li a:hover:not(.disabled):not(.current) {
+    background-color: #6c219f;
+    color: #ffffff;
+}
+
+/* Estilos para los botones deshabilitados */
+.pagination ul li a.disabled {
+    color: #ccc;
+    background-color: #f3f3f3;
+    cursor: not-allowed;
+    border-color: #ddd;
+}
+/*****************************************************************************************/
+/*Responsive Design*/
+@media (min-width:600px){
+    .topnav{
+        display: none;
+    }
+}
+
+@media(max-width:600px){
+    .sidebar{
+        display: none;
+    }
+    .topnav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(114, 42, 156, 0.3);
+        padding: 12px;
+        position: fixed; 
+        width: 100%; 
+        top: 0; 
+        z-index: 1000;
+    }
+    .menu-icon {
+        display: block; /* Mostrar el ícono de menú en pantallas pequeñas */
+    }
+    .navbar {
+        top: 60px; /* Ajustar la posición del menú */
+        right: 15px;
+        background-color: #430457;
+        width: 200px; /* Ajusta el tamaño del menú */
+        border-radius: 8px;
+        display: none;
+    }
+    .writeups-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        position: relative;
+        top: 80px;
+        padding: 5px;
+        width: 400px;
+    }
+    .writeup-card {
+        width: 100%; /* Ajusta al 100% del contenedor */
+        max-width: 100%; /* Asegúrate de que no exceda el ancho */
+        padding: 44px;
+        width: 350px;
+        height: 180px;
+        text-align: left;
+    }
+    .writeup-card h3 {
+        font-size: 1.5rem; /* Reduce el tamaño de la fuente para pantallas pequeñas */
+        line-height: 1.4; /* Ajusta el espaciado entre líneas */
+        width: 300px;
+        max-width: 90%; /* Limita el ancho del texto */
+        word-wrap: break-word; /* Evita que el texto largo se desborde */
+        overflow-wrap: break-word; /* Rompe las palabras largas */
+    }
+
+    .pagination-container {
+        padding: 0 10px;
+        bottom: -60px;
+    }
+    .pagination {
+        max-width: 90%; /* Limita el ancho */
+        width: auto; /* Permite que se ajuste */
+    }
+    .pet-container {
+        position: relative; /* Fija el contenedor en la pantalla */
+        bottom: -60px; /* Espacio desde la parte inferior */
+        transform: translateX(0%); /* Ajusta la posición al centro */
+        z-index: 2;
+    }
+}
+
+/*****************************************************************************************/

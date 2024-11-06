@@ -1,0 +1,129 @@
+<!--v. 2.0-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="#">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="index.html">Tags</a></li>
+                    <li><a href="index.html">WriteUps</a></li>
+                </ul>
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+            </div>
+
+            <!-- writeups aquí -->
+            <section class="writeups-container">
+                <div class="writeup-card">
+                    <a href="../posts/ctf1.html">
+                        <h3>Testing 6</h3>
+                        <p><li>Testing...</li></p>
+                        <p>Testing Testing Testing Testing</p>
+                        <p>Testing Testing Testing Testing</p>
+                    </a>
+                </div>
+                <div class="writeup-card">
+                    <a href="index.html">
+                        <h3>Testing 7</h3>
+                        <p><li>This is a test...</li></p>
+                        <p>Testing Testing Testing Testing</p>
+                        <p>Testing Testing Testing Testing</p>
+                    </a>
+                </div>
+                <div class="writeup-card">
+                    <a href="index.html">
+                        <h3>Testing 8</h3>
+                        <p><li>Testing...</li></p>
+                        <p>Testing Testing Testing Testing</p>
+                        <p>Testing Testing Testing Testing</p>
+                    </a>
+                </div>
+                <div class="writeup-card">
+                    <a href="index.html">
+                        <h3>Testing 9</h3>
+                        <p><li>Testing...</li></p>
+                        <p>Testing Testing Testing Testing</p>
+                        <p>Testing Testing Testing Testing</p>
+                    </a>
+                </div>
+                <div class="writeup-card">
+                    <a href="index.html">
+                        <h3>Testing 10</h3>
+                        <p><li>Testing...</li></p>
+                        <p>Testing Testing Testing Testing</p>
+                        <p>Testing Testing Testing Testing</p>
+                    </a>
+                </div>
+                
+                <!-- writeups aquí -->
+            </section>
+            <!-- Paginación aquí -->
+            <div class="pagination-container">
+                <nav class="pagination">
+                    <ul>
+                        <li><a href="index.html">Previous</a></li>
+                        <li><a href="index.html">1</a></li>
+                        <li><a href="#" class="disabled current">2</a></li>
+                        <li><a href="/page3.html">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="../images/cat_right_sneak1_9fps.gif" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>
