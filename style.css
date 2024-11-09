@@ -206,9 +206,6 @@
     text-align: justify;                              /* Justificación del texto */
 }
 
-
-
-
 /* Menú colapsado en pantallas pequeñas */
 .menu-icon {
     display: none; /* Oculto por defecto, solo visible en pantallas pequeñas */
@@ -301,4 +298,3 @@
 }
 
 /*****************************************************************************************/
-
