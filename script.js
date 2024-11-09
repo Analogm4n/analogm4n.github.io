@@ -1,7 +1,8 @@
+//v. 2.3
 const pet = document.getElementById('pet');
 
-const petGifRight = 'images/cat_right_sneak1_9fps.gif';  
-const petGifLeft = 'images/cat_left_sneak1_9fps.gif';  
+const petGifRight = 'images/Pet_Animation/cat_right_sneak1_9fps.gif';  
+const petGifLeft = 'images/Pet_Animation/cat_left_sneak1_9fps.gif';  
 
 let positionX = -20;
 let direction = 1; // 1: derecha, -1: izquierda
