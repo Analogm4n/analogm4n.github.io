@@ -13,7 +13,7 @@ body{
 /***************************************************************/
 .pet-container {
     position: relative; /* Fija el contenedor en la pantalla */
-    bottom: 11px; /* Espacio desde la parte inferior */
+    bottom: 8px; /* Espacio desde la parte inferior */
     transform: translateX(0%); /* Ajusta la posición al centro */
     z-index: 2;
 }
@@ -144,50 +144,121 @@ body{
     transform: rotate(360deg);
 }
 
-/*****************************************/
+/***********************************************************************************************/
 /* Estilo para el contenedor de writeups */
 .writeups-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-    gap: 20px; /*Espacio entre filas y cplmunas, se usa junto con display: grid;*/
-    padding: 20px;
-    width: 800px;
-    margin: 0 auto;
-    /*border: 1px solid blue; */
+    min-height: 100vh; /* Ocupa al menos el 100% de la altura de la pantalla */
+    padding-top: 60px;
+    box-sizing: border-box;
+    display: flex; /* Opcional: ajusta el contenido dentro del contenedor */
+    flex-direction: column; /* Opcional: distribuye el contenido verticalmente */
+    justify-content: flex-start; /* Coloca el contenido al inicio del contenedor */
+    padding-bottom: 20px; /* Opcional: espacio inferior para separar del borde */
+    gap: 15px;
+    /*border: 1px solid blue;*/
 }
 /* Estilo para cada tarjeta de writeup */
 .writeup-card {
-    background-color: #34005f93;
+    background-color: #5e00ac65;
     border-radius: 8px;
-    height: 145px;
-    width: 700px;
-    padding: 20px;
+    height: 242px;
+    width: 890px;
+    padding: 10px;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.left-section {
+    float: left;
+    width: 66%;
+    padding: 1rem;
+}
+.right-section {
+    float: left;
+    width: 34%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100%;
+    /*margin-top: 20px;*/
+    /*border: 1px solid blue;*/
+}
 
+.title {
+    font-family: "Arial", serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
 .writeup-card a {
     color: #ffffff;
     text-decoration: none;
 }
-
-.writeup-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.title-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
 }
 
-.writeup-card p {
-    font-size: 1rem;
+.title-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px; /* Espacio entre la imagen y el título */
+}
+
+/******date-container******/
+.date-container{
+    display: flex;
+    align-items: center;
+    color: #707070;
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 5px 0;
+}
+.calendar-icon {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+/******Description******/
+.description {
+    flex: 2;
+    margin-right: 10px;
+    text-align: justify;
+}
+
+.tags-container {
+    display: flex;
+    align-items: center;
     color: #ccc;
+    font-size: 0.9em;
+    margin-top: 20px;
 }
-
+.tag-icon {
+    margin-right: 10px;
+    height: 25px;
+    width: 25px;
+}
+.tags {
+    display: inline-block;
+    font-size: 0.9;
+    color: #f5f5f5;
+}
+.machine-image {
+    max-width: 100%;
+    max-height: 100%;
+    height: 150px;
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio de la sección */
+    border-radius: 8px;
+}
 .writeup-card:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-/*****************************************/
+/* Estilo para cada tarjeta de writeup */
+/**************************************************************************************/
 /* Hero Content */
 
 .open{
@@ -244,7 +315,7 @@ body{
     display: flex;
     justify-content: center;
     position: absolute;
-    bottom: 33px;
+    bottom: 20px;
     left: 0;
     right: 0;
     width: 100%;
@@ -308,13 +379,13 @@ body{
 }
 /*****************************************************************************************/
 /*Responsive Design*/
-@media (min-width:600px){
+@media (min-width:1430px){
     .topnav{
         display: none;
     }
 }
 
-@media(max-width:600px){
+@media(max-width:1430px){
     .sidebar{
         display: none;
     }
@@ -350,10 +421,22 @@ body{
     .writeup-card {
         width: 100%; /* Ajusta al 100% del contenedor */
         max-width: 100%; /* Asegúrate de que no exceda el ancho */
-        padding: 44px;
-        width: 350px;
-        height: 180px;
+        padding: 10px;
+        width: auto;
+        height: auto;
         text-align: left;
+    }
+    .left-section {
+        width: 63%;
+    }
+    .right-section {
+        width: 37% ;
+    }
+    .left-section p {
+        display: none;
+    }
+    .machine-image {
+        object-position: top left;
     }
     .writeup-card h3 {
         font-size: 1.5rem; /* Reduce el tamaño de la fuente para pantallas pequeñas */
@@ -366,7 +449,7 @@ body{
 
     .pagination-container {
         padding: 0 10px;
-        bottom: -60px;
+        bottom: -70px;
     }
     .pagination {
         max-width: 90%; /* Limita el ancho */
