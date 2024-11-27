@@ -436,7 +436,7 @@ body{
         display: none;
     }
     .machine-image {
-        object-position: top left;
+        height: 130px;
     }
     .writeup-card h3 {
         font-size: 1.5rem; /* Reduce el tamaño de la fuente para pantallas pequeñas */
