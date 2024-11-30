@@ -162,7 +162,7 @@ body{
     background-color: #5e00ac65;
     border-radius: 8px;
     height: 242px;
-    width: 890px;
+    width: 820px;
     padding: 10px;
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -225,6 +225,7 @@ body{
 .description {
     flex: 2;
     margin-right: 10px;
+    height: 91px;
     text-align: justify;
 }
 
