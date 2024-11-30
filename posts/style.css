@@ -213,7 +213,7 @@ body{
 
 .writeup-container h1 {
     text-align: center;
-    color: #ffffff;
+    color: #ffffff; 
 }
 .img-container {
     display: flex;
@@ -313,6 +313,25 @@ ol li::marker {
     color: #666;
     margin-top: 5px;
     text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 11px;
+}
+th, td {
+    border: 1px solid #fff;
+    padding: 8px;
+    text-align: left;
+    color: #ffffff;
+}
+th{
+    background-color: rgba(114, 42, 156, 0.3);
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
 /* Estilo para cada tarjeta de writeup */
