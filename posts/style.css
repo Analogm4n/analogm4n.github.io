@@ -50,6 +50,91 @@ body{
     display: flex;
     justify-content: space-around;
  }
+
+.rightsidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 260px;
+    background-color: #37005056;
+    color:#fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.title-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    margin-top: 50px;
+    /*border: 1px solid blue;*/
+}
+.title-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px; /* Espacio entre la imagen y el título */
+    user-select: none; /* Evita que se seleccione */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit */
+    -moz-user-select: none; /* Para Firefox */
+    pointer-events: none; /* Evita que se haga clic en la imagen */
+}
+.title {
+    font-family: "Arial", serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+}
+.right-machineimage {
+    margin-bottom: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    height: 150px;
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio de la sección */
+    border-radius: 8px;
+    user-select: none; /* Evita que se seleccione */
+    -webkit-user-select: none; /* Para navegadores basados en WebKit */
+    -moz-user-select: none; /* Para Firefox */
+    pointer-events: none; /* Evita que se haga clic en la imagen */
+    /*border: 1px solid blue;*/
+}
+
+.rightsidebar h1 {
+    padding: 0;
+    font-size: 23px;
+
+}
+.rightsidebar .navbar {
+    margin-bottom: 150px;
+    padding: 0;
+    /*border: 1px solid blue;*/
+}
+.rightsidebar ul {
+    list-style-type: none;
+
+}
+.rightsidebar ul ul {
+    margin-left: 25px;
+    padding-left: 0;
+
+}
+.rightsidebar ul li{
+    margin: 10px 0;
+    font-size: 19px;
+    font-style: italic;
+}
+.rightsidebar ul li:hover {
+    transform: scale(1.03);
+}
+.rightsidebar ul li a{
+    color: #fff;
+    transition: 0.5s;
+    position: relative;
+}
+
+
  /*Barra lateral izquierda*/
 .sidebar{
     position: fixed;
@@ -335,6 +420,20 @@ tr:nth-child(even) {
 }
 
 /* Estilo para cada tarjeta de writeup */
+
+
+.table-contents a:hover{
+    text-decoration: underline;
+}
+
+/*Evitar el cambio de color al hacer clic*/
+.table-contents a:active,
+.table-contents a:visited {
+    color: #ffffff;
+}
+
+
+
 /*****************************************************************************************/
 
 /*Responsive Design*/
@@ -347,6 +446,9 @@ tr:nth-child(even) {
 
 @media(max-width:1430px){
     .sidebar{
+        display: none;
+    }
+    .rightsidebar {
         display: none;
     }
     .topnav {
