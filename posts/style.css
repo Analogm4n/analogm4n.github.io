@@ -51,6 +51,7 @@ body{
     justify-content: space-around;
  }
 
+  /*Barra lateral derecha*/
 .rightsidebar {
     position: fixed;
     top: 0;
@@ -159,6 +160,7 @@ body{
     -webkit-user-select: none; /* Para navegadores basados en WebKit */
     -moz-user-select: none; /* Para Firefox */
     pointer-events: none; /* Evita que se haga clic en la imagen */
+    margin-bottom: 100px;
 }
 
 .sidebar .profile img{
@@ -204,6 +206,9 @@ body{
     color: #fff;
     transition: 0.5s;
     position: relative;
+}
+.sidebar .navbar {
+    margin-bottom:200px;
 }
 .sidebar .navbar a:after{
     position: absolute;
@@ -322,7 +327,7 @@ body{
     font-size: 15px;
 }
 .content h1, h2, h3 {
-    color: #ffffff;
+    color: #FFFACD;
     text-align: justify;
 }
 .content h1 {
@@ -421,7 +426,9 @@ tr:nth-child(even) {
 
 /* Estilo para cada tarjeta de writeup */
 
-
+.table-contents ul ul{
+    margin-left: 10px;
+}
 .table-contents a:hover{
     text-decoration: underline;
 }
