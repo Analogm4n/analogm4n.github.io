@@ -6,7 +6,7 @@
     font-family: poppins, sans-serif;
 }
 body{
-    background: linear-gradient(rgba(17, 17, 17, 0.98), rgba(17, 17, 17, 0.98)), url(../images/intro.jpg) no-repeat center center fixed;
+    background: linear-gradient(rgba(17, 17, 17, 0.97), rgba(17, 17, 17, 0.97)), url(../images/intro.jpg) no-repeat center center fixed;
     background-size: cover;
     background-color: black;
 }
@@ -45,13 +45,13 @@ body{
 
 /* Main section and sidebar */
 
-.wrapper{
+.wrapper {
     position: relative;
     display: flex;
     justify-content: space-around;
- }
+}
 
-  /*Barra lateral derecha*/
+/*Barra lateral derecha*/
 .rightsidebar {
     position: fixed;
     top: 0;
@@ -123,7 +123,7 @@ body{
 }
 .rightsidebar ul li{
     margin: 10px 0;
-    font-size: 19px;
+    font-size: 17px;
     font-style: italic;
 }
 .rightsidebar ul li:hover {
@@ -136,7 +136,7 @@ body{
 }
 
 
- /*Barra lateral izquierda*/
+/*Barra lateral izquierda*/
 .sidebar{
     position: fixed;
     top: 0;
@@ -160,7 +160,7 @@ body{
     -webkit-user-select: none; /* Para navegadores basados en WebKit */
     -moz-user-select: none; /* Para Firefox */
     pointer-events: none; /* Evita que se haga clic en la imagen */
-    margin-bottom: 100px;
+    margin-top: 50px;
 }
 
 .sidebar .profile img{
@@ -192,7 +192,8 @@ body{
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    margin-top: -100px;
+    margin-bottom:280px;
+    margin-right: 36px;
 }
 .sidebar ul li{
     margin: 10px 0;
@@ -206,9 +207,10 @@ body{
     color: #fff;
     transition: 0.5s;
     position: relative;
+    font-size: 26px;
 }
-.sidebar .navbar {
-    margin-bottom:200px;
+.sidebar .navbar a {
+    text-decoration: none;
 }
 .sidebar .navbar a:after{
     position: absolute;
@@ -295,7 +297,7 @@ body{
     line-height: 1.6;
     margin: 0 auto;
     padding: 45px;
-    background-color: #370050c0;
+    background-color: #300050c0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
@@ -363,10 +365,11 @@ ol li::marker {
     color: #afafaf;
     font-weight: bold;
 }
-.content p {
+.content p, a{
     margin-bottom: 1em;
     color: #ffffff;
     text-align: justify;
+    font-size: 16px;
 }
 
 /* Estilo para el código con formato de consola */
@@ -398,47 +401,122 @@ ol li::marker {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.writeup-image .caption {
+.writeup-image .caption, .content .caption-table {
     font-size: 0.9em;
-    color: #666;
+    color: #8b8b8b;
     margin-top: 5px;
-    text-align: center;
+    text-align: left;
+    font-style: italic;
 }
 
+/************Tablas-abajo************/
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 11px;
 }
-th, td {
-    border: 1px solid #fff;
+table th, td {
     padding: 8px;
-    text-align: left;
-    color: #ffffff;
+    text-align: center;
+    color: #000000;
 }
 th{
-    background-color: rgba(114, 42, 156, 0.3);
+    background-color: rgb(129, 221, 53);
     text-align: center;
 }
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+/*******Finding Severity abajo*************/
+#row-level{
+    background-color: #849faf;
+    font-weight: bold;
+}
+#row-level-num {
+    background-color: #a0d2f1;
+    font-weight: bold;
+}
+#row-level-num #red{
+    color: red;
+}
+#row-level-num #green{
+    color: green;
+}
+#row-level-num #blue{
+    color: blue;
+}
+#row-level-num #orange{
+    color: orange;
+}
+
+/*******Finding Severity arriba*************/
+#row-1 {
+    background-color: #849faf;
+}
+#row-2 {
+    background-color: #a0d2f1;
+}
+#row-1 #red, #row-2 #red {
+    color: red;
+}
+#row-1 #green, #row-2 #green {
+    color: green;
+}
+#row-1 #blue, #row-2 #blue {
+    color: blue;
+}
+#row-1 #orange, #row-2 #orange {
+    color: orange;
+}
+
+/******************************************/
+/*Columna derecha*/
+#tech-details #column-2-1, #tech-details #column-th-2{
+    background-color: #849faf;
+    text-align: left;
+    font-weight: lighter;
+}
+/*Columna derecha*/
+#tech-details #column-2-2{
+    background-color: #a0d2f1;
+    text-align: left;
+}
+/*Colores columna izquierda*/
+#tech-details #column-1-red, #tech-details #column-th-1-red{
+    width: 150;
+    background-color: rgb(253, 60, 60);
+    font-weight: bold;
+}
+#tech-details #column-1-green, #tech-details #column-th-1-green{
+    width: 150;
+    background-color: green;
+    font-weight: bold;
+}
+#tech-details #column-1-orange, #tech-details #column-th-1-orange{
+    width: 150;
+    background-color: orange;
+    font-weight: bold;
+}
+
+
+/************Tablas-arriba************/
+
+
 /* Estilo para cada tarjeta de writeup */
 
 .table-contents ul ul{
     margin-left: 10px;
 }
-.table-contents a:hover{
+a:hover{
     text-decoration: underline;
 }
 
 /*Evitar el cambio de color al hacer clic*/
-.table-contents a:active,
-.table-contents a:visited {
-    color: #ffffff;
+a:link,
+a:visited {
+    color: #0038ee;
 }
-
 
 
 /*****************************************************************************************/
