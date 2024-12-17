@@ -29,3 +29,58 @@ function movePet() {
 // Mueve continuamente cada 50 ms
 setInterval(movePet, 50);
 
+//Colores "Table of Contents"
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleccionamos todos los enlaces dentro de la barra lateral
+    const enlaces = document.querySelectorAll(".rightsidebar a");
+
+    // Seleccionamos las secciones correspondientes (basadas en el href de cada enlace)
+    const secciones = Array.from(enlaces).map((enlace) => {
+        return document.querySelector(enlace.getAttribute("href"));
+    });
+
+    // Función para resaltar el enlace activo
+    function actualizarEnlaceActivo() {
+        // Obtenemos la posición actual del scroll
+        let scrollPos = window.scrollY + 10; // Offset pequeño para ajustes
+
+        // Recorremos cada sección
+        secciones.forEach((seccion, index) => {
+            const sectionTop = seccion.offsetTop;
+            const sectionBottom = sectionTop + seccion.offsetHeight;
+
+            if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                // Quitamos el color de todos los enlaces
+                enlaces.forEach((enlace) => enlace.style.color = "");
+
+                // Asignamos color rojo al enlace correspondiente
+                enlaces[index].style.color = "red";
+            }
+        });
+    }
+
+    // Evento de scroll para actualizar los enlaces
+    window.addEventListener("scroll", actualizarEnlaceActivo);
+
+    // Evento de clic para actualizar inmediatamente al hacer clic
+    enlaces.forEach((enlace) => {
+        enlace.addEventListener("click", function (e) {
+            // Opcional: prevenir el comportamiento predeterminado para suavizar
+            e.preventDefault();
+            const targetID = this.getAttribute("href");
+            const targetSection = document.querySelector(targetID);
+
+            // Desplazamiento suave hacia la sección
+            window.scrollTo({
+                top: targetSection.offsetTop - 10, // Ajustamos el offset
+                behavior: "smooth",
+            });
+
+            // Actualizamos el enlace activo manualmente
+            enlaces.forEach((link) => link.style.color = "");
+            this.style.color = "red";
+        });
+    });
+});
+
+

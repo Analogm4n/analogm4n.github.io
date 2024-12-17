@@ -72,33 +72,33 @@
 
                 <ul class="navbar">
                     <h1>Table of Contents</h1>
-                    <li><a href="#Statement-of-Confidentiality">1. Statement of Confidentiality</a></li>
-                    <li><a href="#Executive-Summary">2. Executive Summary</a></li>
+                    <li><a href="#Statement-of-Confidentiality" class="sidebar-link">1. Statement of Confidentiality</a></li>
+                    <li><a href="#Executive-Summary" class="sidebar-link">2. Executive Summary</a></li>
                     <ul>
-                        <li><a href="#Approach">2.1 Approach</a></li>
-                        <li><a href="#Scope">2.2 Scope</a></li>
-                        <li><a href="#Assessment-Overview-and-Recommendations">2.3 Assessment Overview and Recommendations</a></li>
+                        <li><a href="#Approach" class="sidebar-link">2.1 Approach</a></li>
+                        <li><a href="#Scope" class="sidebar-link">2.2 Scope</a></li>
+                        <li><a href="#Assessment-Overview-and-Recommendations" class="sidebar-link">2.3 Assessment Overview and Recommendations</a></li>
                     </ul>
-                    <li><a href="#Netwok-Penetration-Test-Assesment-Summary">3. Netwok Penetration Test Assesment Summary</a></li>
+                    <li><a href="#Netwok-Penetration-Test-Assesment-Summary" class="sidebar-link">3. Netwok Penetration Test Assesment Summary</a></li>
                     <ul>
-                        <li><a href="#Summary-of-Findings">3.1 Summary of Findings</a></li>
+                        <li><a href="#Summary-of-Findings" class="sidebar-link">3.1 Summary of Findings</a></li>
                     </ul>
-                    <li><a href="#Internal-Network-Compromise-Walkthrough">4. Internal Network Compromise Walkthrough</a></li>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">4. Internal Network Compromise Walkthrough</a></li>
                     <ul>
-                        <li><a href="#Enumeration">4.1 Enumeration</a></li>
-                        <li><a href="#Foothold">4.2 Foothold</a></li>
-                        <li><a href="#Privilege-Escalation">4.3 Privilege Escalation</a></li>
+                        <li><a href="#Enumeration" class="sidebar-link">4.1 Enumeration</a></li>
+                        <li><a href="#Foothold" class="sidebar-link">4.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation" class="sidebar-link">4.3 Privilege Escalation</a></li>
                     </ul>
                     
-                    <li><a href="#Remmediation-Summary">5. Remmediation Summary</a></li>
+                    <li><a href="#Remmediation-Summary" class="sidebar-link">5. Remmediation Summary</a></li>
                     <ul>
-                        <li><a href="#Short-Term">5.1 Short Term</a></li>
-                        <li><a href="#Medium-Term">5.2 Medium Term</a></li>
-                        <li><a href="#Long-Term">5.3 Long Term</a></li>
+                        <li><a href="#Short-Term" class="sidebar-link">5.1 Short Term</a></li>
+                        <li><a href="#Medium-Term" class="sidebar-link">5.2 Medium Term</a></li>
+                        <li><a href="#Long-Term" class="sidebar-link">5.3 Long Term</a></li>
                     </ul>
-                    <li><a href="#Technical-Findings-Details">6. Technical Findings Details</a></li>
-                    <li><a href="#Conclusion">7. Conclusion</a></li>
-                    <li><a href="#Appendices">8. Appendices</a></li>
+                    <li><a href="#Technical-Findings-Details" class="sidebar-link">6. Technical Findings Details</a></li>
+                    <li><a href="#Conclusion" class="sidebar-link">7. Conclusion</a></li>
+                    <li><a href="#Appendices" class="sidebar-link">8. Appendices</a></li>
                 </ul>
             </div>
             <!--testing-->
@@ -145,22 +145,22 @@
                         </ul>
                     </div>
 
-                    <div id="Statement-of-Confidentiality">
+                    <section id="Statement-of-Confidentiality">
                         <h1>1. Statement of Confidentiality</h1>
                         <p>The information contained in this document is confidential and exclusive to Headless. This report must not be used, duplicated or disclosed to third parties without the express consent of Headless. Any violation of this confidentiality may have legal consequences.</p>
-                    </div>
+                    </section>
                     
-                    <div id="Executive-Summary">
+                    <section id="Executive-Summary">
                         <h1>2. Executive Summary</h1>
                         <p>We were hired by <strong>Headless</strong> to perform a security assessment and penetration testing on their internal network, with the aim of identifying vulnerabilities, assessing their impact, and validating the security mechanisms implemented. This report presents significant findings in a clear and reproducible manner, along with detailed recommendations for remediation.</p>
-                    </div>
+                    </section>
                     
-                    <div id="Approach">
+                    <section id="Approach">
                         <h2>2.1 Approach:</h2>
                         <p>The assessment was conducted using a <strong>black box</strong> approach between <strong>12/16/2024</strong> and <strong>12/17/2024</strong>, without any credentials or prior knowledge of <strong>Headless</strong> internal environment. The primary purpose was to identify potential unknown vulnerabilities. Testing was performed in a non-intrusive manner, seeking to uncover misconfigurations and security weaknesses. The process was performed remotely from a host dedicated exclusively to this assessment. Each identified vulnerability was documented and manually examined to assess its exploitation potential and escalation possibilities. An effort was made to demonstrate the full impact of each vulnerability, up to the point of compromising the internal network if possible.</p>
-                    </div>
+                    </section>
                     
-                    <div id="Scope">
+                    <section id="Scope">
                         <h2>2.2 Scope:</h2>
                         <p>The evaluation focuses on the <strong>Headless</strong> host only.</p>
                         <table>
@@ -178,22 +178,22 @@
                             </tbody>
                         </table>
                         <p class="caption-table">Table 1: Scope Details</p>
-                    </div>
+                    </section>
 
-                    <div id="Assessment-Overview-and-Recommendations">
+                    <section id="Assessment-Overview-and-Recommendations">
                         <h2>2.3 Assessment Overview and Recommendations:</h2>
                         <p>During the internal penetration test against <strong>Headless</strong>, <strong>three</strong> vulnerabilities were identified that affect the confidentiality, integrity and availability of the information system. The findings were classified by severity level, and two (<strong>2</strong>) of them were assigned a high risk rating and one (<strong>1</strong>) a medium risk rating.</p>
                         <p>The first finding detected was that the website in question is vulnerable to Cross-Site Scripting (<strong>XSS</strong>) in which an attacker can insert malicious code into the web, so that when a user visits that page the code is executed on their computers without them knowing it. This can allow the attacker to steal information or control a user's account. This can be minimized by ensuring that the web page properly filters everything that users can type (such as comments or forms) to prevent malicious code from being inserted. In addition, use technologies that help protect web pages from these attacks.</p>
                         <p>Another finding was that arbitrary code can be injected into the web administrator panel. This vulnerability allows an attacker to enter commands that the operating system understands and that should normally only be executed by administrators. It should be verified that the systems that allow writing commands are protected and that only authorized users can use them. Using tools that prevent attackers from writing malicious commands on these systems is essential.</p>
                         <p>Finally, it was found that important files within the system suffer from misconfiguration, which leads to privilege escalation. This happens when a normal user gains access to administrator permissions without having the necessary authorization. Properly configuring user permissions so that they cannot do things they should not is essential. Making sure that only administrators have access to important functions and regularly reviewing who has those permissions.</p>
-                    </div>
+                    </section>
 
-                    <div id="Netwok-Penetration-Test-Assesment-Summary">
+                    <section id="Netwok-Penetration-Test-Assesment-Summary">
                         <h1>3. Netwok Penetration Test Assesment Summary</h1>
                         <p>All testing activities were started from the perspective of an unauthenticated user on the internal network. <strong>Headless</strong> provided us with access to the network via <strong>VPN</strong>, but no additional information such as operating system or configuration information was provided.</p>
-                    </div>
+                    </section>
                     
-                    <div id="Summary-of-Findings">
+                    <section id="Summary-of-Findings">
                         <h1>3.1 Summary of Findings</h1>
                         <p>During the course of testing, a total of three (<strong>3</strong>) findings were discovered that pose a material risk to <strong>Headless</strong> systems. The following table provides a summary of the findings by severity level.</p>
                         <table>
@@ -250,14 +250,14 @@
                             </tbody>
                         </table>
                         <p class="caption-table">Table 3: Finding List</p>
-                    </div>
+                    </section>
 
-                    <div id="Internal-Network-Compromise-Walkthrough">
+                    <section id="Internal-Network-Compromise-Walkthrough">
                         <h1>4. Internal Network Compromise Walkthrough</h1>
                         <p>This section will detail a full walkthrough of the machine exploitation process, broken down step-by-step. We will begin with the enumeration phase, which will scan for open ports, available services, and potential vulnerabilities in the system, including reviewing the web application if applicable. Next, we will delve deeper into active services and their configurations, and then move on to exploiting any identified vulnerabilities. Finally, we will cover privilege escalation, describing the techniques and tools used to gain access to the system as the highest-level user, thereby achieving full control of the machine.</p>
-                    </div>
+                    </section>
                     
-                    <div id="Enumeration">
+                    <section id="Enumeration">
                         <h1>4.1 Enumeration</h1>
                         <h3>Nmap</h3>
                         <p>We start with the typical open port scanning with nmap.</p>
@@ -481,9 +481,9 @@ $ gobuster dir -u "http://10.129.65.248:5000/" -w /usr/share/wordlists/dirbuster
                         <div class="writeup-image">
                             <img src="../images/Posts/Headless/14.png" alt="">
                         </div>
-                    </div>
+                    </section>
 
-                    <div id="Foothold">
+                    <section id="Foothold">
                         <h2>4.2 Foothold</h2>
                         <p>We proceed to use the cookie previously stolen via <strong>XSS</strong>. In <strong>Firefox</strong>, press the <strong>F12</strong> key, then click on the <strong>Storage > Cookies</strong> tab and edit the Value field with the previously stolen cookie.</p>
                         <div class="writeup-image">
@@ -527,9 +527,9 @@ uid=1000(dvir) gid=1000(dvir) groups=1000(dvir),100(users)
                         <div class="writeup-image">
                             <img src="../images/Posts/Headless/20.png" alt="">
                         </div>
-                    </div>
+                    </section>
                     
-                    <div id="Privilege-Escalation">
+                    <section id="Privilege-Escalation">
                         <h2>4.3 Privilege Escalation</h2>
                         <p>Listing user permissions with `<strong>sudo -l</strong>` command we find:</p>
                         <div class="writeup-image">
@@ -604,12 +604,12 @@ root@headless:/tmp#
                             <img src="../images/Posts/Headless/26.png" alt="">
                         </div>
                         <p>We finally receive the reverse shell as the highest privileged user on the system.</p>
-                    </div>
+                    </section>
 
-                    <div id="Remmediation-Summary">
+                    <section id="Remmediation-Summary">
                         <h1>5. Remmediation Summary</h1>
                         <p>As a result of this assessment, there are several opportunities for <strong>Headless</strong>to strengthen the security of its internal network. Remediation efforts are then prioritized, starting with those likely to require the least amount of time and effort to complete. <strong>Headless</strong> must ensure that all remediation steps and mitigation controls are carefully planned and tested to prevent service interruptions or data loss.</p>
-                        <div id="Short-Term">
+                        <section id="Short-Term">
                             <h2>5.1 Short Term</h2>
                             <ul>
                                 <li><strong>XSS (Cross-Site Scripting) <span style="color: rgb(78, 211, 78);">[Finding 3]</span></strong></li>
@@ -628,8 +628,8 @@ root@headless:/tmp#
                                     <li><strong>Check</strong>: Verify that only authorized users and scripts have elevated permissions using the `<strong>sudo</strong>` command.</li>
                                 </ul>
                             </ul>
-                        </div>
-                        <div id="Medium-Term">
+                        </section>
+                        <section id="Medium-Term">
                             <h2>5.2 Medium Term</h2>
                             <ul>
                                 <li><strong>XSS (Cross-Site Scripting) <span style="color: rgb(78, 211, 78);">[Finding 3]</span></strong></li>
@@ -648,8 +648,8 @@ root@headless:/tmp#
                                     <li>Limit access to executable files and scripts with root privileges to strictly necessary users.</li>
                                 </ul>
                             </ul>                            
-                        </div>
-                        <div id="Long-Term">
+                        </section>
+                        <section id="Long-Term">
                             <h2>5.3 Long Term</h2>
                             <ul>
                                 <li><strong>XSS (Cross-Site Scripting) <span style="color: rgb(78, 211, 78);">[Finding 3]</span></strong></li>
@@ -668,9 +668,9 @@ root@headless:/tmp#
                                     <li>Implement security monitoring solutions that can detect and alert on possible attempts at privilege escalation or permission abuse.</li>
                                 </ul>
                             </ul>
-                        </div>
-                    </div>
-                    <div id="Technical-Findings-Details">
+                        </section>
+                    </section>
+                    <section id="Technical-Findings-Details">
                         <h1>6. Technical Findings Details</h1>
                         <h3>Privilege Escalation<span style="color: red"></span></h3>
                         <table id="tech-details">
@@ -788,15 +788,15 @@ listening in [any] 1234 ...
                         <div class="writeup-image">
                             <img src="../images/Posts/Headless/8.png" alt="">
                         </div>
-                    </div>                   
+                    </section>                   
                    
-                    <div id="Conclusion">
+                    <section id="Conclusion">
                         <h1>7. Conclusion</h1>
                         <p>In summary, the vulnerability analysis carried out reveals three critical flaws in the system: XSS, arbitrary command injection, and a misconfiguration that allows privilege escalation to root level. These vulnerabilities expose the system to significant risk, as an attacker could take full control of the system and perform malicious actions remotely. However, by implementing the proposed solutions in the short, medium, and long term, it is possible to mitigate these risks and strengthen the security of the system.</p>
                         <p>The remediation process should be ongoing, with constant updating of secure development practices and periodic audits to ensure that new vulnerabilities are not introduced. By implementing technical controls and educating developers and administrators on security best practices, the attack surface can be minimized and the security posture of the system strengthened in the long term.</p>
-                    </div>
+                    </section>
                     
-                    <div id="Appendices">
+                    <section id="Appendices">
                         <h1> 8. Appendices</h1>
                         <h3>Appendix A - Finding Severities</h3>
                         <p>Each finding has been assigned a severity rating of high, medium, or low. The rating is based off of an assessment of the priority with which each finding should be viewed and the potential impact each has on the confidentiality, integrity, and availability of Headless's data.</p>
@@ -828,7 +828,7 @@ listening in [any] 1234 ...
                         </table>
                         <p class="caption-table">Table 4: Severity Definitions</p>
                         
-                    </div>
+                    </section>
                     <!--Final-->
                 </section>
             </div>
@@ -836,11 +836,12 @@ listening in [any] 1234 ...
         </div>
     </div>
     
+    
     <!--Pet Cat-->
     <div class="pet-container">
         <img src="" alt="Walking Pet" id="pet" class="pet">
     </div>
-    <script src="script.js"></script>
     <!--Pet Cat-->
+    <script src="script.js"></script>
 </body>
 </html>
