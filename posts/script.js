@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 enlaces.forEach((enlace) => enlace.style.color = "");
 
                 // Asignamos color rojo al enlace correspondiente
-                enlaces[index].style.color = "red";
+                enlaces[index].style.color = "#fff279";
             }
         });
     }

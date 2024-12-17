@@ -59,7 +59,7 @@ body{
     right: 0;
     height: 100vh;
     width: 260px;
-    background-color: #37005056;
+    background-color: #37005073;
     color:#fff;
     display: flex;
     justify-content: space-around;
@@ -106,7 +106,7 @@ body{
 .rightsidebar h1 {
     padding: 0;
     font-size: 23px;
-    color: #FFFACD;
+    color: #fff279;
 }
 .rightsidebar .navbar {
     margin-bottom: 60px;
@@ -150,7 +150,7 @@ body{
     left: 0;
     height: 100vh;
     width: 260px;
-    background-color: #37005056;
+    background-color: #37005073;
     color:#fff;
     display: flex;
     justify-content: space-around;
@@ -339,8 +339,8 @@ body{
 .info-box-num ul {
     list-style-type: decimal;
 }
-.content h1, h2, h3 {
-    color: #FFFACD;
+.content h1, h2, h3, h4 {
+    color: #fff59e;
     text-align: justify;
 }
 .content h1 {
