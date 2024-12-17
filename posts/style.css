@@ -440,6 +440,7 @@ table th, td {
 #Enumeration table {
     width: 40%;
     margin: auto;
+    margin-bottom: 15px;
 }
 #Enumeration th {
     background-color: #3f00b3;
@@ -504,6 +505,8 @@ tr:nth-child(even) {
 #tech-details {
     width: 60%;
     margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 #tech-details #column-2-1, #tech-details #column-th-2{
     background-color: #849faf;
