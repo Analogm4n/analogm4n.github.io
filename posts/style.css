@@ -70,7 +70,7 @@ body{
 .title-container {
     display: flex;
     align-items: center; /* Alinea verticalmente la imagen y el texto */
-    margin-top: 50px;
+    margin-top: 30px;
     /*border: 1px solid blue;*/
 }
 .title-icon {
@@ -89,7 +89,7 @@ body{
     color: #fff;
 }
 .right-machineimage {
-    margin-bottom: 20px;
+    margin-top: 30px;
     max-width: 100%;
     max-height: 100%;
     height: 150px;
@@ -105,10 +105,11 @@ body{
 .rightsidebar h1 {
     padding: 0;
     font-size: 23px;
-
+    color: #FFFACD;
 }
 .rightsidebar .navbar {
-    margin-bottom: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 0;
     /*border: 1px solid blue;*/
 }
@@ -123,7 +124,7 @@ body{
 }
 .rightsidebar ul li{
     margin: 10px 0;
-    font-size: 17px;
+    font-size: 15px;
     font-style: italic;
 }
 .rightsidebar ul li:hover {
@@ -320,13 +321,17 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 /* Estilo para el texto */
-.info-box {
+.info-box, .info-box-num {
     background-color: rgba(114, 42, 156, 0.3);
     border-left: 4px solid #3f00b3;
     padding: 10px;
     margin: 16px 0;
     color: #333;
     font-size: 15px;
+}
+
+.info-box-num ul {
+    list-style-type: decimal;
 }
 .content h1, h2, h3 {
     color: #FFFACD;
@@ -420,14 +425,32 @@ table th, td {
     text-align: center;
     color: #000000;
 }
-th{
+#Summary-of-Findings th, #Scope th{
     background-color: rgb(129, 221, 53);
     text-align: center;
 }
+
+/**Nmap scan table**/
+#Enumeration table {
+    width: 40%;
+    margin: auto;
+}
+#Enumeration th {
+    background-color: #3f00b3;
+    color: #fff;
+    border: 1px solid black;
+}
+#Enumeration td {
+    background-color: #430070c0;
+    color: #fff;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
-
 /*******Finding Severity abajo*************/
 #row-level{
     background-color: #849faf;
@@ -472,6 +495,10 @@ tr:nth-child(even) {
 
 /******************************************/
 /*Columna derecha*/
+#tech-details {
+    width: 60%;
+    margin: auto;
+}
 #tech-details #column-2-1, #tech-details #column-th-2{
     background-color: #849faf;
     text-align: left;
@@ -499,6 +526,30 @@ tr:nth-child(even) {
     font-weight: bold;
 }
 
+/**Appèndices tabless**/
+
+#Appendices-table th{
+    background-color: greenyellow;
+}
+#Appendices-table #c1-f1, #c2-f1, #c1-f3, #c2-f3 {
+    background-color: #89bacf;
+}
+#Appendices-table #c1-f2, #c2-f2 {
+    background-color: #9da6ac;
+}
+#Appendices-table #c1-f1 {
+    color: red;
+}
+#Appendices-table #c1-f2 {
+    color: orange;
+}
+#Appendices-table #c1-f3 {
+    color: green;
+}
+#Appendices-table #c2-f1, #c2-f2, #c2-f3 {
+    text-align: left;
+    width: 700px;
+}
 
 /************Tablas-arriba************/
 
