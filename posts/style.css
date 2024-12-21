@@ -6,7 +6,7 @@
     font-family: poppins, sans-serif;
 }
 body{
-    background: linear-gradient(rgba(17, 17, 17, 0.97), rgba(17, 17, 17, 0.97)), url(../images/intro.jpg) no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95)), url(../images/intro.jpg) no-repeat center center fixed;
     background-size: cover;
     background-color: black;
 }
@@ -346,17 +346,16 @@ body{
 .content h1 {
     font-size: 24px;
     font-weight: bold;
+    border-top: 2px solid rgb(190, 190, 190);
 }
 .content h2 {
     font-size: 20px;
     font-weight: bold;
-    border-bottom: 2px solid rgb(190, 190, 190);
     padding-bottom: 4px;
 }
 .content h3 {
     font-size: 18px;
     font-weight: bold;
-    color: white;
 }
 .content ol, ul {
     margin-left: 20px;
@@ -539,26 +538,52 @@ tr:nth-child(even) {
 
 #Appendices-table th{
     background-color: greenyellow;
+    text-align: center;
 }
-#Appendices-table #c1-f1, #c2-f1, #c1-f3, #c2-f3 {
+#Appendices-table #c1-f1, #c2-f1, #c3-f1, #c4-f1, #c1-f3, #c2-f3, #c3-f3, #c4-f3, #c1-f5, #c2-f5, #c3-f5, #c4-f5 {
     background-color: #89bacf;
 }
-#Appendices-table #c1-f2, #c2-f2 {
+#Appendices-table #c1-f2, #c2-f2, #c3-f2, #c4-f2, #c1-f4, #c2-f4, #c3-f4, #c4-f4 {
     background-color: #9da6ac;
 }
-#Appendices-table #c1-f1 {
-    color: red;
+#Appendices-table #c2-f1 {
+    background-color: rgb(122, 0, 0);
+    color: #fff;
+    font-weight: bold;
 }
-#Appendices-table #c1-f2 {
-    color: orange;
+#Appendices-table #c2-f2 {
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
 }
-#Appendices-table #c1-f3 {
-    color: green;
+#Appendices-table #c2-f3 {
+    background-color: orange;
+    color: #fff;
+    font-weight: bold;
 }
-#Appendices-table #c2-f1, #c2-f2, #c2-f3 {
+#Appendices-table #c2-f4 {
+    background-color: green;
+    color: #fff;
+    font-weight: bold;
+}
+#Appendices-table #c2-f5 {
+    background-color: blue;
+    color: #fff;
+    font-weight: bold;
+}
+#c1-f1 {
+    width: 40px;
+}
+#c2-f1 {
+    width: 170px;
+}
+#c3-f1 {
+    width: 180px;
+}
+#c4-f1, #c4-f2, #c4-f3, #c4-f4, #c4-f5 {
     text-align: left;
-    width: 700px;
 }
+
 
 /************Tablas-arriba************/
 
