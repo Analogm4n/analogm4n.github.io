@@ -73,7 +73,7 @@
                                 <img src="../images/icons/calendar.png" alt="Calendar" class="calendar-icon">
                                 <time datetime="2024-22-12">December 22, 2024</time>
                             </div>
-                            <p class="description">Tabby is an easy box. Enumeration of websites reveals that one is vulnerable to LFI. With this we can read credentials, login and upload a webshell. Inside the system we found a zip file, once cracked, we use the creds to login as ash user. This user can create a privileged container that allow us to modify the box as root.</p>
+                            <p class="description">In this machine we will access to an SMB share that contains a zip file. Cracking it, we extract an encrypted PFX file. From the PFX file an SSL certificate and a private key can be extracted. We discover a login credentials for an user. The user can read the local passwords for machines in the domain.</p>
                             <div class="tags-container">
                                 <img src="../images/icons/tag.png" alt="Tag" class="tag-icon">
                                 <span class="tags">HackTheBox | Windows | Easy | AD </span>
