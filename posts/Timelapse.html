@@ -1051,7 +1051,73 @@ timelapse\svc_deploy
                     </section>
                     
                     <section id="Appendices">
-                        <h1> 8. Appendices</h1>              
+                        <h1> 8. Appendices</h1> 
+                        <h3>Exploited Hosts</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Host</th>
+                                    <th>Scope</th>
+                                    <th>Method</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>10.129.227.113</td>
+                                    <td>internal</td>
+                                    <td>Plaintext Credentials Found</td>
+                                    <td>Domain lateral movement</td>
+                                </tr>
+                                <tr id="row-2">
+                                    <td>10.129.227.113</td>
+                                    <td>internal</td>
+                                    <td>Privileges on LAPS</td>
+                                    <td>Local Domain compromise</td>
+                                </tr>
+                                <tr id="row-1">
+                                    <td>10.129.227.113</td>
+                                    <td>internal</td>
+                                    <td>Unauthenticated SMB Access</td>
+                                    <td>Initial access to DC</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 5: Exploitation Attempt Details</p>
+
+                        <h3>Exploited Hosts</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Type</th>
+                                    <th>Method</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>legacyy</td>
+                                    <td>Domain</td>
+                                    <td>Private Key Authentication</td>
+                                    <td>Standard Domain User</td>
+                                </tr>
+                                <tr id="row-2">
+                                    <td>svc_deploy</td>
+                                    <td>Domain</td>
+                                    <td>Plaintext Credentials Found</td>
+                                    <td>Standard Domain User</td>
+                                </tr>
+                                <tr id="row-1">
+                                    <td>Administrator</td>
+                                    <td>internal</td>
+                                    <td>LAPS Privileges Misconfigurations</td>
+                                    <td>Local Domain Admin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 6: User Accounts Compromised</p>
+
                     </section>
                     <!--Final-->
                 </section>

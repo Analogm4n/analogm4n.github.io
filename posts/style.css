@@ -430,7 +430,7 @@ table th, td {
     text-align: center;
     color: #000000;
 }
-#Summary-of-Findings th, #Scope th{
+#Summary-of-Findings th, #Scope th, #Appendices th{
     background-color: rgb(129, 221, 53);
     text-align: center;
 }
