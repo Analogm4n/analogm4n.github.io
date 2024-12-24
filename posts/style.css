@@ -466,6 +466,9 @@ tr:nth-child(even) {
     background-color: #a0d2f1;
     font-weight: bold;
 }
+#row-level-num #darkRed{
+    color: rgb(122, 0, 0);
+}
 #row-level-num #red{
     color: red;
 }
@@ -485,6 +488,9 @@ tr:nth-child(even) {
 }
 #row-2 {
     background-color: #a0d2f1;
+}
+#row-1 #darkRed, #row-2 #darkRed {
+    color: rgb(122, 0, 0);
 }
 #row-1 #red, #row-2 #red {
     color: red;
@@ -518,6 +524,11 @@ tr:nth-child(even) {
     text-align: left;
 }
 /*Colores columna izquierda*/
+#tech-details #column-1-darkRed, #tech-details #column-th-1-darkRed{
+    width: 150;
+    background-color: rgb(160, 0, 0);
+    font-weight: bold;
+}
 #tech-details #column-1-red, #tech-details #column-th-1-red{
     width: 150;
     background-color: rgb(253, 60, 60);
