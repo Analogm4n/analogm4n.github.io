@@ -23,9 +23,10 @@ function movePet() {
     }
 
     // Actualiza la posición en X
-    positionX += 5 * direction;
+    positionX += 20 * direction;
     pet.style.transform = `translateX(${positionX}px)`;
 }
 
 // Mueve continuamente cada 50 ms
 setInterval(movePet, 50);
+
