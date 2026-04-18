@@ -60,7 +60,7 @@
                     <h2 class="title">p4l4nc4</h2>
                 </div>
                 
-                <img src="../images/Posts/p4l4nc4/palanca.png" alt="" class="right-machineimage">
+                <img src="../images/Posts/Latest-Was-A-Lie/Latest-Was-A-Lie.png" alt="" class="right-machineimage">
 
                 <ul style="margin-bottom: 350px;" class="navbar">
                     <h1>Table of Contents</h1>
@@ -82,7 +82,7 @@
                 <section class="content">
                     <!-- Texto explicativo -->
                     <div class="img-container">
-                        <img src="../images/Posts/p4l4nc4/palanca_Description.png" alt="Preview" class="machine-image">
+                        <img src="../images/Posts/Latest-Was-A-Lie/Latest-Was-A-Lie.png" alt="Preview" class="machine-image">
                     </div>
                     
                     <div class="table-contents">
@@ -100,7 +100,11 @@
 
                     <section id="Introduction">
                         <h1>1. Introduction</h1>
-                        <p>p4l4nc4 is an easy <strong>HackMyVm</strong> Linux machine, designed by <a href="https://hackmyvm.eu/profile/?user=elpensador" target="_blank">elpensador</a>. This machine is ideal for those who are just starting out on this platform. In this writeup, we will explore how to write a Bash script that will help us perform a detailed file enumeration on a specific service. Additionally, we will examine excessive configurations and permissions within the system, allowing us to identify potential vectors for privilege escalation.</p>
+                        <p>This writeup details the compromise of a target system exposing a web application backed by a Docker Registry service. The attack chain began with the enumeration of publicly accessible endpoints, leading to the discovery of an authenticated Docker Registry interface protected by weak credentials.</p>
+                        <p>Through credential brute-forcing and service enumeration, access to the registry was obtained, allowing the extraction and local analysis of container images. By modifying the container configuration to re-enable dangerous PHP functions, remote code execution (RCE) was achieved within the application environment.</p>
+                        <p>Post-exploitation activities involved leveraging misconfigurations in automated backup processes using rsync, which were vulnerable to wildcard injection attacks. This weakness allowed escalation from a low-privileged user to a more privileged service account, and ultimately to full root access.</p>
+                        <p>The compromise demonstrates the risks associated with weak authentication mechanisms, insecure container configurations, and improper handling of file operations in privileged automated tasks.</p>
+
                     </section>
                                         
                     <section id="Internal-Network-Compromise-Walkthrough">
@@ -492,7 +496,7 @@ $ touch -- "-e sh rev.txt"
                         <div class="writeup-image">
                             <img src="../images/Posts/Latest-Was-A-Lie/37.png" alt="">
                         </div>
-                        <p>This strongly suggested that the file might be used by a privileged process, potentially via a scheduled task such as a cron job.</p>
+                        <p>This strongly suggested that the file might be used by a privileged process, potentially via a scheduled task such as a cron job or a process.</p>
                         <p>To validate this hypothesis and monitor processes in real time, we transferred and executed pspy on the target system:</p>
 
                         <div class="console-code">
