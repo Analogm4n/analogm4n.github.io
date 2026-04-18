@@ -255,7 +255,9 @@ $ curl -S "http://10.10.20.7:5000/v2/" -H 'Authorization: Basic **********' -I
                             <img src="../images/Posts/Latest-Was-A-Lie/8.png" alt="">
                         </div>
                         <p>After researching the Docker Registry service and its attack surface, we proceeded with further enumeration and exploitation. For further information you can explore these links below:</p>
-                        
+                        <p><a href="https://hackerone.com/reports/347296" target="_blank">https://hackerone.com/reports/347296</a></p>
+                        <p><a href="https://notsosecure.com/anatomy-of-a-hack-docker-registry" target="_blank">https://notsosecure.com/anatomy-of-a-hack-docker-registry</a></p>
+                        <p><a href="https://hacktricks.wiki/en/network-services-pentesting/5000-pentesting-docker-registry.html" target="_blank">https://hacktricks.wiki/en/network-services-pentesting/5000-pentesting-docker-registry.html</a></p>
                         <p>We confirmed the presence of a repository hosted on the registry:</p>
                         <div class="console-code">
                             <pre>
@@ -283,7 +285,7 @@ $ curl -S "http://10.10.20.7:5000/v2/latestwasalie-web/tags/list#"  -H 'Authoriz
                             <pre>
 $ docker login 10.10.20.7:5000
                             </pre>
-                        </div>
+                        </  div>
                         <div class="writeup-image">
                             <img src="../images/Posts/Latest-Was-A-Lie/11.png" alt="">
                         </div>
